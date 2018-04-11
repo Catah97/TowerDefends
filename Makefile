@@ -9,7 +9,7 @@ OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES))
 
 OS := $(shell uname)
 MAC_LIBS := -framework OpenGL -framework GLUT -Wno-deprecated-declarations
-NORMAL_LIBS := -lglut
+NORMAL_LIBS := -lGL -lglut
 
 
 all: compile doc
