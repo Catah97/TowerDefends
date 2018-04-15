@@ -1,11 +1,12 @@
 CC := g++
-CCFLAGS := -Wall -pedantic -Wno-long-long -O0 -ggdb -g
+CCFLAGS := -Wall -pedantic -Wno-long-long -O0 -ggdb -g -std=c++11
 NAME := "TowerDefends"
 LOGIN_NAME := beranm30
 SRC_DIR := src
 OBJ_DIR := obj
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES))
+EXAMPLE_DEF_FILE = "examples/map.txt"
 
 OS := $(shell uname)
 MAC_LIBS := -framework OpenGL -framework GLUT -Wno-deprecated-declarations
@@ -23,13 +24,14 @@ compile:
 
 run:
 #@echo Run
-	@./$(LOGIN_NAME)/$(NAME)
+	@./$(LOGIN_NAME)/$(NAME) $(EXAMPLE_DEF_FILE)
 
 start: clean compile run
 
 clean:
-#@echo Cleaning
+	@echo Removing $(LOGIN_NAME)
 	@rm -rf $(LOGIN_NAME)
+	@echo Removing $(OBJ_DIR)
 	@rm -rf $(OBJ_DIR)
 
 

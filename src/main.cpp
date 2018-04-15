@@ -1,5 +1,9 @@
 #include <iostream>
 #include "UiItems.h"
+#include "MapCreator.h"
+#include "Game.h"
+#include <vector>
+
 
 #ifdef __APPLE__
 #include <GLUT/glut.h>
@@ -10,20 +14,20 @@
 using namespace std;
 
 int m_WindowWidth, m_WindowHeight;
-
-void displayMe(void) {
-
-    glClear(GL_COLOR_BUFFER_BIT);
-    for (int i = 0; i < 5; ++i) {
-        Button btn( i * 100, 400, 50, 200);
-        btn.draw();
-    }
+Game game;
 
 
 
+void refreshView(void) {
+    cout << "refreshView" << endl;
 
-    glEnd();
+
+    game.drawMap();
+
     glFlush();
+
+
+    glutSwapBuffers();
 }
 
 
@@ -46,41 +50,58 @@ void keyboardFunc(unsigned char input_key, int x, int y) {
 void specialInput(int key, int x, int y) {
     switch (key) {
         case GLUT_KEY_UP:
+            game.addFromQueue();
             break;
         case GLUT_KEY_DOWN:
             break;
         case GLUT_KEY_LEFT:
             break;
         case GLUT_KEY_RIGHT:
+            game.gameTick();
             break;
     }
-    cout << key << endl;
+    glutPostRedisplay();
 }
 
 void mouseClicks(int button, int state, int x, int y) {
     if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
     }
-    cout << "MousClick "  << x  << ", " << y << endl;
 }
 
 
 
 void resize(int width, int height){
-    m_WindowWidth = width;
-    m_WindowHeight = height;
-    displayMe();
+    glutReshapeWindow( m_WindowWidth, m_WindowHeight);
 }
 
+bool loadFileAndMap(MapCreator& mapCreator, int argc, char ***argv){
+    if (argc != 2){
+        cerr << "Bad input arguments" << endl;
+        return false;
+    }
+    //argv[0] is current file
+    char* mapDefinePath = (*argv)[1];
+    if (!mapCreator.loadGameFile(mapDefinePath)){
+        cerr << "Load map error" << endl;
+        return false;
+    }
+    return true;
+}
+
+
 int main(int argc, char **argv) {
-    m_WindowWidth = 800;
-    m_WindowHeight = 600;
+    MapCreator mapCreator;
+    if (!loadFileAndMap(mapCreator, argc, &argv)){
+        return 1;
+    }
+    game.initGame(mapCreator);
 
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE);
     glutInitWindowSize(m_WindowWidth, m_WindowHeight);
     glutInitWindowPosition(200, 200);
     glutCreateWindow("Hello world :D");
-    glutDisplayFunc(displayMe);
+    glutDisplayFunc(refreshView);
     glutMouseFunc(mouseClicks);
     glutSpecialUpFunc(specialInput);
     glutKeyboardUpFunc(keyboardFunc);
