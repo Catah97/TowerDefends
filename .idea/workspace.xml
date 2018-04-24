@@ -10,19 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="baa96a91-3cb9-4040-9e6b-a5e24aa0e122" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/TowerDefendsDoxyfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beranm30/TowerDefends" beforeDir="false" afterPath="$PROJECT_DIR$/beranm30/TowerDefends" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/BottomBar.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/BottomBar.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Game.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Game.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Item.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Item.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/MapCreator.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/MapCreator.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/MapExport.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/MapExport.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/PathFindingAStar.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/PathFindingAStar.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BottomBar.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/BottomBar.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beranm30/TowerDefends" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/BottomBar.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Game.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Item.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/MapCreator.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/MapExport.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/PathFindingAStar.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Tools.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/main.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Item.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MapExport.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/MapExport.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Item.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,38 +35,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Makefile" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Makefile">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="324">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
+              <folding>
+                <element signature="e#302#1772#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BottomBar.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BottomBar.cpp">
+      <file leaf-file-name="TowerDefendsDoxyfile" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/TowerDefendsDoxyfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="112" column="17" selection-start-line="112" selection-end-line="112" selection-end-column="17" />
+            <state relative-caret-position="278">
+              <caret line="445" lean-forward="true" selection-start-line="445" selection-end-line="445" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BottomBar.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BottomBar.h">
+      <file leaf-file-name="MapExport.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MapExport.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Game.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Game.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+            <state relative-caret-position="225">
+              <caret line="15" column="35" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -72,40 +68,25 @@
       <file leaf-file-name="Item.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Item.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1417">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="390">
+              <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
+              <folding>
+                <element signature="e#1891#2150#0" expanded="true" />
+                <element signature="e#4922#5161#0" expanded="true" />
+                <element signature="e#5700#5775#0" expanded="true" />
+                <element signature="e#5985#6060#0" expanded="true" />
+                <element signature="e#6823#7085#0" expanded="true" />
+                <element signature="e#8216#8751#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Game.h">
+      <file leaf-file-name="Makefile" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Item.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Item.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="127" column="24" selection-start-line="127" selection-start-column="24" selection-end-line="127" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapExport.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MapExport.cpp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="MapExport.h" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MapExport.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+            <state relative-caret-position="465">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
             </state>
           </provider>
         </entry>
@@ -115,6 +96,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>TowerSelectButton</find>
+      <find>input</find>
+      <find>SHOW_FILE</find>
+      <find>.h</find>
+      <find>.cpp</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -123,11 +108,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Makefile" />
         <option value="$PROJECT_DIR$/src/BottomBar.h" />
         <option value="$PROJECT_DIR$/src/Game.cpp" />
         <option value="$PROJECT_DIR$/src/Item.h" />
         <option value="$PROJECT_DIR$/src/MapExport.h" />
+        <option value="$PROJECT_DIR$/Makefile" />
+        <option value="$PROJECT_DIR$/src/Item.cpp" />
+        <option value="$PROJECT_DIR$/src/main.cpp" />
+        <option value="$PROJECT_DIR$/src/TowerDefendsDoxyfile" />
       </list>
     </option>
   </component>
@@ -177,7 +165,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Makefile.compile">
+  <component name="RunManager" selected="Makefile.doc">
     <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="all" workingDirectory="" arguments="">
         <envs />
@@ -193,8 +181,8 @@
         <envs />
       </makefile>
     </configuration>
-    <configuration name="compileNoOpengl" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="compileNoOpengl" workingDirectory="" arguments="">
+    <configuration name="doc" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="doc" workingDirectory="" arguments="">
         <envs />
       </makefile>
     </configuration>
@@ -204,19 +192,19 @@
       </makefile>
     </configuration>
     <list>
-      <item itemvalue="Makefile.compileNoOpengl" />
       <item itemvalue="Makefile.clean" />
       <item itemvalue="Makefile.compile" />
       <item itemvalue="Makefile.all" />
       <item itemvalue="Makefile.start" />
+      <item itemvalue="Makefile.doc" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Makefile.compile" />
+        <item itemvalue="Makefile.doc" />
         <item itemvalue="Makefile.clean" />
+        <item itemvalue="Makefile.compile" />
         <item itemvalue="Makefile.start" />
         <item itemvalue="Makefile.all" />
-        <item itemvalue="Makefile.compileNoOpengl" />
       </list>
     </recent_temporary>
   </component>
@@ -230,12 +218,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1524602320624</updated>
-      <workItem from="1524602322587" duration="2963000" />
+      <workItem from="1524602322587" duration="5413000" />
     </task>
+    <task id="LOCAL-00001" summary="Oprava warningů">
+      <created>1524605573744</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1524605573744</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2963000" />
+    <option name="totallyTimeSpent" value="5413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="972" extended-state="0" />
@@ -263,14 +259,11 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Oprava warningů" />
+    <option name="LAST_COMMIT_MESSAGE" value="Oprava warningů" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BottomBar.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
@@ -285,24 +278,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Item.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1417">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
@@ -316,10 +295,56 @@
     <entry file="file://$PROJECT_DIR$/src/MapExport.cpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Item.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
+          <folding>
+            <element signature="e#1891#2150#0" expanded="true" />
+            <element signature="e#4922#5161#0" expanded="true" />
+            <element signature="e#5700#5775#0" expanded="true" />
+            <element signature="e#5985#6060#0" expanded="true" />
+            <element signature="e#6823#7085#0" expanded="true" />
+            <element signature="e#8216#8751#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MapExport.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+        <state relative-caret-position="225">
+          <caret line="15" column="35" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#302#1772#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TowerDefendsDoxyfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="445" lean-forward="true" selection-start-line="445" selection-end-line="445" />
         </state>
       </provider>
     </entry>

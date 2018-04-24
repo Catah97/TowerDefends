@@ -9,6 +9,13 @@ UiItem::UiItem(int x, int y, int width, int height) : m_viewX(x),
     calPosition();
 }
 
+/**
+ * Nastaví polohu prvku a vypočítá i hodnoty pro OpenGl
+ * @param x souřadnice na ose x
+ * @param y souřadnice na ose y
+ * @param width šířka objektu
+ * @param height výška objektu
+ */
 void UiItem::setPosition(int x, int y, int width, int height) {
     m_viewX = x;
     m_viewY = y;
@@ -17,6 +24,9 @@ void UiItem::setPosition(int x, int y, int width, int height) {
     calPosition();
 }
 
+/**
+ * Funkce, která přepočítává souřednice x a y do reprezentace opengl
+ */
 void UiItem::calPosition() {
     m_vectorLeft = getGlFloatX(m_viewX);
     m_vectorTop = getGlFloatY(m_viewY);
@@ -366,7 +376,6 @@ void Enemy::setPath(const MapNode &startNode) {
     if (m_enemyPath != nullptr){
         MapNode::deletePath(m_enemyPath);
     }
-
     m_enemyPath = new MapNode(startNode);
     MapNode* currentNode = startNode.m_next;
     MapNode* currentNewNode = m_enemyPath;

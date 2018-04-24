@@ -141,6 +141,7 @@ bool Game::resetEnemyPath() {
             return false;
         }
         enemy->setPath(*mapNode);
+        MapNode::deletePath(mapNode);
     }
     return calStartPathNode();
 }

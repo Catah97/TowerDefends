@@ -6,9 +6,12 @@ NAME := "TowerDefends"
 LOGIN_NAME := beranm30
 SRC_DIR := src
 OBJ_DIR := obj
+DOC_DIR := doc
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES))
 EXAMPLE_DEF_FILE = "examples/map.txt"
+
+TowerDefendsDoxyfile := src/TowerDefendsDoxyfile
 
 OS := $(shell uname)
 
@@ -36,10 +39,12 @@ clean:
 	@rm -rf $(LOGIN_NAME)
 	@echo Removing $(OBJ_DIR)
 	@rm -rf $(OBJ_DIR)
-
+	@echo Removing $(DOC_DIR)
+	@rm -rf $(DOC_DIR)
 
 doc:
-#@echo Creating doc
+	@echo Creating doc
+	doxygen $(TowerDefendsDoxyfile)
 
 linking: $(OBJ_FILES)
 	@mkdir -p $(LOGIN_NAME)

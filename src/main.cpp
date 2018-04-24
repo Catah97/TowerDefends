@@ -16,6 +16,21 @@
 
 using namespace std;
 
+
+/*! \mainpage TowerDefends
+ *  \author   Martin Beran(beranm30)
+ *  \section popis Popis
+ *  Program má simulovat jednoduchou grafickou tower defends hru.
+ *  Načte si data o hře ze souboru, hru následně vykreslí pomocí knihovny OpenGl.
+ *  Soubor pro načtení hry je třeba předat formou vstupních argumentů při spuštění programu.
+ *  Hráč si hru může pozastavovat dle libosti stisknutím klávesy MEZERNÍK.
+ *  Pokud hráč chce může ve hře krokovat a to levou šipkou. Hru také lze uloži klávesou S. Hra se uloží do souboru, který se nachází ve složce
+ *  s hrou. Soubor s uloženou hrou se bude jmenovat MapSave.txt popřípadě MapSave(1).txt respektive MapSave(2).txt, záleží jestli jíž dený soubor existuje.
+ *  Pokud uživatel chce načíst rozehranou hru, potom musí dát cestou k souboru s uloženou hrou jako argument při spuštění hry.
+ *  Pokud si hráč přeje ukončit hru uděláto klávesou ESC.
+ *
+ */
+
 int m_WindowWidth, m_WindowHeight;
 Game game;
 
@@ -114,14 +129,6 @@ bool loadFileAndMap(MapCreator& mapCreator, int argc, char ***argv){
     return true;
 }
 
-
-/**
- * Zahajovací funkce programu.
- * Program očekvá vstupní parametr cestu k souboru s hrou
- * @param argc Počet vstupních argumetnů
- * @param argv Vstupní argumenty
- * @return
- */
 int main(int argc, char **argv) {
     MapCreator mapCreator;
     std::string rootPath = argv[0];
