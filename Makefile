@@ -27,7 +27,7 @@ compileNoOpengl:
 
 run:
 #@echo Run
-	@./$(LOGIN_NAME)/$(NAME) $(EXAMPLE_DEF_FILE)
+	./$(LOGIN_NAME)/$(NAME) $(EXAMPLE_DEF_FILE)
 
 start: clean compile run
 
