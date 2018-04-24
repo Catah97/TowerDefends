@@ -1,5 +1,6 @@
 CC := g++
-CCFLAGS := -Wall -pedantic -Wno-long-long -O0 -ggdb -g -std=c++11
+CCFLAGS := -Wall -pedantic -Wno-long-long -O0 -ggdb -g -std=c++11 -framework GLUT -framework OpenGL -D __OPENGL__
+CCFLAGS_NO_OPENGL := -Wall -pedantic -Wno-long-long -O0 -ggdb -g -std=c++11
 NAME := "TowerDefends"
 LOGIN_NAME := beranm30
 SRC_DIR := src
@@ -20,7 +21,9 @@ compile:
 	@mkdir -p $(OBJ_DIR)
 	@make linking
 
-
+compileNoOpengl:
+	$(CCFLAGS) := $(CCFLAGS_NO_OPENGL)
+	@make compile
 
 run:
 #@echo Run

@@ -3,7 +3,24 @@
 
 #include <iostream>
 #include <vector>
-#include "UiItems.h"
+#include <algorithm>
+
+class Constants{
+public:
+
+    //char* cant be init static
+    const char* MONEY_DEFINE = "Money";
+    const char* TOWER_DEFINE = "Towers";
+    const char* ENEMIES_DEFINE = "Enemies";
+    const char* QUEUE_DEFINE = "Queue";
+    const char* MAP_DEFINE = "Map";
+    const char FREE_PLACE_CHAR = ' ';
+    const char WALL_CHAR = '#';
+    const char QUEUE_IN_CHAR = 'i';
+    const char QUEUE_OUT_CHAR = 'o';
+    const int MAX_TOWERS = 8;
+};
+
 
 namespace Tools {
 
@@ -47,6 +64,9 @@ namespace Tools {
         return !compare( &item, *resultPosition);
     }
 
+    class IlegalStateException{
+
+    };
 }
 
 #endif //DEVELOP_TOOLS_H

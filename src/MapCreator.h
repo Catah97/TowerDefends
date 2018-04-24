@@ -1,38 +1,32 @@
 #ifndef DEVELOP_MAPCREATOR_H
 #define DEVELOP_MAPCREATOR_H
 
+#include <algorithm>
 #include <iostream>
+#include <sstream>
+#include <string>
 #include <vector>
 #include <fstream>
-#include "UiItems.h"
+#include "Item.h"
 #include "Tools.h"
 
 class MapCreator {
 private:
+    Constants constants;
 
-    const char* TOWER_DEFINE = "Towers";
-    const char* ENEMIES_DEFINE = "Enemies";
-    const char* QUEUE_DEFINE = "Queue";
-    const char* MAP_DEFINE = "Map";
-    const char FREE_PLACE_CHAR = ' ';
-    const char WALL_CHAR = '#';
-    const char QUEUE_IN_CHAR = 'i';
-    const char QUEUE_OUT_CHAR = 'o';
-
-
-
-    std::vector<Tower*> defineTowers;
-    std::vector<Enemy*> defineEnemies;
-
-
-    bool loadTowers(const std::string& towerDefine);
+    bool getCharAttribute(std::stringstream &iss, char &result);
+    bool getNextAttribute(std::stringstream &iss, int &result);
+    bool getNextAttribute(std::stringstream &iss, int &result, char delimiter);
+    bool loadMoney(const std::string &moneyDefine);
+    bool loadTowers(const std::string &towerDefine);
     bool loadEnemies(const std::string& enemyDefine);
     bool loadQueue(const std::string& queue);
     bool loadMap(const std::string& mapLine);
+    bool finalCheck();
 
     bool createMapItem(const char& itemChar, MapItem*& foundItem);
 
-    bool parseString(const std::string& headLine, const std::string& arg);
+    bool parseString(const std::string &headLine, std::string &arg);
 
     bool checkMainCharMatch(const std::string& item, const char& c);
 
@@ -42,9 +36,16 @@ private:
 
 
 public:
-    FreePlace* startPoint = nullptr,* endPoint = nullptr;
-    std::vector<std::vector<MapItem*>> map;
-    std::vector<Enemy*> enemiesQueue;
+    FreePlace* m_startPoint = nullptr,* m_endPoint = nullptr;
+    std::vector<std::vector<MapItem*>> m_map;
+    std::vector<Tower*> m_defineTowers;
+    std::vector<Enemy*> m_defineEnemies;
+
+    std::vector<Enemy*> m_enemiesQueue;
+    std::vector<Enemy*> m_enemiesInMap;
+    std::vector<Tower*> m_towersInMap;
+    int m_money = 5000;
+
 
 
     ~MapCreator();
