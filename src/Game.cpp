@@ -6,7 +6,7 @@
 #include "Game.h"
 #include "MapExport.h"
 
-Game::Game(int lives) : m_lives(lives), m_isRunning(false), m_selectedTower(0), bottomToolbar(this), m_lastSelectedItem(nullptr) {};
+Game::Game(int lives) :  bottomToolbar(this),m_lastSelectedItem(nullptr), m_isRunning(false), m_lives(lives), m_selectedTower(0) {};
 
 Game::~Game() {
     delete m_startPoint;

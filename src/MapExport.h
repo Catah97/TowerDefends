@@ -15,13 +15,13 @@ private:
     Constants constants;
     const char* FILENAME = "MapSave";
 
+    int m_money = 5000;
     FreePlace m_startPoint, m_endPoint;
     std::vector<std::vector<MapItem*>> m_map;
     std::vector<Tower*> m_defineTowers;
     std::vector<Enemy*> m_defineEnemies;
 
     std::vector<Enemy*> m_enemiesQueue;
-    int m_money = 5000;
 
     bool fileExist(const std::string& path);
     std::string generateFilePath();

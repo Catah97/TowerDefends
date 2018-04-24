@@ -7,6 +7,8 @@
 class Live : public UiItem{
 public:
     Live(int x = -1, int y = -1, int width = -1, int height = -1);
+    virtual ~Live() = default;
+
     virtual void draw();
 };
 
@@ -18,7 +20,8 @@ public:
     bool m_selected;
 
     explicit TowerSelectButton(const Tower& tower);
-    ~TowerSelectButton();
+    virtual ~TowerSelectButton();
+
     virtual float getLineWidth();
     virtual void draw();
 };

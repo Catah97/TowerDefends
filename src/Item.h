@@ -61,9 +61,9 @@ protected:
     virtual bool canBeSelected();
 
 public:
+    bool m_isFree;
     bool m_isSelected;
     char m_mapItemChar;
-    bool m_isFree;
     //True if this MapItem important to path from end to start. Is set only when m_isSelected is set as true
     int m_mapPositionX, m_mapPositionY;
 
@@ -120,12 +120,12 @@ public:
 
 class Enemy : public MapItem{
 private:
+    int m_maxHp;
+    int m_hp;
+
     MapNode* m_enemyPath;
     MapNode* m_nextPosition;
     int m_mapNodesToEnd;
-
-    int m_maxHp;
-    int m_hp;
 
     int getHpHeight();
 
