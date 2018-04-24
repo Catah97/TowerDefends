@@ -6,6 +6,7 @@
 #define DEVELOP_MAPEXPORT_H
 
 
+#include <fstream>
 #include "Tools.h"
 #include "Item.h"
 

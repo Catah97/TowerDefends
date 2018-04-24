@@ -1,6 +1,7 @@
 CC := g++
-CCFLAGS := -Wall -pedantic -Wno-long-long -O0 -ggdb -g -std=c++11 -framework GLUT -framework OpenGL -D __OPENGL__
-CCFLAGS_NO_OPENGL := -Wall -pedantic -Wno-long-long -O0 -ggdb -g -std=c++11
+CCFLAGS := -Wall -pedantic -Wno-long-long -O0 -ggdb -g -std=c++11
+
+
 NAME := "TowerDefends"
 LOGIN_NAME := beranm30
 SRC_DIR := src
@@ -10,20 +11,19 @@ OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES))
 EXAMPLE_DEF_FILE = "examples/map.txt"
 
 OS := $(shell uname)
-MAC_LIBS := -framework OpenGL -framework GLUT -Wno-deprecated-declarations
-NORMAL_LIBS := -lGL -lglut
+
+OPENGL_ENABLE := 0
+MAC_LIBS := -framework GLUT -framework OpenGL -D __OPENGL__
+NORMAL_LIBS := -lGL -lglut -D __OPENGL__
 
 
 all: compile doc
 
 compile:
-#@echo Compile
+	@echo Compile
+	@echo $(CCFLAGS)
 	@mkdir -p $(OBJ_DIR)
 	@make linking
-
-compileNoOpengl:
-	$(CCFLAGS) := $(CCFLAGS_NO_OPENGL)
-	@make compile
 
 run:
 #@echo Run
@@ -43,14 +43,18 @@ doc:
 
 linking: $(OBJ_FILES)
 	@mkdir -p $(LOGIN_NAME)
-ifeq ($(OS), Darwin)
+ifeq ($(OPENGL_ENABLE), 0)
+	$(CC) $(CCFLAGS) $(OBJ_FILES) -o $(LOGIN_NAME)/$(NAME)
+else ifeq ($(OS), Darwin)
 	$(CC) $(CCFLAGS) $(OBJ_FILES) $(MAC_LIBS) -o $(LOGIN_NAME)/$(NAME)
 else
 	$(CC) $(CCFLAGS) $(OBJ_FILES) $(NORMAL_LIBS) -o $(LOGIN_NAME)/$(NAME)
 endif
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-ifeq ($(OS), Darwin)
+ifeq ($(OPENGL_ENABLE), 0)
+	$(CC) $(CCFLAGS) -c $< -o $@
+else ifeq ($(OS), Darwin)
 	$(CC) $(CCFLAGS) $(MAC_LIBS) -c $< -o $@
 else
 	$(CC) $(CCFLAGS) $(NORMAL_LIBS) -c $< -o $@

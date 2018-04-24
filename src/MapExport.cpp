@@ -2,7 +2,6 @@
 // Created by Martin Beran on 21.04.18.
 //
 
-#include <fstream>
 #include "MapExport.h"
 
 MapExport::MapExport(int money,

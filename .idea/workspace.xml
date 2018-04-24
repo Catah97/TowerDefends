@@ -11,17 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="baa96a91-3cb9-4040-9e6b-a5e24aa0e122" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples/map.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MapCreator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/MapCreator.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MapCreator.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/MapCreator.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PathFindingAStar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/PathFindingAStar.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PathFindingAStar.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/PathFindingAStar.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tools.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UiItems.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UiItems.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,8 +24,8 @@
       <file leaf-file-name="Makefile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="233">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -93,6 +82,49 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="Makefile.compile">
+    <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="all" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+    </configuration>
+    <configuration name="clean" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="clean" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+    </configuration>
+    <configuration name="compile" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="compile" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+    </configuration>
+    <configuration name="compileNoOpengl" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="compileNoOpengl" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+    </configuration>
+    <configuration name="start" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="start" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+    </configuration>
+    <list>
+      <item itemvalue="Makefile.compileNoOpengl" />
+      <item itemvalue="Makefile.clean" />
+      <item itemvalue="Makefile.compile" />
+      <item itemvalue="Makefile.all" />
+      <item itemvalue="Makefile.start" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Makefile.compile" />
+        <item itemvalue="Makefile.clean" />
+        <item itemvalue="Makefile.start" />
+        <item itemvalue="Makefile.all" />
+        <item itemvalue="Makefile.compileNoOpengl" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -103,21 +135,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1524602320624</updated>
-      <workItem from="1524602322587" duration="197000" />
+      <workItem from="1524602322587" duration="2137000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197000" />
+    <option name="totallyTimeSpent" value="2137000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="972" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24954791" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24954791" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3298122" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" />
@@ -138,8 +170,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="233">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
