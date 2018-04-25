@@ -15,11 +15,13 @@ public:
     const char* ENEMIES_DEFINE = "Enemies";
     const char* QUEUE_DEFINE = "Queue";
     const char* MAP_DEFINE = "Map";
+    const char* ENEMIES_IN_MAP = "EnemiesInMap";
+    const char* START_END = "StartEnd";
     const char FREE_PLACE_CHAR = ' ';
     const char WALL_CHAR = '#';
     const char QUEUE_IN_CHAR = 'i';
     const char QUEUE_OUT_CHAR = 'o';
-    const int MAX_TOWERS = 8;
+    const unsigned int MAX_TOWERS = 8;
 };
 
 

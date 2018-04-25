@@ -16,8 +16,8 @@ private:
                             std::vector<MapNode*>::const_iterator& position);
     bool isInList(const MapNode& item, std::vector<MapNode*> &list);
     void createPath(MapNode* endPosition, MapNode*& newStartNode);
-    void getAvailableNeighbourNodes(const MapNode& startNode, MapNode& item, std::vector<MapNode*>& result);
-    bool getAvailableNeighbourNodes(const MapNode& startNode, MapNode &parentNode, int x, int y, std::vector<MapNode*>& result);
+    void getAvailableNeighbourNodes(MapNode &item, std::vector<MapNode *> &result);
+    bool getAvailableNeighbourNodes(MapNode &parentNode, int x, int y, std::vector<MapNode *> &result);
 
 
 public:

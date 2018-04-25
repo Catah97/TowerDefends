@@ -26,11 +26,28 @@ public:
     virtual void draw();
 };
 
+/**
+ * Comunikátor, který obsaráva komunikaci mezi Game a BottomToolbar.
+ */
 class BottomToolbarCommunicator {
 public:
     virtual ~BottomToolbarCommunicator() = default;
+    /**
+     * V případě, že si uživatel vybral vež přes tlačítko
+     * @param pos pozice vybrané věže v listu
+     */
     virtual void onTowerSelected(int pos) = 0;
+
+    /**
+     * Funkce, která ziská pozici vybrané veže pro zvíraznění tlačítka
+     * @return pozice vybrané věže
+     */
     virtual int getSelectedTowerPosition() = 0;
+
+    /**
+     * Vrací dostupné peníze na nákup veží
+     * @return dostupné peníze
+     */
     virtual int getAvailableMoney() = 0;
 };
 

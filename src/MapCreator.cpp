@@ -3,15 +3,6 @@
 
 //----------------MapCreator-------------------------------
 
-MapCreator::~MapCreator() {
-    for (auto tower : m_defineTowers){
-        delete tower;
-    }
-    for (auto enemy : m_defineEnemies){
-        delete enemy;
-    }
-}
-
 bool MapCreator::loadMoney(const std::string &moneyDefine) {
     int money;
     std::stringstream iss(moneyDefine);
@@ -29,7 +20,37 @@ bool MapCreator::loadLives(const std::string &livesDefine) {
         return false;
     }
     m_lives = lives;
-    return true;}
+    return true;
+}
+
+
+bool MapCreator::loadStartEnd(const std::string & startOrEnd) {
+    char c;
+    int x, y;
+    std::stringstream iss(startOrEnd);
+    if (!getCharAttribute(iss, c)){
+        return false;
+    } if (!getNextAttribute(iss, x, ',')){
+        return false;
+    } if (!getNextAttribute(iss, y)){
+        return false;
+    }
+    auto item = new FreePlace();
+    item->m_mapItemChar = c;
+    item->m_mapPositionX = x;
+    item->m_mapPositionY = y;
+    if (c == constants.QUEUE_IN_CHAR){
+        delete m_startPoint;
+        m_startPoint = item;
+        return true;
+    } if (c == constants.QUEUE_OUT_CHAR){
+        delete m_endPoint;
+        m_endPoint = item;
+        return true;
+    }
+    delete item;
+    return false;
+}
 
 bool MapCreator::loadTowers(const std::string &towerDefines) {
     std::stringstream iss(towerDefines);
@@ -133,6 +154,37 @@ bool MapCreator::loadEnemies(const std::string &enemyDefine) {
     return true;
 }
 
+bool MapCreator::loadEnemiesInMap(const std::string &enemyInMapDefine) {
+    if (m_map.empty()){
+        std::cerr << "Map has to be defined before " << constants.ENEMIES_IN_MAP << std::endl;
+        return false;
+    }
+    int x, y;
+    int currentHp;
+    std::stringstream iss(enemyInMapDefine);
+    if (getNextAttribute(iss, x, ',') && getNextAttribute(iss, y, ',') && getNextAttribute(iss, currentHp)){
+        try {
+            unsigned int u_x = static_cast<unsigned int>(x);
+            unsigned int u_y = static_cast<unsigned int>(y);
+            MapItem *mapItem = m_map.at(u_y).at(u_x);
+            //Je rychlejší najít nepřítele přes mapu
+            if (typeid(*mapItem) == typeid(Enemy)) {
+                Enemy *enemy = dynamic_cast<Enemy *>(mapItem);
+                enemy->m_hp = currentHp;
+                return true;
+            } else {
+                std::cerr << constants.ENEMIES_IN_MAP << " bad item position" << std::endl;
+                return false;
+            }
+        } catch (std::out_of_range e){
+            std::cerr << constants.ENEMIES_IN_MAP << " bad item position" << std::endl;
+            return false;
+        }
+    }
+    std::cerr << constants.ENEMIES_IN_MAP << " load error" << std::endl;
+    return false;
+}
+
 bool MapCreator::loadQueue(const std::string &queue) {
     for (char c : queue) {
         Enemy searchEnemy;
@@ -153,6 +205,7 @@ bool MapCreator::parseString(const std::string &headLine, std::string &arg) {
     if (headLine == constants.MAP_DEFINE){
         return loadMap(arg);
     }
+
     //Remove white spaces
     arg.erase(std::remove_if(arg.begin(), arg.end(), isspace), arg.end());
     if (headLine == constants.TOWER_DEFINE){
@@ -165,11 +218,15 @@ bool MapCreator::parseString(const std::string &headLine, std::string &arg) {
         return loadMoney(arg);
     } else if (headLine == constants.LIVES_DEFINE){
         return loadLives(arg);
+    } else if (headLine == constants.START_END){
+        return loadStartEnd(arg);
+    } else if (headLine == constants.ENEMIES_IN_MAP){
+        return loadEnemiesInMap(arg);
     }
     return false;
 }
 
-bool MapCreator::loadGameFile(const char *gameDefinePath) {
+bool MapCreator::loadGameFile(const std::string &gameDefinePath) {
     std::cout << "Loading game from file: " << gameDefinePath << std::endl;
     std::string line, headLine;
     std::ifstream mapFile (gameDefinePath);
@@ -181,7 +238,9 @@ bool MapCreator::loadGameFile(const char *gameDefinePath) {
                     line == constants.QUEUE_DEFINE ||
                     line == constants.MAP_DEFINE ||
                     line == constants.MONEY_DEFINE ||
-                    line == constants.LIVES_DEFINE) {
+                    line == constants.LIVES_DEFINE ||
+                    line == constants.START_END ||
+                    line == constants.ENEMIES_IN_MAP) {
                     if (line == constants.MAP_DEFINE && !m_map.empty()) {
                         std::cerr << "Only one m_map can be defined" << std::endl;
                         mapFile.close();
@@ -220,21 +279,48 @@ bool MapCreator::loadMap(const std::string &mapLine) {
     size_t y = m_map.size();
     for (size_t x = 0; x < mapLine.length(); x++) {
         char itemChar = mapLine.at(x);
-        MapItem* mapItem;
+        MapItem* mapItem = nullptr;
         if (createMapItem(itemChar, mapItem)){
             mapItem->m_mapItemChar = itemChar;
             mapItem->m_mapPositionX = static_cast<int>(x);
             mapItem->m_mapPositionY = static_cast<int>(y);
             mapRow.push_back(mapItem);
+            if (!createStartOrEnd(*mapItem)){
+                //Row je třeba vždy přidat do listu, aby mohla být smzána v destruktoru Game
+                m_map.push_back(mapRow);
+                return false;
+            }
         } else{
+            //Row je třeba vždy přidat do listu, aby mohla být smzána v destruktoru Game
+            m_map.push_back(mapRow);
             return false;
         }
     }
+    m_map.push_back(mapRow);
     if (!m_map.empty() && m_map[m_map.size() - 1].size() != mapRow.size()){
         std::cerr << "Map can be only square or rectangle." << std::endl;
         return false;
     }
-    m_map.push_back(mapRow);
+    return true;
+}
+
+bool MapCreator::createStartOrEnd(const MapItem &item) {
+    char itemChar = item.m_mapItemChar;
+    if (itemChar == constants.QUEUE_IN_CHAR) {
+        if (m_startPoint != nullptr){
+            std::cerr << "Only one start point can be defined." << std::endl;
+            return false;
+        }
+        m_startPoint = new FreePlace(item);
+        return true;
+    } else if (itemChar == constants.QUEUE_OUT_CHAR){
+        if (m_endPoint != nullptr){
+            std::cerr << "Only one end point can be defined." << std::endl;
+            return false;
+        }
+        m_endPoint = new FreePlace(item);
+        return true;
+    }
     return true;
 }
 
@@ -250,24 +336,10 @@ bool MapCreator::createMapItem(const char& itemChar, MapItem*& foundItem) {
     if (itemChar == constants.WALL_CHAR){
         foundItem = new Wall();
         return true;
-    } else if (itemChar == constants.FREE_PLACE_CHAR){
+    } else if (itemChar == constants.FREE_PLACE_CHAR ||
+               itemChar == constants.QUEUE_IN_CHAR ||
+               itemChar == constants.QUEUE_OUT_CHAR){
         foundItem = new FreePlace();
-        return true;
-    } else if (itemChar == constants.QUEUE_IN_CHAR) {
-        if (m_startPoint != nullptr){
-            std::cerr << "Only one start point can be defined." << std::endl;
-            return false;
-        }
-        m_startPoint = new FreePlace();
-        foundItem = m_startPoint;
-        return true;
-    } else if (itemChar == constants.QUEUE_OUT_CHAR){
-        if (m_endPoint != nullptr){
-            std::cerr << "Only one end point can be defined." << std::endl;
-            return false;
-        }
-        m_endPoint = new FreePlace();
-        foundItem = m_endPoint;
         return true;
     }
     Tower tower;
@@ -291,6 +363,7 @@ bool MapCreator::createMapItem(const char& itemChar, MapItem*& foundItem) {
     }
 
     std::cerr << "Undefined char " << itemChar << " in m_map." << std::endl;
+    delete foundItem;
     return false;
 }
 

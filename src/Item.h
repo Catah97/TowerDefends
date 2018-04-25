@@ -112,7 +112,7 @@ public:
 class FreePlace : public MapItem{
 public:
     explicit FreePlace();
-    explicit FreePlace(const FreePlace &mapItem);
+    explicit FreePlace(const MapItem &mapItem);
 
 
     virtual void draw();
@@ -131,8 +131,6 @@ public:
 
 class Enemy : public MapItem{
 private:
-    int m_maxHp;
-    int m_hp;
 
     MapNode* m_enemyPath;
     MapNode* m_nextPosition;
@@ -144,6 +142,8 @@ protected:
     virtual bool canBeSelected();
 
 public:
+    int m_hp;
+    int m_maxHp;
 
     explicit Enemy(const int& maxHp = -1);
     explicit Enemy(const Enemy& enemy);
@@ -158,6 +158,7 @@ public:
     MapNode* getNextPosition();
     void enemyMove();
     virtual void writeToFile(std::ofstream &ofstream, char delimiter);
+    virtual void writeToFileAsEnemyInMap(std::ofstream &ofstream, char delimiter);
     virtual void draw();
     virtual std::string getMapItemType();
     virtual bool isBlock();

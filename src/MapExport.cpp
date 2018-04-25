@@ -6,14 +6,16 @@
 
 MapExport::MapExport(int money, int lives, FreePlace *startPoint, FreePlace *endPoint,
                      std::vector<std::vector<MapItem *>> &map, std::vector<Tower *> &defineTowers,
-                     std::vector<Enemy *> &defineEnemies, std::vector<Enemy *> &enemiesQueue) : m_money(money),
-                                                                                                m_lives(lives),
-                                                                                                m_startPoint(*startPoint),
-                                                                                                m_endPoint(*endPoint),
-                                                                                                m_map(map),
-                                                                                                m_defineTowers(defineTowers),
-                                                                                                m_defineEnemies(defineEnemies),
-                                                                                                m_enemiesQueue(enemiesQueue) {
+                     std::vector<Enemy *> &defineEnemies, std::vector<Enemy *> &enemiesQueue,
+                     std::vector<Enemy *> &enemiesInMap) : m_money(money),
+                                                           m_lives(lives),
+                                                           m_startPoint(startPoint),
+                                                           m_endPoint(endPoint),
+                                                           m_map(map),
+                                                           m_defineTowers(defineTowers),
+                                                           m_defineEnemies(defineEnemies),
+                                                           m_enemiesQueue(enemiesQueue),
+                                                           m_enemiesInMap(enemiesInMap){
 
 }
 
@@ -37,6 +39,15 @@ void MapExport::saveGame() {
     writeEnemyQuque(mapFile);
     mapFile << constants.MAP_DEFINE << std::endl;
     writeMap(mapFile);
+
+    mapFile << constants.START_END << std::endl;
+    writeStartEnd(mapFile);
+
+    if (!m_enemiesInMap.empty()) {
+        mapFile << constants.ENEMIES_IN_MAP << std::endl;
+        writeEnemiesInMap(mapFile);
+    }
+
     if (mapFile.good()){
         std::cout << "Game saved to: " << path << std::endl;
     } else{
@@ -87,16 +98,37 @@ void MapExport::writeEnemyQuque(std::ofstream &mapFile) {
 void MapExport::writeMap(std::ofstream &mapFile) {
     for (auto mapRow : m_map){
         for (auto mapItem : mapRow){
+            std::cout << mapItem->m_mapItemChar;
+
             mapFile << mapItem->m_mapItemChar;
         }
+        std::cout << std::endl;
+
         mapFile << std::endl;
     }
     mapFile << std::endl;
+}
+
+void MapExport::writeStartEnd(std::ofstream &mapFile) {
+    mapFile << constants.QUEUE_IN_CHAR << getDelmiter()
+            << m_startPoint->m_mapPositionX << getDelmiter() <<
+            m_startPoint->m_mapPositionY << std::endl;
+    mapFile << constants.QUEUE_OUT_CHAR << getDelmiter() <<
+            m_endPoint->m_mapPositionX << getDelmiter() <<
+            m_endPoint->m_mapPositionY << std::endl;
     mapFile << std::endl;
+}
+
+void MapExport::writeEnemiesInMap(std::ofstream &ofstream) {
+    for (auto enemyInMap : m_enemiesInMap){
+        enemyInMap->writeToFileAsEnemyInMap(ofstream, getDelmiter());
+    }
+    ofstream << std::endl;
 }
 
 char MapExport::getDelmiter() {
     return ',';
 }
+
 
 

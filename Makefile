@@ -15,7 +15,7 @@ TowerDefendsDoxyfile := src/TowerDefendsDoxyfile
 
 OS := $(shell uname)
 
-OPENGL_ENABLE := 0
+OPENGL_ENABLE := 1
 MAC_LIBS := -framework GLUT -framework OpenGL -D __OPENGL__
 NORMAL_LIBS := -lGL -lglut -D __OPENGL__
 
@@ -34,17 +34,23 @@ run:
 
 start: clean compile run
 
-clean:
-	@echo Removing $(LOGIN_NAME)
-	@rm -rf $(LOGIN_NAME)
-	@echo Removing $(OBJ_DIR)
-	@rm -rf $(OBJ_DIR)
-	@echo Removing $(DOC_DIR)
-	@rm -rf $(DOC_DIR)
-
-doc:
+doc: clean_doc
 	@echo Creating doc
 	doxygen $(TowerDefendsDoxyfile)
+
+clean: clean_prog clean_obj clean_doc
+
+clean_prog:
+	@echo Removing $(LOGIN_NAME)
+	@rm -rf $(LOGIN_NAME)
+
+clean_obj:
+	@echo Removing $(OBJ_DIR)
+	@rm -rf $(OBJ_DIR)
+
+clean_doc:
+	@echo Removing $(DOC_DIR)
+	@rm -rf $(DOC_DIR)
 
 linking: $(OBJ_FILES)
 	@mkdir -p $(LOGIN_NAME)

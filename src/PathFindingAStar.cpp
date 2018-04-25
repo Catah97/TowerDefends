@@ -20,7 +20,7 @@ MapNode* PathFindingAStar::createMapNode(const MapItem &mapItem, MapNode* parent
     int y = mapItem.m_mapPositionY;
     //startDistance has diff 10 endDistance 1
     int startDistance = parentNode == nullptr ? 0 : parentNode->m_startDistance + 10;
-    int endDistance = abs( x - m_endPoint->m_mapPositionX) + abs( y - m_endPoint->m_mapPositionY);
+    int endDistance = abs( x - m_endPoint->m_mapPositionX) * 10 + abs( y - m_endPoint->m_mapPositionY) * 10;
     auto mapNode = new MapNode(x, y, startDistance, endDistance, parentNode);
     return mapNode;
 }
@@ -31,7 +31,9 @@ bool PathFindingAStar::findBestPath(const MapItem &startPoint, MapNode*& result)
     std::vector<MapNode*> availableNodes, closedNodes;
     availableNodes.push_back(startNode);
     std::vector<MapNode*> neighbours;
+    int count = 0;
     while (true){
+        count++;
         if (availableNodes.empty()){
             //No Path found
             freeLists(availableNodes);
@@ -46,10 +48,11 @@ bool PathFindingAStar::findBestPath(const MapItem &startPoint, MapNode*& result)
             createPath(currentNode, result);
             freeLists(availableNodes);
             freeLists(closedNodes);
+            std::cout << "Cycles: " << count << std::endl;
             return true;
         }
         neighbours.clear();
-        getAvailableNeighbourNodes(*startNode, *currentNode, neighbours);
+        getAvailableNeighbourNodes(*currentNode, neighbours);
         for (auto neighbour : neighbours){
 
             if (isInList(*neighbour, closedNodes)){
@@ -94,25 +97,26 @@ MapNode* PathFindingAStar::findBestNode(const std::vector<MapNode*>& availableNo
 }
 
 
-void PathFindingAStar::getAvailableNeighbourNodes(const MapNode& startNode, MapNode &item, std::vector<MapNode*> &result) {
+void PathFindingAStar::getAvailableNeighbourNodes(MapNode &item, std::vector<MapNode *> &result) {
     int x = item.m_x;
     int y = item.m_y;
-    getAvailableNeighbourNodes(startNode, item, x - 1, y, result);
-    getAvailableNeighbourNodes(startNode, item, x + 1, y, result);
-    getAvailableNeighbourNodes(startNode, item, x, y - 1, result);
-    getAvailableNeighbourNodes(startNode, item, x, y + 1, result);
+    getAvailableNeighbourNodes(item, x - 1, y, result);
+    getAvailableNeighbourNodes(item, x + 1, y, result);
+    getAvailableNeighbourNodes(item, x, y - 1, result);
+    getAvailableNeighbourNodes(item, x, y + 1, result);
 }
 
-bool PathFindingAStar::getAvailableNeighbourNodes(const MapNode& startNode,
-                                                  MapNode &parentNode,
-                                                  int x,
-                                                  int y,
-                                                  std::vector<MapNode*> &result) {
-    if (x >= 0 && y >= 0 && x < m_map[0].size() && y < m_map.size()){
-        MapItem* mapItem = m_map[y][x];
-        if (mapItem->m_isFree){
-            MapNode* mapNode = createMapNode(*mapItem, &parentNode);
-            result.push_back(mapNode);
+bool PathFindingAStar::getAvailableNeighbourNodes(MapNode &parentNode, int x, int y, std::vector<MapNode *> &result) {
+    if (x >= 0 && y >= 0){
+        //Aby kompilator neřval, jelikož x zde již nemůže být zaporné tak je cast validní
+        unsigned int u_x = static_cast<unsigned int>(x);
+        unsigned int u_y = static_cast<unsigned int>(y);
+        if (u_x < m_map[0].size() && u_y < m_map.size()) {
+            MapItem *mapItem = m_map[y][x];
+            if (mapItem->m_isFree) {
+                MapNode *mapNode = createMapNode(*mapItem, &parentNode);
+                result.push_back(mapNode);
+            }
         }
     }
     return false;

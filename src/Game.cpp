@@ -2,15 +2,19 @@
 // Created by Martin Beran on 13.04.18.
 //
 
-#include <iostream>
 #include "Game.h"
-#include "MapExport.h"
 
 Game::Game() :  bottomToolbar(this),m_lastSelectedItem(nullptr), m_isRunning(false), m_selectedTower(0) {}
 
 Game::~Game() {
     delete m_startPoint;
     delete m_endPoint;
+    for (auto tower : m_defineTowers){
+        delete tower;
+    }
+    for (auto enemy : m_defineEnemies){
+        delete enemy;
+    }
     for (const auto &mapRow : m_map){
         for (const auto &mapItem : mapRow){
             delete mapItem;
@@ -21,8 +25,9 @@ Game::~Game() {
     }
 }
 
-bool Game::initGame(const std::string &rootPath, const MapCreator &mapCreator) {
-    m_rootPath = rootPath;
+bool Game::initGame(const std::string &path) {
+    MapCreator mapCreator;
+    bool result = mapCreator.loadGameFile(path);
 
     m_map = mapCreator.m_map;
     m_money = mapCreator.m_money;
@@ -35,9 +40,17 @@ bool Game::initGame(const std::string &rootPath, const MapCreator &mapCreator) {
     m_towersInMap = mapCreator.m_towersInMap;
 
     //Create deep copy of StartPoint and EndPoint
-    m_startPoint = new FreePlace(*mapCreator.m_startPoint);
-    m_endPoint = new FreePlace(*mapCreator.m_endPoint);
+    m_startPoint = mapCreator.m_startPoint;
+    m_endPoint = mapCreator.m_endPoint;
     m_pathFindingAStar.setMap(m_map, m_endPoint);
+    if (!result){
+        return false;
+    }
+    return initGame();
+}
+
+bool Game::initGame() {
+
     if (!resetEnemyPath()){
         std::cerr << "No available path from start to end." << std::endl;
         return false;
@@ -206,7 +219,7 @@ bool Game::checkGameEnd() {
         std::cout << "Game over" << std::endl;
         exit(0);
     } else if (m_enemiesQueue.empty() && m_enemiesInMap.empty()) {
-        std::cout << "You win with " << m_lives << " lives" << std::endl;
+        std::cout << "You won with " << m_lives << " lives" << std::endl;
         exit(0);
     }
     return false;
@@ -240,6 +253,7 @@ void Game::clearDeadEnemy() {
             int posY = enemy->m_mapPositionY;
             auto freeItem = new FreePlace();
             freeItem->setPosition(posX, posY, s_itemWidth, s_itemHeight);
+            freeItem->m_mapItemChar = constants.FREE_PLACE_CHAR;
             m_map[posY][posX] = freeItem;
             m_enemiesInMap.erase(it);
             delete enemy;
@@ -261,16 +275,16 @@ bool Game::isRunning() {
 
 void Game:: mouseMove(int x, int y) {
     if (x > 0 && y > 0 && x < m_mapWidth && y < m_mapWidth) {
-        x = getMapXPos(x);
-        y = getMapYPos(y);
-        if (x < m_map[0].size() && y < m_map.size()) {
-            auto selectedItem = m_map[y][x];
+        unsigned int u_x = getMapXPos(x);
+        unsigned int u_y = getMapYPos(y);
+        if (u_x < m_map[0].size() && u_y < m_map.size()) {
+            auto selectedItem = m_map[u_y][u_x];
             selectedItem->m_isSelected = true;
             if (m_lastSelectedItem != nullptr && m_lastSelectedItem != selectedItem) {
                 m_lastSelectedItem->m_isSelected = false;
             }
             if (m_lastSelectedItem != selectedItem) {
-                m_lastSelectedItem = m_map[y][x];
+                m_lastSelectedItem = m_map[u_y][u_x];
             }
         }
     } else if (m_lastSelectedItem != nullptr){
@@ -279,9 +293,9 @@ void Game:: mouseMove(int x, int y) {
 }
 
 bool Game::addTower(int x, int y) {
-    x = getMapXPos(x);
-    y = getMapYPos(y);
-    MapItem* mapItem = m_map[y][x];
+    unsigned int u_x = getMapXPos(x);
+    unsigned int u_y = getMapYPos(y);
+    MapItem* mapItem = m_map[u_y][u_x];
     if (!mapItem->m_isFree || mapItem->isBlock()){
         return false;
     } else if (*mapItem == *m_startPoint){
@@ -296,26 +310,26 @@ bool Game::addTower(int x, int y) {
     m_pathFindingAStar.setMap(m_map);
     if (checkPathAvailable()){
         auto newTower = new Tower(*selectedTower);
-        newTower->setPosition(x, y, s_itemWidth, s_itemHeight);
+        newTower->setPosition(u_x, u_y, s_itemWidth, s_itemHeight);
         delete mapItem;
-        m_map[y][x] = newTower;
+        m_map[u_y][u_x] = newTower;
         m_towersInMap.push_back(newTower);
         m_money -= newTower->getPrice();
         resetEnemyPath();
         return true;
     } else{
-        m_map[y][x]->m_isFree = true;
+        m_map[u_y][u_x]->m_isFree = true;
         m_pathFindingAStar.setMap(m_map);
         return false;
     }
 }
 
-int Game::getMapXPos(int x) {
-    return x / s_itemWidth;
+unsigned int Game::getMapXPos(int x) {
+    return static_cast<unsigned int>(x / s_itemWidth);
 }
 
-int Game::getMapYPos(int y) {
-    return y / s_itemHeight;
+unsigned int Game::getMapYPos(int y) {
+    return static_cast<unsigned int>(y / s_itemHeight);
 }
 
 Tower* Game::getSelectedTower() {
@@ -347,9 +361,11 @@ bool Game::mouseClick(int x, int y) {
 
 void Game::saveGame() {
     pauseGame();
-    MapExport mapExport(m_money, m_lives, m_startPoint, m_endPoint, m_map, m_defineTowers, m_defineEnemies, m_enemiesQueue);
+    MapExport mapExport(m_money, m_lives,m_startPoint, m_endPoint, m_map, m_defineTowers, m_defineEnemies, m_enemiesQueue, m_enemiesInMap);
     mapExport.saveGame();
 }
+
+
 
 
 

@@ -194,7 +194,7 @@ bool MapItem::isFree() const {
 
 FreePlace::FreePlace() : MapItem(true) {}
 
-FreePlace::FreePlace(const FreePlace &mapItem) : MapItem(mapItem.m_isFree) {
+FreePlace::FreePlace(const MapItem &mapItem) : MapItem(mapItem.m_isFree) {
     m_mapItemChar = mapItem.m_mapItemChar;
     m_mapPositionX = mapItem.m_mapPositionX;
     m_mapPositionY = mapItem.m_mapPositionY;
@@ -297,10 +297,12 @@ void Tower::writeToFile(std::ofstream &ofstream, char delimiter) {
     ofstream << m_mapItemChar << delimiter << m_price << delimiter << m_attack << delimiter << m_range << std::endl;
 }
 
+
+
 //-------------Enemy---------------------
 
-Enemy::Enemy(const int &maxHp) : MapItem(true), m_maxHp(maxHp), m_hp(maxHp), m_enemyPath(nullptr) {}
-Enemy::Enemy(const Enemy &enemy) : MapItem(true), m_maxHp(enemy.m_maxHp), m_hp(enemy.m_hp), m_enemyPath(nullptr) {
+Enemy::Enemy(const int &maxHp) : MapItem(true), m_enemyPath(nullptr), m_hp(maxHp), m_maxHp(maxHp) {}
+Enemy::Enemy(const Enemy &enemy) : MapItem(true), m_enemyPath(nullptr), m_hp(enemy.m_hp), m_maxHp(enemy.m_maxHp) {
     m_mapItemChar = enemy.m_mapItemChar;
 }
 
@@ -414,4 +416,8 @@ bool Enemy::compareDistanceToEnd(const Enemy &e) const {
 
 void Enemy::writeToFile(std::ofstream &ofstream, char delimiter) {
     ofstream << m_mapItemChar << delimiter << m_maxHp << std::endl;
+}
+
+void Enemy::writeToFileAsEnemyInMap(std::ofstream &ofstream, char delimiter) {
+    ofstream << m_mapPositionX << delimiter << m_mapPositionY << delimiter << m_hp <<  std::endl;
 }

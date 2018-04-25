@@ -10,9 +10,168 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="baa96a91-3cb9-4040-9e6b-a5e24aa0e122" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/doc/html/_bottom_bar_8h_source.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/_game_8h_source.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/_item_8h_source.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/_map_creator_8h_source.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/_map_export_8h_source.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/_path_finding_a_star_8h_source.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/_tools_8h_source.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/annotated.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/bc_s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/bdwn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_bottom_toolbar-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_bottom_toolbar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_bottom_toolbar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_bottom_toolbar_communicator-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_bottom_toolbar_communicator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_bottom_toolbar_communicator.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_button-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_button.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_constants-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_constants.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_enemy-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_enemy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_enemy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_free_place-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_free_place.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_free_place.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_game-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_game.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_game.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_live-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_live.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_live.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_creator-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_creator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_export-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_export.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_item-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_item.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_item.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_node-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_node.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_path_finding_a_star-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_path_finding_a_star.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_tools_1_1_ilegal_state_exception.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_tower-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_tower.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_tower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_tower_select_button-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_tower_select_button.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_tower_select_button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_ui_item-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_ui_item.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_ui_item.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_wall-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_wall.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_wall.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/classes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/closed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/dir_68267d1309a1af8e8297ef4c3efbcdba.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/doc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/doxygen.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/doxygen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/dynsections.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/files.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/folderclosed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/folderopen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/functions.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/functions_func.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/hierarchy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/menu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/menudata.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/nav_f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/nav_g.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/nav_h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_0.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_6.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_6.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_7.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_8.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_8.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_9.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_9.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_a.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_b.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_c.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_c.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_0.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_6.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_6.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_7.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_8.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_8.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_9.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_9.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_a.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_b.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/functions_0.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/functions_0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/functions_1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/functions_1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/mag_sel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/nomatches.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/pages_0.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/pages_0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/search.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/search_l.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/search_m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/search_r.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/searchdata.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/splitbar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/sync_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/sync_on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/tab_a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/tab_b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/tab_h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/tab_s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/tabs.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/BigMapTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/ErrorMap.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/FormatInput.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/FullMap.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/MapSave.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/mapAllDead.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples/mapAllDead.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BottomBar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/BottomBar.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/inputTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples/map.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/mapAllDead.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BottomBar.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/BottomBar.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Item.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.cpp" afterDir="false" />
@@ -21,7 +180,10 @@
       <change beforePath="$PROJECT_DIR$/src/MapCreator.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/MapCreator.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MapExport.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/MapExport.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MapExport.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/MapExport.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PathFindingAStar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/PathFindingAStar.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PathFindingAStar.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/PathFindingAStar.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tools.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tools.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,29 +197,17 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="96" column="15" selection-start-line="96" selection-start-column="15" selection-end-line="96" selection-end-column="15" />
+            <state relative-caret-position="422">
+              <caret line="46" column="70" selection-start-line="46" selection-start-column="70" selection-end-line="46" selection-end-column="70" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mapAllDead.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/mapAllDead.txt">
+      <file leaf-file-name="MapCreator.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MapCreator.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BottomBar.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BottomBar.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="79" column="15" selection-start-line="79" selection-start-column="15" selection-end-line="79" selection-end-column="15" />
-              <folding>
-                <element signature="e#2741#2847#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="433">
+              <caret line="64" column="44" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -65,53 +215,34 @@
       <file leaf-file-name="Game.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="261" column="13" selection-start-line="261" selection-start-column="13" selection-end-line="261" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TowerDefendsDoxyfile" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TowerDefendsDoxyfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6570">
-              <caret line="438" column="75" selection-start-line="438" selection-start-column="75" selection-end-line="438" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Game.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Game.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapExport.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MapExport.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="35" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="35" />
+            <state relative-caret-position="283">
+              <caret line="119" column="19" selection-start-line="119" selection-start-column="11" selection-end-line="119" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Item.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Item.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Game.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Game.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+            <state relative-caret-position="405">
+              <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+              <folding>
+                <element signature="e#242#264#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Makefile" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Makefile">
+      <file leaf-file-name="BottomBar.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/BottomBar.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+            <state relative-caret-position="675">
+              <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -125,6 +256,13 @@
       <find>SHOW_FILE</find>
       <find>.h</find>
       <find>.cpp</find>
+      <find>266</find>
+      <find>getMapXPos</find>
+      <find>you</find>
+      <find>loadTowe</find>
+      <find>GAme::Game</find>
+      <find>gameTick</find>
+      <find>calStartPathNode</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -133,30 +271,33 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/BottomBar.h" />
-        <option value="$PROJECT_DIR$/src/Game.cpp" />
         <option value="$PROJECT_DIR$/src/Item.h" />
         <option value="$PROJECT_DIR$/src/MapExport.h" />
         <option value="$PROJECT_DIR$/src/Item.cpp" />
-        <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/src/TowerDefendsDoxyfile" />
         <option value="$PROJECT_DIR$/examples/mapAllDead.txt" />
         <option value="$PROJECT_DIR$/src/BottomBar.cpp" />
+        <option value="$PROJECT_DIR$/src/Tools.h" />
         <option value="$PROJECT_DIR$/Makefile" />
+        <option value="$PROJECT_DIR$/examples/FormatInput.txt" />
+        <option value="$PROJECT_DIR$/src/Game.cpp" />
+        <option value="$PROJECT_DIR$/src/main.cpp" />
+        <option value="$PROJECT_DIR$/src/Game.h" />
+        <option value="$PROJECT_DIR$/src/BottomBar.h" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
-    <option name="width" value="840" />
-    <option name="height" value="972" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -178,7 +319,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -232,8 +372,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Makefile.doc" />
         <item itemvalue="Makefile.clean" />
+        <item itemvalue="Makefile.doc" />
         <item itemvalue="Makefile.compile" />
         <item itemvalue="Makefile.start" />
         <item itemvalue="Makefile.all" />
@@ -252,7 +392,9 @@
       <updated>1524602320624</updated>
       <workItem from="1524602322587" duration="5625000" />
       <workItem from="1524647879651" duration="238000" />
-      <workItem from="1524657706729" duration="218000" />
+      <workItem from="1524657706729" duration="1451000" />
+      <workItem from="1524670007163" duration="1474000" />
+      <workItem from="1524691975760" duration="6002000" />
     </task>
     <task id="LOCAL-00001" summary="Oprava warningů">
       <created>1524605573744</created>
@@ -268,26 +410,33 @@
       <option name="project" value="LOCAL" />
       <updated>1524612546746</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Oprava některých varování">
+      <created>1524658006588</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1524658006588</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6081000" />
+    <option name="totallyTimeSpent" value="14790000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="840" height="972" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24937344" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12296564" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24937344" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3298122" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32878152" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.29516807" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24937344" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="7" />
@@ -296,6 +445,25 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24937344" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32878152" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12296564" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.29516807" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -303,44 +471,78 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Oprava warningů" />
     <MESSAGE value="Vložení Doxyfile pro dokumentace a napsaní základního popisu aplikace" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vložení Doxyfile pro dokumentace a napsaní základního popisu aplikace" />
+    <MESSAGE value="Oprava některých varování" />
+    <option name="LAST_COMMIT_MESSAGE" value="Oprava některých varování" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+    <entry file="file://$PROJECT_DIR$/examples/mapAllDead.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
-          <caret line="29" column="57" lean-forward="true" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TowerDefendsDoxyfile">
+    <entry file="file://$PROJECT_DIR$/Makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6570">
-          <caret line="438" column="75" selection-start-line="438" selection-start-column="75" selection-end-line="438" selection-end-column="75" />
+        <state relative-caret-position="255">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4230">
+          <caret line="282" column="12" selection-start-line="282" selection-start-column="4" selection-end-line="282" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        <state relative-caret-position="870">
+          <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MapExport.h">
+    <entry file="file://$PROJECT_DIR$/src/BottomBar.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="35" />
+        <state relative-caret-position="270">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Item.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Tools.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
+        <state relative-caret-position="315">
+          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="96" column="15" selection-start-line="96" selection-start-column="15" selection-end-line="96" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/mapAllDead.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp" />
+    <entry file="file://$PROJECT_DIR$/src/TowerDefendsDoxyfile" />
+    <entry file="file://$PROJECT_DIR$/src/Game.h" />
+    <entry file="file://$PROJECT_DIR$/src/MapExport.h" />
+    <entry file="file://$PROJECT_DIR$/src/Item.cpp" />
     <entry file="file://$PROJECT_DIR$/Makefile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
@@ -355,27 +557,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MapExport.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Item.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp" />
+    <entry file="file://$PROJECT_DIR$/src/MapExport.h" />
+    <entry file="file://$PROJECT_DIR$/src/Item.cpp" />
     <entry file="file://$PROJECT_DIR$/Makefile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
@@ -383,55 +567,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TowerDefendsDoxyfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6570">
-          <caret line="438" column="75" lean-forward="true" selection-start-line="438" selection-start-column="75" selection-end-line="438" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BottomBar.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Item.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="127" column="24" selection-start-line="127" selection-start-column="24" selection-end-line="127" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Item.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MapExport.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TowerDefendsDoxyfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6570">
-          <caret line="438" column="75" selection-start-line="438" selection-start-column="75" selection-end-line="438" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TowerDefendsDoxyfile" />
+    <entry file="file://$PROJECT_DIR$/src/Item.h" />
+    <entry file="file://$PROJECT_DIR$/src/MapExport.h" />
+    <entry file="file://$PROJECT_DIR$/src/TowerDefendsDoxyfile" />
     <entry file="file://$PROJECT_DIR$/examples/mapAllDead.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -439,34 +578,137 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="261" column="13" selection-start-line="261" selection-start-column="13" selection-end-line="261" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="96" column="15" selection-start-line="96" selection-start-column="15" selection-end-line="96" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PathFindingAStar.h" />
+    <entry file="file://$PROJECT_DIR$/src/PathFindingAStar.cpp" />
     <entry file="file://$PROJECT_DIR$/src/BottomBar.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="79" column="15" selection-start-line="79" selection-start-column="15" selection-end-line="79" selection-end-column="15" />
-          <folding>
-            <element signature="e#2741#2847#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tools.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="37" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        <state relative-caret-position="419">
+          <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/MapSave.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-48">
+          <caret line="34" column="12" selection-start-line="34" selection-end-line="34" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MapCreator.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/FullMap.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/FormatInput.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="11" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Item.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/html/_game_8h_source.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="71" column="10971" selection-start-line="71" selection-start-column="10971" selection-end-line="71" selection-end-column="10971" />
+          <folding>
+            <element signature="e#3301#3305#0" expanded="true" />
+            <element signature="e#3311#3315#0" expanded="true" />
+            <element signature="e#3442#3446#0" expanded="true" />
+            <element signature="e#3454#3458#0" expanded="true" />
+            <element signature="e#3585#3591#0" expanded="true" />
+            <element signature="e#3597#3603#0" expanded="true" />
+            <element signature="e#3730#3736#0" expanded="true" />
+            <element signature="e#3748#3754#0" expanded="true" />
+            <element signature="e#3881#3887#0" expanded="true" />
+            <element signature="e#3905#3911#0" expanded="true" />
+            <element signature="e#4038#4044#0" expanded="true" />
+            <element signature="e#4055#4061#0" expanded="true" />
+            <element signature="e#4188#4194#0" expanded="true" />
+            <element signature="e#4205#4211#0" expanded="true" />
+            <element signature="e#4338#4342#0" expanded="true" />
+            <element signature="e#4350#4354#0" expanded="true" />
+            <element signature="e#4699#4703#0" expanded="true" />
+            <element signature="e#4714#4718#0" expanded="true" />
+            <element signature="e#4968#4972#0" expanded="true" />
+            <element signature="e#4981#4985#0" expanded="true" />
+            <element signature="e#5112#5116#0" expanded="true" />
+            <element signature="e#5133#5137#0" expanded="true" />
+            <element signature="e#5264#5268#0" expanded="true" />
+            <element signature="e#5285#5289#0" expanded="true" />
+            <element signature="e#9451#9455#0" expanded="true" />
+            <element signature="e#9466#9470#0" expanded="true" />
+            <element signature="e#9478#9482#0" expanded="true" />
+            <element signature="e#9483#9487#0" expanded="true" />
+            <element signature="e#9593#9597#0" expanded="true" />
+            <element signature="e#9603#9607#0" expanded="true" />
+            <element signature="e#9722#9726#0" expanded="true" />
+            <element signature="e#9732#9736#0" expanded="true" />
+            <element signature="e#9936#9940#0" expanded="true" />
+            <element signature="e#9946#9950#0" expanded="true" />
+            <element signature="e#10065#10069#0" expanded="true" />
+            <element signature="e#10075#10079#0" expanded="true" />
+            <element signature="e#10361#10365#0" expanded="true" />
+            <element signature="e#10371#10375#0" expanded="true" />
+            <element signature="e#12968#12973#0" expanded="true" />
+            <element signature="e#13076#13081#0" expanded="true" />
+            <element signature="e#14591#14596#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="46" column="70" selection-start-line="46" selection-start-column="70" selection-end-line="46" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MapCreator.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="64" column="44" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="119" column="19" selection-start-line="119" selection-start-column="11" selection-end-line="119" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+          <folding>
+            <element signature="e#242#264#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BottomBar.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
         </state>
       </provider>
     </entry>

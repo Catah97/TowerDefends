@@ -15,13 +15,14 @@ private:
     Constants constants;
 
     bool getCharAttribute(std::stringstream &iss, char &result);
-    bool loadOneIntAttribude(std::string &line, int &result);
     bool getNextAttribute(std::stringstream &iss, int &result);
     bool getNextAttribute(std::stringstream &iss, int &result, char delimiter);
     bool loadMoney(const std::string &moneyDefine);
     bool loadLives(const std::string &livesDefine);
+    bool loadStartEnd(const std::string &startOrEnd);
     bool loadTowers(const std::string &towerDefine);
     bool loadEnemies(const std::string& enemyDefine);
+    bool loadEnemiesInMap(const std::string& enemyInMapDefine);
     bool loadQueue(const std::string& queue);
     bool loadMap(const std::string& mapLine);
     bool finalCheck();
@@ -31,6 +32,7 @@ private:
     bool parseString(const std::string &headLine, std::string &arg);
 
     bool checkMainCharMatch(const std::string& item, const char& c);
+    bool createStartOrEnd(const MapItem& item);
 
     static bool compareTower(const Tower* t1, const Tower* t2);
     static bool compareEnemy(const Enemy* e1, const Enemy* e2);
@@ -49,10 +51,7 @@ public:
     int m_money = 5000;
     int m_lives = 5;
 
-
-
-    ~MapCreator();
-    bool loadGameFile(const char *gameDefinePath);
+    bool loadGameFile(const std::string &gameDefinePath);
 
 };
 
