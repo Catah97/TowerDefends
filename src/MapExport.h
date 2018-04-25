@@ -15,7 +15,8 @@ private:
     Constants constants;
     const char* FILENAME = "MapSave";
 
-    int m_money = 5000;
+    int m_money;
+    int m_lives;
     FreePlace m_startPoint, m_endPoint;
     std::vector<std::vector<MapItem*>> m_map;
     std::vector<Tower*> m_defineTowers;
@@ -33,13 +34,9 @@ private:
 
 public:
 
-    MapExport(int money,
-              FreePlace* startPoint,
-              FreePlace* endPoint,
-              std::vector<std::vector<MapItem*>> &map,
-              std::vector<Tower*>& defineTowers,
-              std::vector<Enemy*>& defineEnemies,
-              std::vector<Enemy*>& enemiesQueue);
+    MapExport(int money, int lives, FreePlace *startPoint, FreePlace *endPoint,
+                  std::vector<std::vector<MapItem *>> &map, std::vector<Tower *> &defineTowers,
+                  std::vector<Enemy *> &defineEnemies, std::vector<Enemy *> &enemiesQueue);
     void saveGame();
 };
 

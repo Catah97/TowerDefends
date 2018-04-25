@@ -4,19 +4,16 @@
 
 #include "MapExport.h"
 
-MapExport::MapExport(int money,
-                     FreePlace* startPoint,
-                     FreePlace* endPoint,
-                     std::vector<std::vector<MapItem *>> &map,
-                     std::vector<Tower *> &defineTowers,
-                     std::vector<Enemy *> &defineEnemies,
-                     std::vector<Enemy *> &enemiesQueue) : m_money(money),
-                                                           m_startPoint(*startPoint),
-                                                           m_endPoint(*endPoint),
-                                                           m_map(map),
-                                                           m_defineTowers(defineTowers),
-                                                           m_defineEnemies(defineEnemies),
-                                                           m_enemiesQueue(enemiesQueue) {
+MapExport::MapExport(int money, int lives, FreePlace *startPoint, FreePlace *endPoint,
+                     std::vector<std::vector<MapItem *>> &map, std::vector<Tower *> &defineTowers,
+                     std::vector<Enemy *> &defineEnemies, std::vector<Enemy *> &enemiesQueue) : m_money(money),
+                                                                                                m_lives(lives),
+                                                                                                m_startPoint(*startPoint),
+                                                                                                m_endPoint(*endPoint),
+                                                                                                m_map(map),
+                                                                                                m_defineTowers(defineTowers),
+                                                                                                m_defineEnemies(defineEnemies),
+                                                                                                m_enemiesQueue(enemiesQueue) {
 
 }
 
@@ -26,6 +23,10 @@ void MapExport::saveGame() {
     mapFile.open (path, std::ios::out);
     mapFile << constants.MONEY_DEFINE << std::endl;
     mapFile << std::to_string(m_money) << std::endl;
+    mapFile << std::endl;
+
+    mapFile << constants.LIVES_DEFINE << std::endl;
+    mapFile << std::to_string(m_lives) << std::endl;
     mapFile << std::endl;
 
     mapFile << constants.TOWER_DEFINE << std::endl;

@@ -10,6 +10,7 @@ public:
 
     //char* cant be init static
     const char* MONEY_DEFINE = "Money";
+    const char* LIVES_DEFINE = "Lives";
     const char* TOWER_DEFINE = "Towers";
     const char* ENEMIES_DEFINE = "Enemies";
     const char* QUEUE_DEFINE = "Queue";

@@ -42,7 +42,18 @@ public:
     static float getGlFloatY(int position);
     bool contains(int x, int y) const;
     bool contains(float x, float y) const;
+    /**
+    * Nastaví polohu prvku a vypočítá i hodnoty pro OpenGl
+    * @param x souřadnice na ose x
+    * @param y souřadnice na ose y
+    * @param width šířka objektu
+    * @param height výška objektu
+    */
     virtual void setPosition(int x, int y, int width, int height);
+
+    /**
+    * Funkce, která přepočítává souřednice x a y do reprezentace opengl
+    */
     void calPosition();
 
     virtual void draw() = 0;

@@ -51,7 +51,7 @@ void BottomToolbar::deleteLivesViews() {
 void BottomToolbar::setDefinedTowers(const std::vector<Tower *> &definedTowers) {
     deleteDefinedTowersView();
     int padding = 8;
-    for (auto i = 0; i < definedTowers.size(); ++i) {
+    for (size_t i = 0; i < definedTowers.size(); ++i) {
         auto towerBtn = new TowerSelectButton(*definedTowers[i]);
         towerBtn->setPosition( i * (padding + s_towerBtnWidth) , padding + m_viewY, s_towerBtnWidth, s_towerBtnHeight);
         m_towersButtonsView.push_back(towerBtn);
@@ -77,7 +77,7 @@ BottomToolbar::~BottomToolbar() {
 BottomToolbar::BottomToolbar(BottomToolbarCommunicator *gameCommunicator) : m_gameCommunicator(gameCommunicator) {}
 
 bool BottomToolbar::onMouseClick(int x, int y) {
-    for (auto i = 0; i < m_towersButtonsView.size(); i++){
+    for (size_t i = 0; i < m_towersButtonsView.size(); i++){
         auto towerView = m_towersButtonsView[i];
         if (towerView->contains(x, y)){
             m_towersButtonsView[m_gameCommunicator->getSelectedTowerPosition()]->m_selected = false;

@@ -22,6 +22,15 @@ bool MapCreator::loadMoney(const std::string &moneyDefine) {
     return true;
 }
 
+bool MapCreator::loadLives(const std::string &livesDefine) {
+    int lives;
+    std::stringstream iss(livesDefine);
+    if (!getNextAttribute(iss, lives)) {
+        return false;
+    }
+    m_lives = lives;
+    return true;}
+
 bool MapCreator::loadTowers(const std::string &towerDefines) {
     std::stringstream iss(towerDefines);
 
@@ -154,6 +163,8 @@ bool MapCreator::parseString(const std::string &headLine, std::string &arg) {
         return loadQueue(arg);
     } else if (headLine == constants.MONEY_DEFINE){
         return loadMoney(arg);
+    } else if (headLine == constants.LIVES_DEFINE){
+        return loadLives(arg);
     }
     return false;
 }
@@ -166,10 +177,11 @@ bool MapCreator::loadGameFile(const char *gameDefinePath) {
         {
             while (getline(mapFile, line)) {
                 if (line == constants.TOWER_DEFINE ||
-                line == constants.ENEMIES_DEFINE ||
-                line == constants.QUEUE_DEFINE ||
-                line == constants.MAP_DEFINE ||
-                line == constants.MONEY_DEFINE) {
+                    line == constants.ENEMIES_DEFINE ||
+                    line == constants.QUEUE_DEFINE ||
+                    line == constants.MAP_DEFINE ||
+                    line == constants.MONEY_DEFINE ||
+                    line == constants.LIVES_DEFINE) {
                     if (line == constants.MAP_DEFINE && !m_map.empty()) {
                         std::cerr << "Only one m_map can be defined" << std::endl;
                         mapFile.close();
@@ -331,4 +343,5 @@ bool MapCreator::getNextAttribute(std::stringstream &iss, int &result, char deli
     result = attribute;
     return true;
 }
+
 

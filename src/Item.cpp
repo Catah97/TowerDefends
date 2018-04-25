@@ -9,13 +9,7 @@ UiItem::UiItem(int x, int y, int width, int height) : m_viewX(x),
     calPosition();
 }
 
-/**
- * Nastaví polohu prvku a vypočítá i hodnoty pro OpenGl
- * @param x souřadnice na ose x
- * @param y souřadnice na ose y
- * @param width šířka objektu
- * @param height výška objektu
- */
+
 void UiItem::setPosition(int x, int y, int width, int height) {
     m_viewX = x;
     m_viewY = y;
@@ -24,9 +18,6 @@ void UiItem::setPosition(int x, int y, int width, int height) {
     calPosition();
 }
 
-/**
- * Funkce, která přepočítává souřednice x a y do reprezentace opengl
- */
 void UiItem::calPosition() {
     m_vectorLeft = getGlFloatX(m_viewX);
     m_vectorTop = getGlFloatY(m_viewY);
@@ -154,7 +145,7 @@ void MapNode::deletePath(MapNode* start) {
 
 MapItem::MapItem(bool isFree): m_isFree(isFree), m_isSelected(false) {}
 
-MapItem::MapItem(const MapItem &mapItem) : m_isFree(mapItem.m_isFree), m_mapItemChar(mapItem.m_mapItemChar) {}
+MapItem::MapItem(const MapItem &mapItem) : m_isFree(mapItem.m_isFree),m_isSelected(false), m_mapItemChar(mapItem.m_mapItemChar) {}
 
 std::string MapItem::getMapItemType() {
     return "MapItem";

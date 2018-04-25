@@ -6,7 +6,7 @@
 #include "Game.h"
 #include "MapExport.h"
 
-Game::Game(int lives) :  bottomToolbar(this),m_lastSelectedItem(nullptr), m_isRunning(false), m_lives(lives), m_selectedTower(0) {};
+Game::Game() :  bottomToolbar(this),m_lastSelectedItem(nullptr), m_isRunning(false), m_selectedTower(0) {}
 
 Game::~Game() {
     delete m_startPoint;
@@ -26,6 +26,7 @@ bool Game::initGame(const std::string &rootPath, const MapCreator &mapCreator) {
 
     m_map = mapCreator.m_map;
     m_money = mapCreator.m_money;
+    m_lives = mapCreator.m_lives;
     m_defineTowers = mapCreator.m_defineTowers;
     m_defineEnemies = mapCreator.m_defineEnemies;
 
@@ -346,7 +347,7 @@ bool Game::mouseClick(int x, int y) {
 
 void Game::saveGame() {
     pauseGame();
-    MapExport mapExport(m_money, m_startPoint, m_endPoint, m_map, m_defineTowers, m_defineEnemies, m_enemiesQueue);
+    MapExport mapExport(m_money, m_lives, m_startPoint, m_endPoint, m_map, m_defineTowers, m_defineEnemies, m_enemiesQueue);
     mapExport.saveGame();
 }
 

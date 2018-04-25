@@ -15,9 +15,11 @@ private:
     Constants constants;
 
     bool getCharAttribute(std::stringstream &iss, char &result);
+    bool loadOneIntAttribude(std::string &line, int &result);
     bool getNextAttribute(std::stringstream &iss, int &result);
     bool getNextAttribute(std::stringstream &iss, int &result, char delimiter);
     bool loadMoney(const std::string &moneyDefine);
+    bool loadLives(const std::string &livesDefine);
     bool loadTowers(const std::string &towerDefine);
     bool loadEnemies(const std::string& enemyDefine);
     bool loadQueue(const std::string& queue);
@@ -45,6 +47,7 @@ public:
     std::vector<Enemy*> m_enemiesInMap;
     std::vector<Tower*> m_towersInMap;
     int m_money = 5000;
+    int m_lives = 5;
 
 
 

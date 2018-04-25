@@ -21,9 +21,9 @@ class Game : public BottomToolbarCommunicator {
 private:
     BottomToolbar bottomToolbar;
 
-    static const unsigned int s_minWidth = 400;
-    static const unsigned int s_itemWidth = 15;
-    static const unsigned int s_itemHeight = 20;
+    static const int s_minWidth = 400;
+    static const int s_itemWidth = 15;
+    static const int s_itemHeight = 20;
 
 
     static const unsigned int s_bottoBarHeight = 50;
@@ -74,7 +74,7 @@ private:
 
 public:
 
-    Game(int lives = 5);
+    Game();
     ~Game();
     bool initGame(const std::string &rootPath, const MapCreator &mapCreator);
     void gameTick();
