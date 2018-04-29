@@ -10,6 +10,9 @@
 #include "Item.h"
 #include "Tools.h"
 
+/**
+ * Je třída, která se stará o načtení hry ze souboru
+ */
 class MapCreator {
 private:
     Constants constants;

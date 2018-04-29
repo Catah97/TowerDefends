@@ -19,46 +19,53 @@ using namespace std;
 
 /*!\mainpage TowerDefends
  * \author   Martin Beran(beranm30)
- * \section description Popis:
- * Program má simulovat jednoduchou grafickou tower defends hru.
- * Načte si data o hře ze souboru, hru následně vykreslí pomocí knihovny OpenGl.
- * Soubor pro načtení hry je třeba předat formou vstupních argumentů při spuštění programu.
- * Hráč si hru může pozastavovat dle libosti stisknutím klávesy 'MEZERNÍK'.
- * Pokud hráč chce může ve hře krokovat a to levou šipkou. Hru také lze uloži klávesou 'S'. Hra se uloží do souboru, který se nachází ve složce
- * s hrou. Soubor s uloženou hrou se bude jmenovat MapSave.txt popřípadě MapSave(1).txt respektive MapSave(2).txt, záleží jestli jíž dený soubor existuje.
- * Pokud uživatel chce načíst rozehranou hru, potom musí dát cestou k souboru s uloženou hrou jako argument při spuštění hry.
- * Pokud si hráč přeje ukončit hru uděláto klávesou 'ESC'.
+ * \section description Description:
+ * The program is to simulate a simple graphics tower defends game.
+ * Retrieves game data from a file, then renders the game using the OpenGl library.
+ * The game load file must be passed through input arguments when the program is started.
+ * The player can pause game by pressing the 'SPACEBAR' key.
+ * The game can also be saved with the 'S' button. The game is saved to a file located in the directory
+ * with the game. The saved game file will be called MapSave.txt or MapSave(1).txt, MapSave(2).txt etc.
+ * If a user wishes to load game then he must give the path to the saved game file as the argument at the start of the game.
+ * If you want to exit the game, press the 'ESC' button.
  *
- * \section config_file Struktura konfiguračního souboru
- * Stuktura souboru je stejná, jak pro novou hru tak pro uloženou hru.
- * Soubor je členěn do několika sektorů. Sektro vždycky začíná pevně danou hlavičkou. A poté na řádkách pod sektorem defunejeme data sektoru.
  *
- * \subsection headers Povinné hlavičky: Towers, Enemies, Map, StartEnd
- * \li V sekci Towers se po řádkách definují věže v pořadí: ZNAK,CENA,UTOK,DOSAH
- * \li V sekci Enemies se po řádkách definují nepřátelé: ZNAK,MAX_ZIVOTY
- * \li Map se definuje jako posloupnost znaků. Znaky '#' vyjadřují neprůchodné zdi. Znak 'i' je start pro nepřátele 'o' je cíl.
- * Dále je zde možne definovat znaky ze sekci, které definují věže a nepřátele Je tedy nezbytné sekci mapa definovat až po Towers a Enemies.
- * Volné pole je ' '. Mapa vždy musí být čtvercová nebo obdelníková.
- * \li StartEnd se používa jenom v případě, že na mapě neni definován znak pro konec a začátek. Definice probíhá po řádkách stylem: ZNAK('i' nebo 'o'),X,Y.
- * X a Y označují startu respektive cíle.
+ * \section config_file Structure of the configuration file
+ * The file structure is the same for the new game as well for the saved game.
+ * The file is divided into several sectors. Sector always starts with a fixed header.Lines under sector header are sector data.
  *
- * \subsection option_headers Nepovinné hlavičky: Money, Lives, EnemiesInMap, Queue
- * \li Money sekce ve které definujeme počet peněz, který bude moci hrát utratit za věže. Defaultní hodnota je 5000
- * \li Lives sekce, kde definujeme životy hráče. Defaultní hodnota je 5.
- * \li EnemiesInMap používá se v případě uložení hry po zaznamenání životů nepřátel. první dvě čísla jsou souřadnice nepřátele a třetí je počet životů.
- * Tedy: X,Y,ZIVOTY. Tato sekce musí být definována až po sekci Map
- * \li Queue je řetezec znaků nepřátel, které se v průběhu hry budou objevovat na startovní pozici definované buď na mapě pomocí 'i' a nebo v sekci
- * StartEnd u položky se znakem 'i'.
  *
- * \section runtime Průběh hry:
- * Hra probíhá jako realtime. Cílem je zabránit nepřátelům dostat se do cíle, respektive zabít všechny nepřátele z fronty a neztratit u toho všechny životy.
- * V průběhu hry si hráč může stavět věce, aby nepřátelům zabránil dojít do cíle. Věže může stavět na prázdné místa, které nejsou obsazená.
- * Za předpokladu, že hráč má dostatek financí, tak může veže stavět v jakýkoliv čas. Pokud si uživatel přeje hru uložit stiskne klávesu 'S'.
- * Hra se pozastaví a v konzoly se objeví název souboru kam se hra uložila.
  *
- * Hra končí v okamži, kdy hráč zabije všechny nepřátele a nebo přijde o všechny životy. V případě prohry (hráč přišel o všechny životy)
- * se okno ukončí a v konzoly se zobrazí hlaška "Game over". V případě výhry (hráč zabil všechny nepřátele) se okno ukončí
- * a v konzoli se zobrazí hláška "You won with" a počet životů, které hráči zbyly.
+ * \section headers Headers of the
+ * \subsection mandatory_headers Mandatory Headers: Towers, Enemies, Map, StartEnd
+ * \li In the Towers section, the towers are defined in the following attributes: CHAR, PRICE, ATTACK, RANGE
+ * \li Enemies section defines enemies: CHAR, MAX_HEALTH
+ * \li Map is defined as a sequence of characters. The "#" characters are walls. The "i" character is the start for the enemy 'o' is the finish.
+ * It is also possible to define the characters from the section defining towers and enemies.
+ * The free field is ''. The map must always be square or rectangular.
+ * \li StartEnd is used only if the end and start character is not defined on the map. The definition place in rows in the style: CHAR ('i' or 'o'), X, Y.
+ * X and Y are coordinates of the start or finish in the map
+ *
+ *
+ *
+ * \subsection option_headers Optional Headers: Money, Lives, EnemiesInMap, Queue
+ * \li Money section define the number of money in the game. The default value is 5000
+ * \li Lives is a section where we define the player's lives. The default value is 5.
+ * \li EnemiesInMap is used when saving a game after recording the lives of enemies. the first two numbers are the coordinates of the enemy, and the third is the number of health.
+ * So: X, Y, HEALTH. This section must be defined after the Map section
+ * Queue section is a string of characters that appear during the game on the starting position defined on the map by 'i' or in the section
+ * StartEnd for an entry with an 'i' character.
+ *
+ *
+ *
+ * \section runtime Game progress:
+ * Playing as real time. The objective is to prevent enemies from reaching the finish, or kill all enemies from the queue and not lose at all of their lives.
+ * During the game, the player can build things to prevent the enemy from reaching the target. Towers can build in empty places that are not block by enemy.
+ * Assuming that the player has enough money, he can build at any time. If the user wishes to save the game, press the 'S' key.
+ * The game pauses and the file name of the game is displayed in the console.
+ *
+ * The game ends when the player lost are his lives or kill all enemies.
+ * The window will close and a message appears in the console. In first case console write "Game over" in second "You have won:" {and number of lives that remain}
  */
 
 int m_WindowWidth, m_WindowHeight;

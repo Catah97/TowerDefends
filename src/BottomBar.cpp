@@ -36,7 +36,7 @@ void BottomToolbar::setLives(int lives) {
     deleteLivesViews();
     for (auto i = 1; i <= lives; ++i) {
         int liveX = m_width - s_liveWidth * i;
-        auto uiItem = new Live(liveX, m_viewY, s_liveWidth, s_liveHeight);
+        auto uiItem = new LiveView(liveX, m_viewY, s_liveWidth, s_liveHeight);
         m_livesView.push_back(uiItem);
     }
 }
@@ -93,11 +93,11 @@ bool BottomToolbar::onMouseClick(int x, int y) {
 
 //----------------Live--------------------
 
-Live::Live(int x, int y, int width, int height) : UiItem(x, y, width, height) {
+LiveView::LiveView(int x, int y, int width, int height) : UiItem(x, y, width, height) {
 
 }
 
-void Live::draw() {
+void LiveView::draw() {
 #ifdef __OPENGL__
 
     glColor3f(1.0f, 0.0f, 0.0f);

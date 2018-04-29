@@ -28,18 +28,37 @@
 class Game : public BottomToolbarCommunicator {
 private:
     Constants constants;
-    BottomToolbar bottomToolbar;
 
+    BottomToolbar bottomToolbar;
+    PathFindingAStar m_pathFindingAStar;
+
+    /**
+     * Minimální šířka okna v pixelech
+     */
     static const int s_minWidth = 400;
+
+    /**
+     * Šírka položky mapy
+     */
     static const int s_itemWidth = 15;
+
+    /**
+     * Výška položky mapy
+     */
     static const int s_itemHeight = 20;
 
-
+    /**
+     * Výška spodního BottomToolbar
+     */
     static const unsigned int s_bottoBarHeight = 50;
+
 
     int m_mapWidth;
     int m_mapHeight;
 
+    /**
+     * Startovní noda, který se přídává nově vytvořeným nepřátelům z fronty
+     */
     MapNode* startPathNode;
     MapItem* m_lastSelectedItem;
     bool m_isRunning;
@@ -47,8 +66,15 @@ private:
     int m_selectedTower;
     int m_money;
 
-    PathFindingAStar m_pathFindingAStar;
-    FreePlace* m_startPoint = nullptr,* m_endPoint = nullptr;
+    /**
+     * Startovní bod v mapě pro nepřátele
+     */
+    FreePlace* m_startPoint = nullptr;
+
+    /**
+     * Cíl pro nepřátele
+     */
+    FreePlace* m_endPoint = nullptr;
 
     std::vector<std::vector<MapItem*> > m_map;
     std::vector<Tower*> m_defineTowers;

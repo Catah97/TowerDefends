@@ -81,12 +81,6 @@ float UiItem::getLineWidth() {
     return 1.0f;
 }
 
-//-------------Button------------------------------------------------
-
-void Button::draw() {
-
-}
-
 //-----------------MapNode---------------------------------------------
 
 MapNode::MapNode(const MapNode &mapNode) : m_x(mapNode.m_x),
