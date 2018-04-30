@@ -9,7 +9,9 @@
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
-#include <GL/glut.h>
+#include <GL/freeglut_std.h>
+#include <GL/freeglut_ext.h>
+#include <stdlib.h>
 #endif
 
 #endif //__OPENGL__
@@ -85,14 +87,18 @@ void refreshView(void) {
 
 
 void keyboardFunc(unsigned char input_key, int x, int y) {
-    switch(tolower(input_key))
-    {
+    switch (tolower(input_key)) {
         case 27: //Esc
+#ifdef __APPLE__
             exit(0);
+#else
+            glutLeaveMainLoop();
+#endif // __APPLE__
+
         case 32: //SpaceBar
-            if (game.isRunning()){
+            if (game.isRunning()) {
                 game.pauseGame();
-            } else{
+            } else {
                 game.startGame();
             }
             break;

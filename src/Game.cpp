@@ -309,6 +309,7 @@ bool Game::addTower(int x, int y) {
     if (checkPathAvailable()){
         auto newTower = new Tower(*selectedTower);
         newTower->setPosition(u_x, u_y, s_itemWidth, s_itemHeight);
+        m_lastSelectedItem = newTower;
         delete mapItem;
         m_map[u_y][u_x] = newTower;
         m_towersInMap.push_back(newTower);
