@@ -213,8 +213,7 @@ void Game::swapMapPosition(int oldMapX, int oldMapY, int newMapX, int newMapY) {
     item->setPosition(newMapX, newMapY);
     m_map[newMapY][newMapX] = item;
 }
-
-bool Game::checkGameEnd() {
+void Game::checkGameEnd() {
     if (m_lives <= 0) {
         std::cout << "Game over" << std::endl;
         exit(0);
@@ -222,7 +221,6 @@ bool Game::checkGameEnd() {
         std::cout << "You won with " << m_lives << " lives" << std::endl;
         exit(0);
     }
-    return false;
 }
 
 /*

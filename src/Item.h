@@ -18,7 +18,7 @@
 #endif //__OPENGL__
 
 /**
- * Global varaible that save window width and height
+ * Global value that save window width and height
  */
 extern int m_WindowWidth, m_WindowHeight;
 
@@ -124,32 +124,32 @@ public:
 };
 
 /**
- * View které reprezentuje jednu položku na mapě. Obsahuje souřednice na mapě,
- * poznámku o tom jestli je políčko průchodné či nikoliv a znak políčka.
+ * View, which represents one item on the map.
  */
 class MapItem : public UiItem{
 protected:
 
     /**
-     * Vykreslí kolem políčka rámeček označující vybraní pozice kursorem
+     * Draw border around selected item
      */
     void drawSelectedSquare();
 
     /**
-     * Funkce vyhodnocující jeslti políčko může být vybráno pro stavbu věže(rámeček je zelený) či nikoliv
-     * @return TRUE pokud může být vybráno pro stavbu věže.
+     * Check if item can be selected (green color) or not (red color).
+     * If item can be selected, the user can build tower on position of this item.
+     * @return TURE, user can build tower here
      */
     virtual bool canBeSelected();
 
 public:
 
     /**
-     * Proměná označující jestli přes políčko může vést cesta či nikoliv
+     * If TRUE, then this field can be used for path from start to finish
      */
     bool m_isFree;
 
     /**
-     * Pokud true potom je item vybrán kursorem
+     * TRUE, if is field selected by mouse cursor
      */
     bool m_isSelected;
     char m_mapItemChar;
@@ -160,44 +160,44 @@ public:
     virtual ~MapItem() = default;
 
     /**
-     * Funkce vracící aktuální typ objektu, slouží pro debug
-     * @return
+     * DEBUG function return item type
+     * @return ITEM type
      */
     virtual std::string getMapItemType();
 
     /**
-     * Nastaví pozici view a navíc nastaví i souřadnice na mapě
-     * @param x souřadnice na ose x
-     * @param y souřadnice na ose y
+     * set view position and set map coordinates
+     * @param x x position in window
+     * @param y y position in window
      */
     virtual void setPosition(int x, int y);
 
     /**
-     * Nastaví pozici view a navíc nastaví i souřadnice na mapě
-     * @param x souřadnice na ose x
-     * @param y souřadnice na ose y
-     * @param width šířka objektu
-     * @param height výška objektu
+     * set view position and set map coordinates
+     * @param x x position in window
+     * @param y y position in window
+     * @param width
+     * @param height
      */
     virtual void setPosition(int x, int y, int width, int height);
 
     /**
-     * Příznak oznamující, že je políčko zablokováno, tudíž mohlo být použito pro výpočet cesty, ale
-     * neni možné zde momentálně umístit například věž nebo nepřítele.
-     * @return TRUE pokud je blokováno
+     * Check if field is block.
+     * Block mean that field can be used to path, but now it is block by enemy and tower cannot be placed here.
+     * @return TRUE if is block
      */
     virtual bool isBlock();
 
     /**
-     * Getter pro m_isFree
-     * @return vrací hodnotu m_isFree
+     * Getter for m_isFree
+     * @return return m_isFree
      */
     virtual bool isFree() const;
 
     /**
-     * Porovnání dvou MapItem na základě jejich souřadnice
+     * Compare two MapItem by coordinates on map
      * @param mapItem
-     * @return TRUE, pokud se souřadnice schodují jinak FALSE
+     * @return TRUE if coordinates are same, else FALSE
      */
     virtual bool operator == (const MapItem& mapItem){
         return m_mapPositionX == mapItem.m_mapPositionX && m_mapPositionY == mapItem.m_mapPositionY;
@@ -224,7 +224,7 @@ public:
 };
 
 /**
- * Třida označující prázdné políčko na mapě
+ * Class for free places on map
  */
 class FreePlace : public MapItem{
 public:
@@ -238,7 +238,7 @@ public:
 };
 
 /**
- * Třída označující políčko se zdí
+ * Class for walls on map
  */
 class Wall : public MapItem{
 public:
@@ -250,29 +250,29 @@ public:
 };
 
 /**
- * Třída reprezentující nepřátele
+ * Class for walls on enemies
  */
 class Enemy : public MapItem{
 private:
 
     /**
-     * Začátek cesty nepřítele
+     * Start of enemy path
      */
     MapNode* m_enemyPath;
 
     /**
-     * Odkaz na další MapNode, který reprezentuje budoucí políčko cesty Enemy
+     * Reference on next segment of path
      */
     MapNode* m_nextPosition;
 
     /**
-     * Počet skoků nutný k tomu, aby Enemy dosáhl cíle. Používá se pro ražení nepřátel
+     * Number of moves that is necessary to get to finish.
      */
     int m_mapNodesToEnd;
 
     /**
-     * Vrácí výšku pro vykreslení čtverce ukazující životy nepřítele
-     * @return
+     * Calculate height of square of that shows enemy health
+     * @return height of square
      */
     int getHpHeight();
 
@@ -288,55 +288,41 @@ public:
     ~Enemy();
 
     /**
-     * Funkce volaná v případě, že nepřítele dostane zásah od veže
-     * @param hit veliost zásahu
-     * @return vrací hodnotu isDead()
+     * Call when enemy get hit from tower
+     * @param hit hit from tower
+     * @return return isDead()
      */
     bool getHit(const int& hit);
-
-    /**
-     * Vrací oznámení o tom jeslti je nepřítele živí
-     * @return TRUE pokud je živí
-     */
     bool isAlive();
-
-    /**
-     * Vrací oznámení o tom jeslti je nepřítele mrtví
-     * @return TRUE pokud je mrtví
-     */
     bool isDead();
 
     /**
-     * Porovná vzdálenosti nepřátel od cíle a vrací oznamení o tom, který je blíž
-     * @param e porovnávaný nepřítel
-     * @return TRUE pokud je aktuální nepřítel blíže než porovnávaný nepřítel, jinak FALSE
+     * Compare distance enemies from end and return which of enemy is closer to end
+     * @param e second enemies
+     * @return TRUE true if is current enemy closer then second one, else FALSE
      */
     bool compareDistanceToEnd(const Enemy &e) const;
 
     /**
-     * Nastaví cestu nepřítele do cíle
-     * @param startNode startovní MapNode
+     * Set enemy path to end
+     * @param startNode start MapNode of path
      */
     void setPath(const MapNode& startNode);
     void printDistanceToEnd();
     MapNode* getNextPosition();
-
-    /**
-     * Pohnutí nepřítele
-     */
     void enemyMove();
 
     /**
-     * Zapíše nepřítele do souboru jako definici nepřítele
-     * @param ofstream ofstram zapisovaného souboru
-     * @param delimiter oddělovač mezi atributy
+     * Write to file as definition of enemy
+     * @param ofstream stream of file
+     * @param delimiter delimiter between attributes
      */
     virtual void writeToFile(std::ofstream &ofstream, char delimiter);
 
     /**
-     * Zapíše nepřítele do souboru jako, jako nepřítele v mapě, čili o zapíše jeho aktuální zdravý a pozici na mapě
-     * @param ofstream ofstram zapisovaného souboru
-     * @param delimiter oddělovač mezi atributy
+     * Write as enemy on map. Write coordinates of current enemy and health of enemy
+     * @param ofstream stream of file
+     * @param delimiter delimiter between attributes
      */
     virtual void writeToFileAsEnemyInMap(std::ofstream &ofstream, char delimiter);
     virtual void draw();
@@ -346,17 +332,20 @@ public:
 };
 
 /**
- * Třída reprezentující vež na mapě
- * Stará se o útočení věží na nepřátele. Atributem každé veže je její cena, útok a dosah na mapě
+ * Class of tower on map.
  */
 class Tower : public MapItem{
 private:
+
+    /**
+     * Attributes of tower
+     */
     int m_price, m_attack, m_range;
 
     /**
-     * Ověřuje jestli je nepřítel v dosahu veže
-     * @param enemy ověřovaný nepřítel
-     * @return TRUE poku je nepřítel v dosahu jinak FALSE
+     * Check if is enemy in range of tower attacks
+     * @param enemy
+     * @return TRUE if enemy is in range, else FALSE
      */
     bool isInRange(const Enemy& enemy);
 
@@ -366,16 +355,16 @@ public:
     explicit Tower(const int& price = -1, const int& attack = -1,const int& range = -1);
 
     /**
-     * Útok veže na prvního nepřítele v listu který je v dosahu veže
-     * @param enemiesInMap list všech nepřátel na mapě
+     * Attack of Tower on enemy that is first in range of Tower
+     * @param enemiesInMap list of all enemies in map
      */
     void attack(std::vector<Enemy*>& enemiesInMap);
     int getPrice() const;
 
     /**
-     * Zapíše definice veže do souboru
-     * @param ofstream ofstram zapisovaného souboru
-     * @param delimiter oddělovač mezi atributy
+     * Write definition of tower to file
+     * @param ofstream stream of file
+     * @param delimiter delimiter between attributes
      */
     virtual void writeToFile(std::ofstream &ofstream, char delimiter);
     virtual void draw();
