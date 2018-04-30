@@ -20,10 +20,9 @@
 #endif
 
 /**
- * Třida Game se stará ho průběh hry. Je manažer, který vykresluje mapu hry zpracovává pokyny od uživatele a přesouvá nepřátele v případě jejich pochybu.
- * Stará se o uvolňování alkovaných prvků. Třidu je třeba nejprve inicialozovat. Poté stačí z cyklu volat funkci
- * gameTick(), každé volání při každém volání se přepřepočítá pozice nepřátel a věže zautočí na nepřítele v případě, že vež nepřítele zabije je z mapy odstraněn.
- * Vždy po gameTick(), by se měla volat <drawScene>"()", která překreslí celou scenu.
+ * The class is a manager who draws a map, handles instructions from a user, and initializing enemies moves
+ * First of all you have to initializing class. After initializing you should call gameTick(). Function make game run. Every call is one tick in game.
+ * After gameTick() call you should call drawScene() to redraw scene.
  */
 class Game : public BottomToolbarCommunicator {
 private:
@@ -33,22 +32,16 @@ private:
     PathFindingAStar m_pathFindingAStar;
 
     /**
-     * Minimální šířka okna v pixelech
+     * Min view of window
      */
     static const int s_minWidth = 400;
 
-    /**
-     * Šírka položky mapy
-     */
-    static const int s_itemWidth = 15;
 
-    /**
-     * Výška položky mapy
-     */
+    static const int s_itemWidth = 15;
     static const int s_itemHeight = 20;
 
     /**
-     * Výška spodního BottomToolbar
+     * Height of BottomToolbar
      */
     static const unsigned int s_bottoBarHeight = 50;
 
@@ -57,7 +50,7 @@ private:
     int m_mapHeight;
 
     /**
-     * Startovní noda, který se přídává nově vytvořeným nepřátelům z fronty
+     * Start of path. This MapNode is added to all new enemies from the queue.
      */
     MapNode* startPathNode;
     MapItem* m_lastSelectedItem;
@@ -67,12 +60,12 @@ private:
     int m_money;
 
     /**
-     * Startovní bod v mapě pro nepřátele
+     * Start point on map for enemies
      */
     FreePlace* m_startPoint = nullptr;
 
     /**
-     * Cíl pro nepřátele
+     * Finish for all enemies
      */
     FreePlace* m_endPoint = nullptr;
 
@@ -87,108 +80,92 @@ private:
     std::vector<Enemy*> m_enemiesQueue;
 
     /**
-     * Inicializuje spodní bar s UI prvkami
+     * initializing BottomToolbar
      */
     void initBottomBar();
 
     /**
-     * Získá X souřadnici itemu v mapě. Může vártít i souřadnici mimo mapu je třeba ověřit vně funkce
-     * @param x souřadnice v okně
-     * @return x souřadnici itemu v mapě
+     * Get x position in map. But it can return bad position also. You should check result of this function
+     * @param x X position in window
+     * @return X position in map
      */
     unsigned int getMapXPos(int x);
 
     /**
-     * Získá Y souřadnici itemu v mapě. Může vrátit i souřadnici mimo mapu je třeba ověřit vně funkce
-     * @param x souřadnice v okně
-     * @return y souřadnici itemu v mapě
+     * Get y position in map. But it can return bad position also. You should check result of this function
+     * @param y Y position in window
+     * @return Y position in map
      */
     unsigned int getMapYPos(int y);
 
     /**
-     * Získá Tower, která je uživatelem vybraná v BottomToolbar.
-     * @return pointer na definici vybrané věže.
+     * Get Tower that is selected in BottomToolbar
+     * @return definition of the selected tower
      */
     Tower* getSelectedTower();
 
     /**
-     * Funce, která ověřuje jestli je v aktuální mapě možné dojit do cíle
-     * @return Poku je možná dojít do cíle vráti TRUE, jinak FALSE.
+     * Check if is possible to find path from m_startPoint to m_endPoint
+     * @return TRUE if is possible to found path, else FALSE
      */
     bool checkPathAvailable();
 
     /**
-     * Statická funkce, která porovnáva vzdálenosti nepřátel od cíle
-     * @param e1 Nepřítel 1
-     * @param e2 Nepřítel 2
-     * @return Vrátí TRUE pokud Nepřítel 1 je blíž než Nepřítel 2, jinak false.
+     * Static function that compare distance of enemies to m_endPoint
+     * @param e1 Enemy 1
+     * @param e2 Enemy 2
+     * @return TRUE if Enemy 1 is closer to m_endPoint then Enemy 2, else FALSE
      */
     static bool compareEnemiesDistance(const Enemy* e1, const Enemy* e2);
 
     /**
-     * Žádost o přídání nové veže
-     * @param x pozice x v okně, na kterou cheme věž přřidate
-     * @param y pozice y v okně, na kterou cheme věž přřidate
-     * @return true pokud vež byla přidána jinak false(pokud by věž blokovala cestu nepřátelům)
+     * Request to add new tower to map
+     * @param x X position in window where we want to add tower
+     * @param y Z position in window where we want to add tower
+     * @return TRUE if tower was added, else FALSE
      */
     bool addTower(int x, int y);
 
     /**
-     * Saředí nepřátele podle vzdálenosti od cíle
+     * Sort enemies by distance to end
      */
     void sortEnemiesByDistance();
 
     /**
-     * Přepočítá cestu pro všechny nepřátele na mapě plus předpočítá novou cestu ze startu do cíle
-     * @return true pokud lze nají cestu ze startu do cíle, jinak false
+     * Calculate path for all enemies on map and path from start to finish
+     * @return TRUE if is possible to found path from START to FINISh, else FALSE
      */
     bool resetEnemyPath();
 
     /**
-     * Přesune nepřátele na další pozici
+     * Move with all enemies on next position
      */
     void enemyMove();
 
     /**
-     * Veže zautočí na nepřátele, každé vež vždy útočí na jednoho živého nepřítele.
+     * Towers attack enemies. Each tower attack only on one enemy.
      */
     void towersAttack();
 
-    /**
-     * Smaže z mapy mrtvé nepřátele
-     */
     void clearDeadEnemy();
 
-    /**
-     * Prohodí vstupní parametry na mapě
-     * @param oldPosition
-     * @param newPosition
-     */
     void swapMapPosition(const MapItem& oldPosition, const MapItem& newPosition);
-
-    /**
-     * Prohodí itemy v mapě na základě souřadnic
-     * @param oldMapX X souřadnice prvního itemu
-     * @param oldMapY Y souřadnice prvního itemu
-     * @param newMapX X souřadnice druhého itemu
-     * @param newMapY Y souřadnice druhého itemu
-     */
     void swapMapPosition(int oldMapX, int oldMapY, int newMapX, int newMapY);
 
     /**
-     * Přidá nepřítele z fronty do mapy, pokud se ve frontě žádný nepřítel nenechází nic nedělá.
+     * Add Enemies defined in Queue to map, if is Queue empty do nothing
      */
     void addFromQueue();
 
     /**
-     * Vypočítá cestu z m_startPoint do m_endPoint
-     * @return TRUE pokud cesta existuje, jinak FALSE
+     * Calculate path from m_startPoint to m_endPoint
+     * @return TRUE if can found path, else FALSE
      */
     bool calStartPathNode();
 
     /**
-     * Inizializuje hru ve smyslu ověření načtených položek
-     * @return TRUE pokud bylo úspěšné jinak FALSE
+     * Load all variables from MapCreator
+     * @return TRUE if successful, else FALSE
      */
     bool initGame();
 
@@ -196,62 +173,50 @@ public:
 
     Game();
     ~Game();
+
     /**
-     * Načte vstupní soubor a ověří načtené položky
-     * @param path cesta k konfiguračnímu souboru
-     * @return TRUE pokud načtení bylo úspěšné a hru lze spustit, jinak FALSE
+     * Load input files, and check game data validation
+     * @param path Path to game config file
+     * @return TRUE if successful and game can start, else FALSE
      */
     bool initGame(const std::string &path);
 
     /**
-     * Přesune nepřátele po mapě nechá věže zaútočit, odstraní mrtvé nepřátele a ověří jestli hra nemá skončit.
+     * Move enemies, do towers attacks, clear dead enemies and check game status
      */
     void gameTick();
 
     /**
-     * Vykreslí všechny prvky ve hře
+     * Draw all item in game
      */
     void drawScene();
 
     /**
-     * Ověří jestli hra může pokračovat nebo již skončila
-     * @return TRUE pokud hra skončila
+     * Check if game end or not
+     * @return TRUE if game end
      */
     bool checkGameEnd();
-
-    /**
-     * Srací pokud hra běží nebo je pozastavená
-     * @return TRUE pokud běží, FALSE pokud je pozastavená
-     */
     bool isRunning();
-
-    /**
-     * Zapne hru
-     */
     void startGame();
-
-    /**
-     * Pozastaví hru
-     */
     void pauseGame();
 
     /**
-     * Uloží hru
+     * Save current game status to file
      */
     void saveGame();
 
     /**
-     * Veřejná funkce pro vykreslování polohy kursoru na mapě
-     * @param x souřadnice kursoru v okně
-     * @param y souřadnice kursoru v okně
+     * Draw mouse cursor items selection
+     * @param x mouse X position in window
+     * @param y mouse Y position in window
      */
     void mouseMove(int x, int y);
 
     /**
-     * Veřejná funce pro kliknutí myši
-     * @param x souřadnice kursoru v okně
-     * @param y souřadnice kursoru v okně
-     * @return Vrací TRUE, pokud hra nějak reagovala na tlačítko FALSE
+     * Detect mouse click in game
+     * @param x mouse X position in window
+     * @param y mouse Y position in window
+     * @return TRUE if some item was pressed, else FALSE
      */
     bool mouseClick(int x, int y);
 

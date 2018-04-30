@@ -5,8 +5,7 @@
 #include "Item.h"
 
 /**
- * View starající vykreslující život
- * View v řadě vedle sebe používám na vykreslení hřáčových životů
+ * View that draw players live
  */
 class LiveView : public UiItem{
 public:
@@ -17,7 +16,7 @@ public:
 };
 
 /**
- * View vykrelsující button pro výběr veže
+ * Button that is specific for tower select
  */
 class TowerSelectButton : public UiItem{
 private:
@@ -25,7 +24,7 @@ private:
 
 public:
     /**
-     * Označuje jestli je akturální button označený
+     * Detect if is current button selected
      */
     bool m_selected;
 
@@ -37,80 +36,64 @@ public:
 };
 
 /**
- * Comunikátor, který obsaráva komunikaci mezi Game a BottomToolbar.
+ * Interface between Game and BottomToolbar
  */
 class BottomToolbarCommunicator {
 public:
     virtual ~BottomToolbarCommunicator() = default;
+
     /**
-     * V případě, že si uživatel vybral vež přes tlačítko
-     * @param pos pozice vybrané věže v listu
+     * Called when on some TowerSelectButton click
+     * @param position of selected Tower in tower define list
      */
     virtual void onTowerSelected(int pos) = 0;
 
     /**
-     * Funkce, která ziská pozici vybrané veže pro zvíraznění tlačítka
-     * @return pozice vybrané věže
+     * Call to get current selected Tower position in tower define list
+     * @return position in tower define list
      */
     virtual int getSelectedTowerPosition() = 0;
 
     /**
-     * Vrací dostupné peníze na nákup veží
-     * @return dostupné peníze
+     * Get current players money to drow in BottomToolbar
+     * @return current money
      */
     virtual int getAvailableMoney() = 0;
 };
 
 /**
- * Rodičovské view ve kterém se zobrazují ovládací prvky.
- * Vykresluje počet životů peníze a tlačítka pro výběr věží.
+ * Parrent view that draw all controls view for game and game information.
+ * Draw number of live, money, buttons for tower select.
  */
 class BottomToolbar : public UiItem{
 private:
 
-    /**
-     * šířka jednoho LiveView
-     */
     static const unsigned int s_liveWidth = 15;
-
-    /**
-     * výška jednoho LiveView
-     */
     static const unsigned int s_liveHeight = 20;
 
-    /**
-     * šířka jednoho TowerSelectButton
-     */
     static const unsigned int s_towerBtnWidth = 30;
-
-    /**
-     * výška jednoho TowerSelectButton
-     */
     static const unsigned int s_towerBtnHeight = 40;
 
-    /**
-     * Odka na communicator oznamující, který předává informace o počtu živtů, počtu peněz a vybrené věži
-     */
     BottomToolbarCommunicator* m_gameCommunicator;
 
     /**
-     * Reference na všechny LiveView v tomto view
+     * Link to all LiveView in this view.
      */
     std::vector<LiveView*> m_livesView;
 
     /**
-     * List, který ukládá všechny reference na TowerSelectButton v tomto view
+     * Link to all TowerSelectButton in this view.
      */
     std::vector<TowerSelectButton*> m_towersButtonsView;
 
 
     /**
-     * Odsraní z paměti všechny LiveView
+     * delete all LiveView from m_livesView
      */
     void deleteLivesViews();
 
     /**
-     * Odstraní z paměti všechny TowerSelectButton
+     * delete all TowerSelectButton from m_towersButtonsView
      */
     void deleteDefinedTowersView();
 
@@ -119,27 +102,27 @@ public:
     ~BottomToolbar();
 
     /**
-     * Nastavuje počet životů toho view, funkce nejpreve smaže všechny stará view a potom vytvoří nové.
-     * @param lives počet životů
+     * Set number of LiveView in view
+     * @param number of lives
      */
     virtual void setLives(int lives);
 
     /**
-     * Nastaví všchny tlačítka pro výběr veží
-     * @param definedTowers definece všech veží
+     * Set buttons for all define Towers from @param definedTower
+     * @param definedTowers definition of all towers
      */
     virtual void setDefinedTowers(const std::vector<Tower *> &definedTowers);
 
     /**
-     * Kliknuti do BottomToolbar
-     * @param x souřadnice kursoru X
-     * @param y souřadnice kursoru Y
-     * @return TRUE, pokud bylo kliknuto na nějaké tlačítko, jinak FALSE
+     * Mouse click in BottomToolbar
+     * @param x mouse X position
+     * @param y mouse Y position
+     * @return TRUE if was clicked on some buttons else FALSE
      */
     virtual bool onMouseClick(int x, int y);
 
     /**
-     * Vykreslí celý BottomToolbar včetně všech view v něm
+     * Draw BottomToolbar and all item within.
      */
     virtual void draw();
 };

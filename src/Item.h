@@ -18,56 +18,54 @@
 #endif //__OPENGL__
 
 /**
- * Globální proměné napříč baličky uchovávající velikost okna
+ * Global varaible that save window width and height
  */
 extern int m_WindowWidth, m_WindowHeight;
 
 /**
- * Základní view, uchováva souřadnice X a Y v kartézské soustavě a velikost view. Tyto věci potom převádí do vektorů v openGl.
- * Obsahule abstraktní funkci pro vykreslení všech poděděných view
+ * Basic view, holds coordinates X and Y in the Cartesian system and display size. These coordinates are convert into vectors in openGl.
+ * Contains an abstract function for draw all subview
  */
 class UiItem {
 private:
+
     /**
-     * Převede souřadnici do souřednici ve vektorovém prostoru
-     * @param position souřadnice k převedení
-     * @param size velikost okna
-     * @return souřadnice ve vektrovém prostoru openGl
+     * Convert standard coordinates into openGl vector coordinates
+     * @param position to convert
+     * @param size of window
+     * @return vector coordinates for openGl
      */
     static float getGlFloat(int position, const int& size);
 
 protected:
 
-    /**
-     * Souřadnice view
-     */
     int m_viewX, m_viewY;
     int m_width, m_height;
 
     /**
-     * Souřadnice bodů v openGl
+     * Position of item in OpenGl
      */
     float m_vectorTop, m_vectorLeft, m_vectorRight, m_vectorBottom;
 
     /**
-     * Nakreslí čtverec, který rozěry odpovída view
-     * @param filled pokud má být čtverec vyplněný tak true jinak false
+     * Draw rectangle with same size as view
+     * @param filled TRUE if rectangle should be filled(default is true)
      */
     void drawAsSquare(bool filled = true);
 
     /**
-     * Nakrasí čtverec odpovídající zadaným souřednicím
-     * @param left levá strana čtverce ve vektoru
-     * @param top horní strana čtverce ve vektoru
-     * @param right pravá strana čtverce ve vektoru
-     * @param bottom spodní strana čtverce ve vektoru
-     * @param filled pokud má být čtverec vyplněný tak true jinak false
+     * Draw rectangle by params
+     * @param left left of rectangle
+     * @param top top of rectangle
+     * @param right right of rectangle
+     * @param bottom bottom of rectangle
+     * @param filled TRUE if rectangle should be filled(default is true)
      */
     void drawAsSquare(const float& left, const float& top, const float& right, const float& bottom, bool filled = true);
 
     /**
-     * Funkce, která získá šířku čáry v případě, že se čtverec kreslí nevyplněný
-     * @return šířku čáry
+     * Get line width for draw
+     * @return line width
      */
     virtual float getLineWidth();
 
@@ -76,51 +74,51 @@ public:
     explicit UiItem(int x = -1, int y = -1, int width = -1, int height = -1);
 
     /**
-     * Převede souřadnici X do vektoru v opengl
-     * @param position souřadnice X pozice
-     * @return vektor souřadnice v openGL
+     * Convert X position to opengl vector
+     * @param position X position in window
+     * @return vektor vector in opengl
      */
     static float getGlFloatX(const int& position);
 
     /**
-     * Převede souřadnici Y do vektoru v opengl
-     * @param position souřadnice Y pozice
-     * @return vektor souřadnice v openGL
+     * Convert Y position to opengl vector
+     * @param position Y position in window
+     * @return vektor vector in opengl
      */
     static float getGlFloatY(int position);
 
     /**
-     * Indikace jestli zadané souřadnice jsou součástí view
+     * Detect if coordinates are in view or not
      * @param x
      * @param y
-     * @return TRUE pokud ano jinak FALSE
+     * @return TRUE if yes, else FALSE
      */
     bool contains(int x, int y) const;
 
     /**
-     * Indikace jestli zadané souřadnice jsou součástí view
+     * Detect if coordinates are in view or not
      * @param x
      * @param y
-     * @return TRUE pokud ano jinak FALSE
+     * @return TRUE if yes, else FALSE
      */
     bool contains(float x, float y) const;
 
     /**
-    * Nastaví polohu prvku a vypočítá i hodnoty pro OpenGl
-    * @param x souřadnice na ose x
-    * @param y souřadnice na ose y
-    * @param width šířka objektu
-    * @param height výška objektu
+    * Set item position and get vectors for openGl
+    * @param x X position in window
+    * @param y Y position in window
+    * @param width width of view
+    * @param height height of view
     */
     virtual void setPosition(int x, int y, int width, int height);
 
     /**
-    * Funkce, která přepočítává souřednice x a y do reprezentace opengl
-    */
+     * Convert position to opengl vectors
+     */
     void calPosition();
 
     /**
-     * Abstraktní funkce, která je voláná při vykreslování view
+     * Abstract function to draw view
      */
     virtual void draw() = 0;
 };
