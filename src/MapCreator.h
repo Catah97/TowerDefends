@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <typeinfo>
 #include "Item.h"
 #include "Tools.h"
 

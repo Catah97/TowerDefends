@@ -176,7 +176,7 @@ bool MapCreator::loadEnemiesInMap(const std::string &enemyInMapDefine) {
                 std::cerr << constants.ENEMIES_IN_MAP << " bad item position" << std::endl;
                 return false;
             }
-        } catch (std::out_of_range e){
+        } catch (const std::out_of_range& e){
             std::cerr << constants.ENEMIES_IN_MAP << " bad item position" << std::endl;
             return false;
         }
