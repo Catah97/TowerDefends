@@ -9,10 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="baa96a91-3cb9-4040-9e6b-a5e24aa0e122" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TowerDefendsDoxyfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/TowerDefendsDoxyfile" afterDir="false" />
-    </list>
+    <list default="true" id="baa96a91-3cb9-4040-9e6b-a5e24aa0e122" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -297,7 +294,7 @@
       <workItem from="1525036155668" duration="2640000" />
       <workItem from="1525125672150" duration="401000" />
       <workItem from="1525128767422" duration="408000" />
-      <workItem from="1525188216204" duration="1554000" />
+      <workItem from="1525188216204" duration="1619000" />
     </task>
     <task id="LOCAL-00001" summary="Oprava warningů">
       <created>1524605573744</created>
@@ -397,22 +394,29 @@
       <option name="project" value="LOCAL" />
       <updated>1525189969245</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Oprava generování dokumentace">
+      <created>1525191055964</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1525191055964</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34992000" />
+    <option name="totallyTimeSpent" value="35057000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12296564" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12296564" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32878152" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.29516807" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.29516807" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24937344" />
@@ -462,7 +466,8 @@
     <MESSAGE value="synch commit" />
     <MESSAGE value="remove git" />
     <MESSAGE value="Oprava make file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Oprava make file" />
+    <MESSAGE value="Oprava generování dokumentace" />
+    <option name="LAST_COMMIT_MESSAGE" value="Oprava generování dokumentace" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Item.h">

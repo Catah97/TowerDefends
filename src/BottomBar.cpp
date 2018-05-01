@@ -53,7 +53,7 @@ void BottomToolbar::setDefinedTowers(const std::vector<Tower *> &definedTowers) 
     int padding = 8;
     for (size_t i = 0; i < definedTowers.size(); ++i) {
         auto towerBtn = new TowerSelectButton(*definedTowers[i]);
-        towerBtn->setPosition( i * (padding + s_towerBtnWidth) , padding + m_viewY, s_towerBtnWidth, s_towerBtnHeight);
+        towerBtn->setPosition( padding + (i * (padding + s_towerBtnWidth)) , padding + m_viewY, s_towerBtnWidth, s_towerBtnHeight);
         m_towersButtonsView.push_back(towerBtn);
     }
 
@@ -131,7 +131,7 @@ void TowerSelectButton::draw() {
     glColor3f(0.0f, 0.0f, 0.0f);
     glDisable(GL_LIGHTING);
 
-    glRasterPos2d( m_vectorLeft , getGlFloatY( m_viewY + m_height / 3) ) ;
+    glRasterPos2d( getGlFloatX( m_viewX + 2 ) , getGlFloatY( m_viewY + m_height / 3) ) ;
     std::string price = std::to_string(m_definedTower->getPrice());
     for (size_t i = 0; i < price.size(); ++i) {
         glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_10, price.at(i) );
