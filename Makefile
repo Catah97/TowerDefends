@@ -2,8 +2,9 @@ CC := g++
 CCFLAGS := -Wall -pedantic -Wno-long-long -O0 -ggdb -g -std=c++11
 
 
-NAME := "TowerDefends"
+#NAME := "TowerDefends"
 LOGIN_NAME := beranm30
+APP_NAME := $(LOGIN_NAME)
 SRC_DIR := src
 OBJ_DIR := obj
 DOC_DIR := doc
@@ -30,7 +31,7 @@ compile:
 
 run:
 #@echo Run
-	./$(LOGIN_NAME)/$(NAME) $(EXAMPLE_DEF_FILE)
+	./$(APP_NAME) $(EXAMPLE_DEF_FILE)
 
 start: clean compile run
 
@@ -41,8 +42,8 @@ doc: clean_doc
 clean: clean_prog clean_obj clean_doc
 
 clean_prog:
-	@echo Removing $(LOGIN_NAME)
-	@rm -rf $(LOGIN_NAME)
+	@echo Removing $(APP_NAME)
+	@rm -rf $(APP_NAME)
 
 clean_obj:
 	@echo Removing $(OBJ_DIR)
@@ -53,13 +54,12 @@ clean_doc:
 	@rm -rf $(DOC_DIR)
 
 linking: $(OBJ_FILES)
-	@mkdir -p $(LOGIN_NAME)
 ifeq ($(OPENGL_ENABLE), 0)
-	$(CC) $(CCFLAGS) $(OBJ_FILES) -o $(LOGIN_NAME)/$(NAME)
+	$(CC) $(CCFLAGS) $(OBJ_FILES) -o ./$(APP_NAME)
 else ifeq ($(OS), Darwin)
-	$(CC) $(CCFLAGS) $(OBJ_FILES) $(MAC_LIBS) -o $(LOGIN_NAME)/$(NAME)
+	$(CC) $(CCFLAGS) $(OBJ_FILES) $(MAC_LIBS) -o ./$(APP_NAME)
 else
-	$(CC) $(CCFLAGS) $(OBJ_FILES) $(NORMAL_LIBS) -o $(LOGIN_NAME)/$(NAME)
+	$(CC) $(CCFLAGS) $(OBJ_FILES) $(NORMAL_LIBS) -o ./$(APP_NAME)
 endif
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
