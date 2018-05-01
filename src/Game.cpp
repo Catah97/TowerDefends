@@ -121,10 +121,12 @@ void Game::drawScene() {
 
 void Game::gameTick() {
     if (m_isRunning) {
+        m_tickRunning = true;
         enemyMove();
         addFromQueue();
         towersAttack();
         checkGameEnd();
+        m_tickRunning = false;
     }
 }
 
@@ -273,10 +275,12 @@ void Game::clearDeadEnemy() {
 }
 
 void Game::startGame() {
+    std::cout << "startGame" << std::endl;
     m_isRunning = true;
 }
 
 void Game::pauseGame() {
+    std::cout << "pauseGame" << std::endl;
     m_isRunning = false;
 }
 
@@ -285,6 +289,10 @@ bool Game::isRunning() {
 }
 
 void Game:: mouseMove(int x, int y) {
+    //MouseMove is aync, so I cannot call this when game tick running
+    if (m_tickRunning){
+        return;
+    }
     if (x > 0 && y > 0 && x < m_mapWidth && y < m_mapWidth) {
         unsigned int u_x = getMapXPos(x);
         unsigned int u_y = getMapYPos(y);
@@ -304,6 +312,10 @@ void Game:: mouseMove(int x, int y) {
 }
 
 bool Game::addTower(int x, int y) {
+    //MouseMove is aync, so I cannot call this when game tick running
+    if (m_tickRunning){
+        return false;
+    }
     unsigned int u_x = getMapXPos(x);
     unsigned int u_y = getMapYPos(y);
     MapItem* mapItem = m_map[u_y][u_x];

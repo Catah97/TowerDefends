@@ -57,6 +57,11 @@ private:
     MapNode* m_startPathNode;
     MapItem* m_lastSelectedItem;
     bool m_isRunning;
+
+    /**
+     * Detect when game tick, if is true disable mouseMove end mouseClick
+     */
+    bool m_tickRunning;
     int m_lives;
     int m_selectedTower;
     int m_money;
