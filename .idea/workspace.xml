@@ -10,16 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="baa96a91-3cb9-4040-9e6b-a5e24aa0e122" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/obj/BottomBar.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/Game.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/Item.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/MapCreator.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/MapExport.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/PathFindingAStar.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/Tools.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/main.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TowerDefendsDoxyfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/TowerDefendsDoxyfile" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,11 +34,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Makefile" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Makefile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="44" column="11" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
+            <state relative-caret-position="365">
+              <caret line="61" column="64" selection-start-line="61" selection-start-column="64" selection-end-line="61" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TowerDefendsDoxyfile" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/TowerDefendsDoxyfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="1122" column="11" selection-start-line="1122" selection-end-line="1122" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -108,15 +109,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Item.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Item.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5325">
-              <caret line="406" column="32" selection-start-line="406" selection-start-column="12" selection-end-line="406" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BottomBar.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BottomBar.cpp">
           <provider selected="true" editor-type-id="text-editor">
@@ -130,10 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>TowerSelectButton</find>
-      <find>input</find>
-      <find>SHOW_FILE</find>
-      <find>.h</find>
       <find>.cpp</find>
       <find>266</find>
       <find>getMapXPos</find>
@@ -156,6 +144,14 @@
       <find>exit</find>
       <find>exit(</find>
       <find>NAME</find>
+      <find>LOGIN_NAME</find>
+      <find>src</find>
+      <find>html</find>
+      <find>OUTPU</find>
+      <find>dc</find>
+      <find>doc</find>
+      <find>doc</find>
+      <find>html</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -165,7 +161,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/MapExport.h" />
-        <option value="$PROJECT_DIR$/src/TowerDefendsDoxyfile" />
         <option value="$PROJECT_DIR$/examples/mapAllDead.txt" />
         <option value="$PROJECT_DIR$/src/BottomBar.cpp" />
         <option value="$PROJECT_DIR$/src/Tools.h" />
@@ -179,6 +174,7 @@
         <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/src/MapCreator.h" />
         <option value="$PROJECT_DIR$/Makefile" />
+        <option value="$PROJECT_DIR$/src/TowerDefendsDoxyfile" />
       </list>
     </option>
   </component>
@@ -301,7 +297,7 @@
       <workItem from="1525036155668" duration="2640000" />
       <workItem from="1525125672150" duration="401000" />
       <workItem from="1525128767422" duration="408000" />
-      <workItem from="1525188216204" duration="670000" />
+      <workItem from="1525188216204" duration="1554000" />
     </task>
     <task id="LOCAL-00001" summary="Oprava warningů">
       <created>1524605573744</created>
@@ -394,15 +390,21 @@
       <option name="project" value="LOCAL" />
       <updated>1525188460398</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Oprava make file">
+      <created>1525189969245</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1525189969245</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34108000" />
+    <option name="totallyTimeSpent" value="34992000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12296564" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -459,7 +461,8 @@
     <MESSAGE value="Odstranění syntické chyby" />
     <MESSAGE value="synch commit" />
     <MESSAGE value="remove git" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove git" />
+    <MESSAGE value="Oprava make file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Oprava make file" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Item.h">
@@ -621,7 +624,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TowerDefendsDoxyfile" />
     <entry file="file://$PROJECT_DIR$/src/MapExport.h" />
-    <entry file="file://$PROJECT_DIR$/src/TowerDefendsDoxyfile" />
     <entry file="file://$PROJECT_DIR$/examples/mapAllDead.txt" />
     <entry file="file://$PROJECT_DIR$/src/PathFindingAStar.h" />
     <entry file="file://$PROJECT_DIR$/src/PathFindingAStar.cpp" />
@@ -718,8 +720,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="44" column="11" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
+        <state relative-caret-position="365">
+          <caret line="61" column="64" selection-start-line="61" selection-start-column="64" selection-end-line="61" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TowerDefendsDoxyfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="1122" column="11" selection-start-line="1122" selection-end-line="1122" selection-end-column="11" />
         </state>
       </provider>
     </entry>
