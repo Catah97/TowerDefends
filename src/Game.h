@@ -57,11 +57,9 @@ private:
     MapPath* m_startPathNode;
 
     /**
-     * Save last cursor selected item position.
-     * Can't save item because it can be deleted and I would have to reset this values to new item on map.
+     * Map item last selected mouse cursor.
      */
-    int m_lastSelectedItemX, m_lastSelectedItemY;
-
+    MapItem* m_lastSelectedItem;
     bool m_isRunning;
     int m_lives;
     int m_selectedTower;
@@ -155,10 +153,36 @@ private:
      */
     void towersAttack();
 
-    /**
-     * Clear dead enemies from map and replace them with free places
-     */
     void clearDeadEnemy();
+
+    /**
+     * Add MapItem to by on position save in MapItem and free old MapItem.
+     * @param mapItem MapItem that we want to add to map instead of MapItem on same position in map
+     */
+    void replaceMapItem(MapItem &mapItem);
+
+    /**
+     * Check if mapItem is m_lastSelectedItem
+     * @param mapItem checked item
+     * @return TRUE if it is, else FALSE
+     */
+    bool isLastSelectedItem(const MapItem &mapItem);
+
+    /**
+     * Check if position match with m_lastSelectedItem position
+     * @param x
+     * @param y
+     * @return TRUE if match, else FALSE
+     */
+    bool isLastSelectedItem(int x, int y);
+
+    /**
+     * Set new selected Item
+     * on old select set selected as false
+     * @param mapItem new selected item
+     */
+    void setLastSelectedItem(MapItem &mapItem);
+
     void swapMapPosition(const MapItem& oldPosition, const MapItem& newPosition);
     void swapMapPosition(int oldMapX, int oldMapY, int newMapX, int newMapY);
 

@@ -6,8 +6,7 @@
 
 Game::Game() :  bottomToolbar(this),
                 m_startPathNode(nullptr),
-                m_lastSelectedItemX(-1),
-                m_lastSelectedItemY(-1),
+                m_lastSelectedItem(nullptr),
                 m_isRunning(false),
                 m_selectedTower(0) {}
 
@@ -139,8 +138,7 @@ void Game::addFromQueue() {
             auto newEnemy = *newEnemyIt;
             newEnemy->setPosition(startX, startY, s_itemWidth, s_itemHeight);
             newEnemy->setPath(*m_startPathNode);
-            delete m_map[startY][startX];
-            m_map[startY][startX] = newEnemy;
+            replaceMapItem(*newEnemy);
             m_enemiesInMap.push_back(newEnemy);
             m_enemiesQueue.erase(newEnemyIt);
         }
@@ -195,7 +193,7 @@ void Game::enemyMove() {
             removedItems.push_back(it);
             auto nexItem = new FreePlace(*m_endPoint);
             nexItem->setPosition(m_endPoint->m_mapPositionX,m_endPoint->m_mapPositionY, s_itemWidth, s_itemHeight);
-            m_map[m_endPoint->m_mapPositionY][m_endPoint->m_mapPositionX] = nexItem;
+            replaceMapItem(*nexItem);
             m_lives--;
             bottomToolbar.setLives(m_lives);
             continue;
@@ -211,7 +209,6 @@ void Game::enemyMove() {
         }
     }
     for (auto it : removedItems){
-        delete *it;
         m_enemiesInMap.erase(it);
     }
 }
@@ -221,11 +218,17 @@ void Game::swapMapPosition(const MapItem &oldPosition, const MapItem &newPositio
 }
 
 void Game::swapMapPosition(int oldMapX, int oldMapY, int newMapX, int newMapY) {
-    MapItem* item = m_map[oldMapY][oldMapX];
-    m_map[oldMapY][oldMapX] = m_map[newMapY][newMapX];
-    m_map[oldMapY][oldMapX]->setPosition(oldMapX, oldMapY);
-    item->setPosition(newMapX, newMapY);
-    m_map[newMapY][newMapX] = item;
+    auto oldItem = m_map[oldMapY][oldMapX];
+    auto newItem = m_map[newMapY][newMapX];
+    if (isLastSelectedItem(oldMapX, oldMapY)){
+        setLastSelectedItem(*newItem);
+    } else if (isLastSelectedItem(newMapX, newMapY)){
+        setLastSelectedItem(*oldItem);
+    }
+    newItem->setPosition(oldMapX, oldMapY);
+    m_map[oldMapY][oldMapX] = newItem;
+    oldItem->setPosition(newMapX, newMapY);
+    m_map[newMapY][newMapX] = oldItem;
 }
 void Game::checkGameEnd() {
     if (m_lives <= 0) {
@@ -266,9 +269,8 @@ void Game::clearDeadEnemy() {
             auto freeItem = new FreePlace();
             freeItem->setPosition(posX, posY, s_itemWidth, s_itemHeight);
             freeItem->m_mapItemChar = constants.FREE_PLACE_CHAR;
-            m_map[posY][posX] = freeItem;
+            replaceMapItem(*freeItem);
             m_enemiesInMap.erase(it);
-            delete enemy;
         }
     }
 }
@@ -288,8 +290,8 @@ bool Game::isRunning() {
 }
 
 void Game:: mouseMove(int x, int y) {
-    if (m_lastSelectedItemX != -1 && m_lastSelectedItemY != -1){
-        m_map[m_lastSelectedItemY][m_lastSelectedItemX]->m_isSelected = false;
+    if (m_lastSelectedItem != nullptr){
+        m_lastSelectedItem->m_isSelected = false;
     }
     if (x > 0 && y > 0 && x < m_mapWidth && y < m_mapWidth) {
         unsigned int u_x = getMapXPos(x);
@@ -297,8 +299,7 @@ void Game:: mouseMove(int x, int y) {
         if (u_x < m_map[0].size() && u_y < m_map.size()) {
             auto selectedItem = m_map[u_y][u_x];
             selectedItem->m_isSelected = true;
-            m_lastSelectedItemX = u_x;
-            m_lastSelectedItemY = u_y;
+            m_lastSelectedItem = selectedItem;
         }
     }
 }
@@ -322,8 +323,7 @@ bool Game::addTower(int x, int y) {
     if (checkPathAvailable()){
         auto newTower = new Tower(*selectedTower);
         newTower->setPosition(u_x, u_y, s_itemWidth, s_itemHeight);
-        delete mapItem;
-        m_map[u_y][u_x] = newTower;
+        replaceMapItem(*newTower);
         m_towersInMap.push_back(newTower);
         m_money -= newTower->getPrice();
         resetEnemyPath();
@@ -374,6 +374,31 @@ void Game::saveGame() {
     pauseGame();
     MapExport mapExport(m_money, m_lives,m_startPoint, m_endPoint, m_map, m_defineTowers, m_defineEnemies, m_enemiesQueue, m_enemiesInMap);
     mapExport.saveGame();
+}
+
+void Game::replaceMapItem(MapItem &mapItem) {
+    if (isLastSelectedItem(mapItem)){
+        setLastSelectedItem(mapItem);
+    }
+    delete m_map[mapItem.m_mapPositionY][mapItem.m_mapPositionX];
+    m_map[mapItem.m_mapPositionY][mapItem.m_mapPositionX] = &mapItem;
+
+}
+
+void Game::setLastSelectedItem(MapItem &mapItem) {
+    m_lastSelectedItem->m_isSelected = false;
+    m_lastSelectedItem = &mapItem;
+    m_lastSelectedItem->m_isSelected = true;
+}
+
+bool Game::isLastSelectedItem(const MapItem &mapItem) {
+    return m_lastSelectedItem != nullptr && *m_lastSelectedItem == mapItem;
+}
+
+bool Game::isLastSelectedItem(int x, int y) {
+    return m_lastSelectedItem != nullptr &&
+           m_lastSelectedItem->m_mapPositionX == x &&
+           m_lastSelectedItem->m_mapPositionY == y;
 }
 
 
