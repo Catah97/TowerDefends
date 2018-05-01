@@ -205,22 +205,22 @@ public:
 };
 
 
-class MapNode{
+class MapPath{
 public:
     int m_x, m_y;
     int m_startDistance, m_endDistance;
-    MapNode* m_next,* m_before;
+    MapPath* m_next,* m_before;
 
-    MapNode(const MapNode& mapNode);
-    MapNode(int x, int y, int startDistance, int endDistance, MapNode* m_parent);
+    MapPath(const MapPath& mapNode);
+    MapPath(int x, int y, int startDistance, int endDistance, MapPath* m_parent);
     int getEndDistance();
     int getMetrict();
 
-    MapNode& operator = (const MapNode& mapNode);
-    bool operator == (const MapNode& mapNode);
+    MapPath& operator = (const MapPath& mapNode);
+    bool operator == (const MapPath& mapNode);
     bool operator == (const MapItem& mapItem);
 
-    static void deletePath(MapNode* start);
+    static void deletePath(MapPath* start);
 };
 
 /**
@@ -258,12 +258,12 @@ private:
     /**
      * Start of enemy path
      */
-    MapNode* m_enemyPath;
+    MapPath* m_enemyPath;
 
     /**
      * Reference on next segment of path
      */
-    MapNode* m_nextPosition;
+    MapPath* m_nextPosition;
 
     /**
      * Number of moves that is necessary to get to finish.
@@ -307,9 +307,9 @@ public:
      * Set enemy path to end
      * @param startNode start MapNode of path
      */
-    void setPath(const MapNode& startNode);
+    void setPath(const MapPath& startNode);
     void printDistanceToEnd();
-    MapNode* getNextPosition();
+    MapPath* getNextPosition();
     void enemyMove();
 
     /**

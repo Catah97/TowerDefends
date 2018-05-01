@@ -81,38 +81,38 @@ float UiItem::getLineWidth() {
     return 1.0f;
 }
 
-//-----------------MapNode---------------------------------------------
+//-----------------MapPath---------------------------------------------
 
-MapNode::MapNode(const MapNode &mapNode) : m_x(mapNode.m_x),
+MapPath::MapPath(const MapPath &mapNode) : m_x(mapNode.m_x),
                                            m_y(mapNode.m_y),
                                            m_startDistance(mapNode.m_startDistance),
                                            m_endDistance(mapNode.m_endDistance),
                                            m_next(nullptr),
                                            m_before(nullptr){}
 
-MapNode::MapNode(int x, int y, int startDistance, int endDistance, MapNode* parent) : m_x(x),
+MapPath::MapPath(int x, int y, int startDistance, int endDistance, MapPath* parent) : m_x(x),
                                                                                       m_y(y),
                                                                                       m_startDistance(startDistance),
                                                                                       m_endDistance(endDistance),
                                                                                       m_before(parent) {}
 
-int MapNode::getMetrict() {
+int MapPath::getMetrict() {
     return m_startDistance + m_endDistance;
 }
 
-int MapNode::getEndDistance() {
+int MapPath::getEndDistance() {
     return m_endDistance;
 }
 
-bool MapNode::operator == (const MapItem &mapItem) {
+bool MapPath::operator == (const MapItem &mapItem) {
     return m_x == mapItem.m_mapPositionX && m_y == mapItem.m_mapPositionY;
 }
 
-bool MapNode::operator == (const MapNode &mapNode) {
+bool MapPath::operator == (const MapPath &mapNode) {
     return m_x == mapNode.m_x && m_y == mapNode.m_y;
 }
 
-MapNode& MapNode::operator = (const MapNode &mapNode) {
+MapPath& MapPath::operator = (const MapPath &mapNode) {
     if (&mapNode == this){
         return *this;
     }
@@ -124,9 +124,9 @@ MapNode& MapNode::operator = (const MapNode &mapNode) {
     return *this;
 }
 
-void MapNode::deletePath(MapNode* start) {
+void MapPath::deletePath(MapPath* start) {
     auto current = start;
-    MapNode* tmp;
+    MapPath* tmp;
     do {
         tmp = current->m_next;
         delete current;
@@ -359,16 +359,16 @@ bool Enemy::isBlock() {
     return true;
 }
 
-void Enemy::setPath(const MapNode &startNode) {
+void Enemy::setPath(const MapPath &startNode) {
     if (m_enemyPath != nullptr){
-        MapNode::deletePath(m_enemyPath);
+        MapPath::deletePath(m_enemyPath);
     }
-    m_enemyPath = new MapNode(startNode);
-    MapNode* currentNode = startNode.m_next;
-    MapNode* currentNewNode = m_enemyPath;
+    m_enemyPath = new MapPath(startNode);
+    MapPath* currentNode = startNode.m_next;
+    MapPath* currentNewNode = m_enemyPath;
     m_mapNodesToEnd = 0;
     while ( currentNode ){
-        auto newNode = new MapNode(*currentNode);
+        auto newNode = new MapPath(*currentNode);
         currentNewNode->m_next = newNode;
         currentNewNode = newNode;
         currentNode = currentNode->m_next;
@@ -388,7 +388,7 @@ void Enemy::enemyMove() {
 
 }
 
-MapNode *Enemy::getNextPosition() {
+MapPath *Enemy::getNextPosition() {
     return m_nextPosition;
 }
 
@@ -398,7 +398,7 @@ void Enemy::printDistanceToEnd() {
 
 Enemy::~Enemy() {
     if (m_enemyPath != nullptr) {
-        MapNode::deletePath(m_enemyPath);
+        MapPath::deletePath(m_enemyPath);
     }
     m_enemyPath = nullptr;
 }

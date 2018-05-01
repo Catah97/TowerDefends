@@ -6,7 +6,8 @@
 
 Game::Game() :  bottomToolbar(this),
                 m_startPathNode(nullptr),
-                m_lastSelectedItem(nullptr),
+                m_lastSelectedItemX(-1),
+                m_lastSelectedItemY(-1),
                 m_isRunning(false),
                 m_selectedTower(0) {}
 
@@ -32,7 +33,7 @@ Game::~Game() {
 
 void Game::freePath() {
     if (m_startPathNode  != nullptr) {
-        MapNode::deletePath(m_startPathNode);
+        MapPath::deletePath(m_startPathNode);
     }
 }
 
@@ -121,12 +122,10 @@ void Game::drawScene() {
 
 void Game::gameTick() {
     if (m_isRunning) {
-        m_tickRunning = true;
         enemyMove();
         addFromQueue();
         towersAttack();
         checkGameEnd();
-        m_tickRunning = false;
     }
 }
 
@@ -149,10 +148,10 @@ void Game::addFromQueue() {
 }
 
 bool Game::checkPathAvailable() {
-    MapNode* mapNode;
+    MapPath* mapNode;
     bool isPathAvailable = m_pathFindingAStar.findBestPath(*m_startPoint, mapNode);
     if (isPathAvailable){
-        MapNode::deletePath(mapNode);
+        MapPath::deletePath(mapNode);
     }
     return isPathAvailable;
 }
@@ -165,12 +164,12 @@ bool Game::calStartPathNode() {
 bool Game::resetEnemyPath() {
     m_pathFindingAStar.setMap(m_map);
     for (auto enemy : m_enemiesInMap){
-        MapNode* mapNode;
+        MapPath* mapNode;
         if (!m_pathFindingAStar.findBestPath(*enemy, mapNode)){
             return false;
         }
         enemy->setPath(*mapNode);
-        MapNode::deletePath(mapNode);
+        MapPath::deletePath(mapNode);
     }
     return calStartPathNode();
 }
@@ -190,7 +189,7 @@ void Game::enemyMove() {
     for (auto it = m_enemiesInMap.begin(); it < m_enemiesInMap.end(); ++it){
         Enemy* enemy = *it;
         //enemy->printDistanceToEnd();
-        MapNode* nextEnemyPosition = enemy->getNextPosition();
+        MapPath* nextEnemyPosition = enemy->getNextPosition();
         //Enemy finish his journey
         if (nextEnemyPosition == nullptr){
             removedItems.push_back(it);
@@ -289,9 +288,8 @@ bool Game::isRunning() {
 }
 
 void Game:: mouseMove(int x, int y) {
-    //MouseMove is aync, so I cannot call this when game tick running
-    if (m_tickRunning){
-        return;
+    if (m_lastSelectedItemX != -1 && m_lastSelectedItemY != -1){
+        m_map[m_lastSelectedItemY][m_lastSelectedItemX]->m_isSelected = false;
     }
     if (x > 0 && y > 0 && x < m_mapWidth && y < m_mapWidth) {
         unsigned int u_x = getMapXPos(x);
@@ -299,23 +297,13 @@ void Game:: mouseMove(int x, int y) {
         if (u_x < m_map[0].size() && u_y < m_map.size()) {
             auto selectedItem = m_map[u_y][u_x];
             selectedItem->m_isSelected = true;
-            if (m_lastSelectedItem != nullptr && m_lastSelectedItem != selectedItem) {
-                m_lastSelectedItem->m_isSelected = false;
-            }
-            if (m_lastSelectedItem != selectedItem) {
-                m_lastSelectedItem = m_map[u_y][u_x];
-            }
+            m_lastSelectedItemX = u_x;
+            m_lastSelectedItemY = u_y;
         }
-    } else if (m_lastSelectedItem != nullptr){
-        m_lastSelectedItem->m_isSelected = false;
     }
 }
 
 bool Game::addTower(int x, int y) {
-    //MouseMove is aync, so I cannot call this when game tick running
-    if (m_tickRunning){
-        return false;
-    }
     unsigned int u_x = getMapXPos(x);
     unsigned int u_y = getMapYPos(y);
     MapItem* mapItem = m_map[u_y][u_x];
@@ -334,7 +322,6 @@ bool Game::addTower(int x, int y) {
     if (checkPathAvailable()){
         auto newTower = new Tower(*selectedTower);
         newTower->setPosition(u_x, u_y, s_itemWidth, s_itemHeight);
-        m_lastSelectedItem = newTower;
         delete mapItem;
         m_map[u_y][u_x] = newTower;
         m_towersInMap.push_back(newTower);

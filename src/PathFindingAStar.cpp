@@ -15,22 +15,22 @@ void PathFindingAStar::setMap(const std::vector<std::vector<MapItem *>> &map, co
     m_endPoint = endPoint;
 }
 
-MapNode* PathFindingAStar::createMapNode(const MapItem &mapItem, MapNode* parentNode) {
+MapPath* PathFindingAStar::createMapNode(const MapItem &mapItem, MapPath* parentNode) {
     int x = mapItem.m_mapPositionX;
     int y = mapItem.m_mapPositionY;
     //startDistance has diff 10 endDistance 1
     int startDistance = parentNode == nullptr ? 0 : parentNode->m_startDistance + 10;
     int endDistance = abs( x - m_endPoint->m_mapPositionX) * 10 + abs( y - m_endPoint->m_mapPositionY) * 10;
-    auto mapNode = new MapNode(x, y, startDistance, endDistance, parentNode);
+    auto mapNode = new MapPath(x, y, startDistance, endDistance, parentNode);
     return mapNode;
 }
 
 
-bool PathFindingAStar::findBestPath(const MapItem &startPoint, MapNode*& result) {
-    MapNode* startNode = createMapNode(startPoint);
-    std::vector<MapNode*> availableNodes, closedNodes;
+bool PathFindingAStar::findBestPath(const MapItem &startPoint, MapPath*& result) {
+    MapPath* startNode = createMapNode(startPoint);
+    std::vector<MapPath*> availableNodes, closedNodes;
     availableNodes.push_back(startNode);
-    std::vector<MapNode*> neighbours;
+    std::vector<MapPath*> neighbours;
     int count = 0;
     while (true){
         count++;
@@ -40,8 +40,8 @@ bool PathFindingAStar::findBestPath(const MapItem &startPoint, MapNode*& result)
             freeLists(closedNodes);
             return false;
         }
-        std::vector<MapNode*>::const_iterator position;
-        MapNode* currentNode = findBestNode(availableNodes, position);
+        std::vector<MapPath*>::const_iterator position;
+        MapPath* currentNode = findBestNode(availableNodes, position);
         closedNodes.push_back(currentNode);
         availableNodes.erase(position);
         if (*currentNode == *m_endPoint){
@@ -67,11 +67,11 @@ bool PathFindingAStar::findBestPath(const MapItem &startPoint, MapNode*& result)
     }
 }
 
-void PathFindingAStar::createPath(MapNode* endPosition, MapNode*& newStartNode) {
-    MapNode* currentNode = endPosition;
-    MapNode* lastNode = nullptr;
+void PathFindingAStar::createPath(MapPath* endPosition, MapPath*& newStartNode) {
+    MapPath* currentNode = endPosition;
+    MapPath* lastNode = nullptr;
     while ( currentNode ){
-        auto newNode = new MapNode(*currentNode);
+        auto newNode = new MapPath(*currentNode);
         newNode->m_next = lastNode;
         lastNode = newNode;
         currentNode = currentNode->m_before;
@@ -79,12 +79,12 @@ void PathFindingAStar::createPath(MapNode* endPosition, MapNode*& newStartNode) 
     newStartNode = lastNode;
 }
 
-MapNode* PathFindingAStar::findBestNode(const std::vector<MapNode*>& availableNodes,
-                                          std::vector<MapNode*>::const_iterator& position) {
-    MapNode* result = *availableNodes.begin();
+MapPath* PathFindingAStar::findBestNode(const std::vector<MapPath*>& availableNodes,
+                                          std::vector<MapPath*>::const_iterator& position) {
+    MapPath* result = *availableNodes.begin();
     position = availableNodes.begin();
     for (auto it = availableNodes.begin(); it < availableNodes.end(); ++it) {
-        MapNode* node = *it;
+        MapPath* node = *it;
         if (result->getMetrict() > node->getMetrict()){
             result = node;
             position = it;
@@ -97,7 +97,7 @@ MapNode* PathFindingAStar::findBestNode(const std::vector<MapNode*>& availableNo
 }
 
 
-void PathFindingAStar::getAvailableNeighbourNodes(MapNode &item, std::vector<MapNode *> &result) {
+void PathFindingAStar::getAvailableNeighbourNodes(MapPath &item, std::vector<MapPath *> &result) {
     int x = item.m_x;
     int y = item.m_y;
     getAvailableNeighbourNodes(item, x - 1, y, result);
@@ -106,7 +106,7 @@ void PathFindingAStar::getAvailableNeighbourNodes(MapNode &item, std::vector<Map
     getAvailableNeighbourNodes(item, x, y + 1, result);
 }
 
-bool PathFindingAStar::getAvailableNeighbourNodes(MapNode &parentNode, int x, int y, std::vector<MapNode *> &result) {
+bool PathFindingAStar::getAvailableNeighbourNodes(MapPath &parentNode, int x, int y, std::vector<MapPath *> &result) {
     if (x >= 0 && y >= 0){
         //Aby kompilator neřval, jelikož x zde již nemůže být zaporné tak je cast validní
         unsigned int u_x = static_cast<unsigned int>(x);
@@ -114,7 +114,7 @@ bool PathFindingAStar::getAvailableNeighbourNodes(MapNode &parentNode, int x, in
         if (u_x < m_map[0].size() && u_y < m_map.size()) {
             MapItem *mapItem = m_map[y][x];
             if (mapItem->m_isFree) {
-                MapNode *mapNode = createMapNode(*mapItem, &parentNode);
+                MapPath *mapNode = createMapNode(*mapItem, &parentNode);
                 result.push_back(mapNode);
             }
         }
@@ -122,8 +122,8 @@ bool PathFindingAStar::getAvailableNeighbourNodes(MapNode &parentNode, int x, in
     return false;
 }
 
-bool PathFindingAStar::isInList(const MapNode& item, std::vector<MapNode*> &list) {
-    for (const MapNode* closeItem : list){
+bool PathFindingAStar::isInList(const MapPath& item, std::vector<MapPath*> &list) {
+    for (const MapPath* closeItem : list){
         if (item.m_x == closeItem->m_x && item.m_y == closeItem->m_y){
             return true;
         }
@@ -131,7 +131,7 @@ bool PathFindingAStar::isInList(const MapNode& item, std::vector<MapNode*> &list
     return false;
 }
 
-void PathFindingAStar::printListOfNotes(const std::vector<MapNode *>& list) {
+void PathFindingAStar::printListOfNotes(const std::vector<MapPath *>& list) {
     std::cout << " printListNotes " << std::endl;
     for (const auto item : list){
         std::cout << "Item position: " << item->m_x << ", " << item->m_y << std::endl;
@@ -140,7 +140,7 @@ void PathFindingAStar::printListOfNotes(const std::vector<MapNode *>& list) {
     }
 }
 
-void PathFindingAStar::freeLists(const std::vector<MapNode *> &list) {
+void PathFindingAStar::freeLists(const std::vector<MapPath *> &list) {
     for (const auto item : list){
         delete item;
     }

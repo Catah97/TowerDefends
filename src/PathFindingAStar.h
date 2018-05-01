@@ -10,22 +10,22 @@ private:
     std::vector<std::vector<MapItem*>> m_map;
     const MapItem* m_endPoint = nullptr;
 
-    void printListOfNotes(const std::vector<MapNode*>& list);
-    MapNode* createMapNode(const MapItem &mapItem, MapNode* parentNode = nullptr);
-    MapNode* findBestNode(const std::vector<MapNode*>& availableNodes,
-                            std::vector<MapNode*>::const_iterator& position);
-    bool isInList(const MapNode& item, std::vector<MapNode*> &list);
-    void createPath(MapNode* endPosition, MapNode*& newStartNode);
-    void getAvailableNeighbourNodes(MapNode &item, std::vector<MapNode *> &result);
-    bool getAvailableNeighbourNodes(MapNode &parentNode, int x, int y, std::vector<MapNode *> &result);
+    void printListOfNotes(const std::vector<MapPath*>& list);
+    MapPath* createMapNode(const MapItem &mapItem, MapPath* parentNode = nullptr);
+    MapPath* findBestNode(const std::vector<MapPath*>& availableNodes,
+                            std::vector<MapPath*>::const_iterator& position);
+    bool isInList(const MapPath& item, std::vector<MapPath*> &list);
+    void createPath(MapPath* endPosition, MapPath*& newStartNode);
+    void getAvailableNeighbourNodes(MapPath &item, std::vector<MapPath *> &result);
+    bool getAvailableNeighbourNodes(MapPath &parentNode, int x, int y, std::vector<MapPath *> &result);
 
 
 public:
     PathFindingAStar() = default;
     void setMap(const std::vector<std::vector<MapItem*>>& map);
     void setMap(const std::vector<std::vector<MapItem*>>& map, const MapItem* endPoint);
-    bool findBestPath(const MapItem& startPoint, MapNode*& result);
-    void freeLists(const std::vector<MapNode*>& list);
+    bool findBestPath(const MapItem& startPoint, MapPath*& result);
+    void freeLists(const std::vector<MapPath*>& list);
 
 
 

@@ -54,14 +54,15 @@ private:
     /**
      * Start of path. This MapNode is added to all new enemies from the queue.
      */
-    MapNode* m_startPathNode;
-    MapItem* m_lastSelectedItem;
-    bool m_isRunning;
+    MapPath* m_startPathNode;
 
     /**
-     * Detect when game tick, if is true disable mouseMove end mouseClick
+     * Save last cursor selected item position.
+     * Can't save item because it can be deleted and I would have to reset this values to new item on map.
      */
-    bool m_tickRunning;
+    int m_lastSelectedItemX, m_lastSelectedItemY;
+
+    bool m_isRunning;
     int m_lives;
     int m_selectedTower;
     int m_money;
@@ -154,8 +155,10 @@ private:
      */
     void towersAttack();
 
+    /**
+     * Clear dead enemies from map and replace them with free places
+     */
     void clearDeadEnemy();
-
     void swapMapPosition(const MapItem& oldPosition, const MapItem& newPosition);
     void swapMapPosition(int oldMapX, int oldMapY, int newMapX, int newMapY);
 
