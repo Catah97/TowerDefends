@@ -54,7 +54,7 @@ private:
     /**
      * Start of path. This MapNode is added to all new enemies from the queue.
      */
-    MapNode* startPathNode;
+    MapNode* m_startPathNode;
     MapItem* m_lastSelectedItem;
     bool m_isRunning;
     int m_lives;
@@ -170,6 +170,11 @@ private:
      * @return TRUE if successful, else FALSE
      */
     bool initGame();
+
+    /**
+     * Free m_startPathNode
+     */
+    void freePath();
 
 public:
 

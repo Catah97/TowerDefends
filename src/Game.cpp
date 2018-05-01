@@ -4,11 +4,16 @@
 
 #include "Game.h"
 
-Game::Game() :  bottomToolbar(this),m_lastSelectedItem(nullptr), m_isRunning(false), m_selectedTower(0) {}
+Game::Game() :  bottomToolbar(this),
+                m_startPathNode(nullptr),
+                m_lastSelectedItem(nullptr),
+                m_isRunning(false),
+                m_selectedTower(0) {}
 
 Game::~Game() {
     delete m_startPoint;
     delete m_endPoint;
+    freePath();
     for (auto tower : m_defineTowers){
         delete tower;
     }
@@ -22,6 +27,12 @@ Game::~Game() {
     }
     for (const auto enemy : m_enemiesQueue){
         delete enemy;
+    }
+}
+
+void Game::freePath() {
+    if (m_startPathNode  != nullptr) {
+        MapNode::deletePath(m_startPathNode);
     }
 }
 
@@ -89,15 +100,6 @@ void Game::initBottomBar() {
     bottomToolbar.setDefinedTowers(m_defineTowers);
 }
 
-bool Game::checkPathAvailable() {
-    MapNode* mapNode;
-    bool isPathAvailable = m_pathFindingAStar.findBestPath(*m_startPoint, mapNode);
-    if (isPathAvailable){
-        MapNode::deletePath(mapNode);
-    }
-    return isPathAvailable;
-}
-
 void Game::drawScene() {
 #ifdef __OPENGL__
     //Draw white background
@@ -135,7 +137,7 @@ void Game::addFromQueue() {
             auto newEnemyIt = m_enemiesQueue.begin();
             auto newEnemy = *newEnemyIt;
             newEnemy->setPosition(startX, startY, s_itemWidth, s_itemHeight);
-            newEnemy->setPath(*startPathNode);
+            newEnemy->setPath(*m_startPathNode);
             delete m_map[startY][startX];
             m_map[startY][startX] = newEnemy;
             m_enemiesInMap.push_back(newEnemy);
@@ -144,11 +146,22 @@ void Game::addFromQueue() {
     }
 }
 
+bool Game::checkPathAvailable() {
+    MapNode* mapNode;
+    bool isPathAvailable = m_pathFindingAStar.findBestPath(*m_startPoint, mapNode);
+    if (isPathAvailable){
+        MapNode::deletePath(mapNode);
+    }
+    return isPathAvailable;
+}
+
 bool Game::calStartPathNode() {
-    return m_pathFindingAStar.findBestPath(*m_startPoint, startPathNode);
+    freePath();
+    return m_pathFindingAStar.findBestPath(*m_startPoint, m_startPathNode);
 }
 
 bool Game::resetEnemyPath() {
+    m_pathFindingAStar.setMap(m_map);
     for (auto enemy : m_enemiesInMap){
         MapNode* mapNode;
         if (!m_pathFindingAStar.findBestPath(*enemy, mapNode)){

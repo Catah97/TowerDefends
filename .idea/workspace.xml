@@ -9,7 +9,163 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="baa96a91-3cb9-4040-9e6b-a5e24aa0e122" name="Default" comment="" />
+    <list default="true" id="baa96a91-3cb9-4040-9e6b-a5e24aa0e122" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/beranm30/TowerDefends" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/_bottom_bar_8h_source.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/_game_8h_source.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/_item_8h_source.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/_map_creator_8h_source.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/_map_export_8h_source.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/_path_finding_a_star_8h_source.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/_tools_8h_source.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/annotated.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/bc_s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/bdwn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_bottom_toolbar-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_bottom_toolbar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_bottom_toolbar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_bottom_toolbar_communicator-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_bottom_toolbar_communicator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_bottom_toolbar_communicator.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_constants-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_constants.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_enemy-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_enemy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_enemy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_free_place-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_free_place.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_free_place.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_game-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_game.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_game.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_creator-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_creator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_export-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_export.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_item-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_item.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_item.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_node-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_map_node.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_path_finding_a_star-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_path_finding_a_star.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_tools_1_1_ilegal_state_exception.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_tower-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_tower.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_tower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_tower_select_button-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_tower_select_button.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_tower_select_button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_ui_item-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_ui_item.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_ui_item.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_wall-members.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_wall.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/class_wall.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/classes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/closed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/dir_68267d1309a1af8e8297ef4c3efbcdba.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/doc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/doxygen.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/doxygen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/dynsections.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/files.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/folderclosed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/folderopen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/functions.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/functions_func.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/hierarchy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/menu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/menudata.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/nav_f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/nav_g.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/nav_h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_0.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_6.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_6.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_7.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_8.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_8.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_9.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_9.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_a.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_b.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_c.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/all_c.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_0.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_6.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_6.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_7.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_8.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_8.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_9.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_9.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_a.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_b.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/classes_b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/functions_0.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/functions_0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/functions_1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/functions_1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/mag_sel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/nomatches.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/pages_0.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/pages_0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/search.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/search_l.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/search_m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/search_r.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/search/searchdata.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/splitbar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/sync_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/sync_on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/tab_a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/tab_b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/tab_h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/tab_s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/html/tabs.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/obj/BottomBar.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/obj/Game.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/obj/Item.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/obj/MapCreator.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/obj/MapExport.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/obj/PathFindingAStar.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/obj/Tools.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/obj/main.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,13 +175,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+            <state relative-caret-position="94">
+              <caret line="91" column="12" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
               <folding>
-                <element signature="e#3701#5171#0" expanded="true" />
+                <element signature="e#118#248#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -43,12 +199,10 @@
       <file leaf-file-name="Game.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
+            <state relative-caret-position="-819">
               <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
               <folding>
                 <element signature="e#2864#3039#0" expanded="true" />
-                <element signature="e#6795#6803#0" expanded="true" />
-                <element signature="e#7056#7064#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,7 +226,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapCreator.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MapCreator.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MapCreator.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
@@ -153,13 +307,13 @@
         <option value="$PROJECT_DIR$/Makefile" />
         <option value="$PROJECT_DIR$/examples/FormatInput.txt" />
         <option value="$PROJECT_DIR$/src/Item.cpp" />
-        <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/src/BottomBar.h" />
         <option value="$PROJECT_DIR$/src/Game.h" />
         <option value="$PROJECT_DIR$/src/Item.h" />
         <option value="$PROJECT_DIR$/src/MapCreator.cpp" />
         <option value="$PROJECT_DIR$/src/Game.cpp" />
         <option value="$PROJECT_DIR$/src/MapCreator.h" />
+        <option value="$PROJECT_DIR$/src/main.cpp" />
       </list>
     </option>
   </component>
@@ -173,6 +327,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -194,7 +349,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -281,6 +435,7 @@
       <workItem from="1525005761126" duration="10959000" />
       <workItem from="1525036155668" duration="2640000" />
       <workItem from="1525125672150" duration="401000" />
+      <workItem from="1525128767422" duration="408000" />
     </task>
     <task id="LOCAL-00001" summary="Oprava warningů">
       <created>1524605573744</created>
@@ -345,19 +500,31 @@
       <option name="project" value="LOCAL" />
       <updated>1525125721975</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Odstraněni chyby při přidávání veže">
+      <created>1525128795574</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1525128795574</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Odstranění syntické chyby">
+      <created>1525128997275</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1525128997275</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33030000" />
+    <option name="totallyTimeSpent" value="33438000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12296564" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32878152" />
       <window_info anchor="bottom" id="Version Control" order="7" />
@@ -366,29 +533,30 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24937344" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Messages" order="7" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24937344" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12296564" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32878152" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.29516807" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
@@ -406,7 +574,9 @@
     <MESSAGE value="Přeložení částí dokumentace do aj" />
     <MESSAGE value="Oprava MapCreator pro progtest image" />
     <MESSAGE value="Dokončeni překladu synch commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dokončeni překladu synch commit" />
+    <MESSAGE value="Odstraněni chyby při přidávání veže" />
+    <MESSAGE value="Odstranění syntické chyby" />
+    <option name="LAST_COMMIT_MESSAGE" value="Odstranění syntické chyby" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Item.h">
@@ -636,28 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-          <folding>
-            <element signature="e#3701#5171#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding>
-            <element signature="e#2864#3039#0" expanded="true" />
-            <element signature="e#6795#6803#0" expanded="true" />
-            <element signature="e#7056#7064#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -669,6 +817,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-819">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <folding>
+            <element signature="e#2864#3039#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="91" column="12" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
+          <folding>
+            <element signature="e#118#248#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
