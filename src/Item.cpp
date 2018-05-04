@@ -87,22 +87,30 @@ MapPath::MapPath(const MapPath &mapNode) : m_x(mapNode.m_x),
                                            m_y(mapNode.m_y),
                                            m_startDistance(mapNode.m_startDistance),
                                            m_endDistance(mapNode.m_endDistance),
+                                           m_towerInRange(mapNode.m_towerInRange),
                                            m_next(nullptr),
-                                           m_before(nullptr){}
+                                           m_previous(nullptr){}
 
-MapPath::MapPath(int x, int y, int startDistance, int endDistance, MapPath* parent) : m_x(x),
-                                                                                      m_y(y),
-                                                                                      m_startDistance(startDistance),
-                                                                                      m_endDistance(endDistance),
-                                                                                      m_before(parent) {}
+MapPath::MapPath(int x, int y, int startDistance, int endDistance, int towerInRange, MapPath *parent) : m_x(x),
+                                                                                                        m_y(y),
+                                                                                                        m_startDistance(startDistance),
+                                                                                                        m_endDistance(endDistance),
+                                                                                                        m_towerInRange(towerInRange),
+                                                                                                        m_next(nullptr),
+                                                                                                        m_previous(parent){}
 
-int MapPath::getMetrict() {
-    return m_startDistance + m_endDistance;
+int MapPath::getMetric() {
+    return m_startDistance + m_endDistance + m_towerInRange * 10000;
 }
 
 int MapPath::getEndDistance() {
     return m_endDistance;
 }
+
+int MapPath::getTowerInRange() {
+    return m_towerInRange;
+}
+
 
 bool MapPath::operator == (const MapItem &mapItem) {
     return m_x == mapItem.m_mapPositionX && m_y == mapItem.m_mapPositionY;
@@ -120,7 +128,7 @@ MapPath& MapPath::operator = (const MapPath &mapNode) {
     m_y = mapNode.m_y;
     m_startDistance = mapNode.m_startDistance;
     m_endDistance = mapNode.m_endDistance;
-    m_before = mapNode.m_before;
+    m_previous = mapNode.m_previous;
     return *this;
 }
 
@@ -134,6 +142,9 @@ void MapPath::deletePath(MapPath* start) {
     } while (current);
 }
 
+int MapPath::getStartDistance() {
+    return m_startDistance;
+}
 
 //-------------MapItem-----------------
 
@@ -278,10 +289,16 @@ void Tower::attack(std::vector<Enemy*>& enemiesInMap) {
 bool Tower::isInRange(const Enemy& enemy) {
     int x = enemy.m_mapPositionX;
     int y = enemy.m_mapPositionY;
+    return isInRange(x, y);
+}
+
+
+bool Tower::isInRange(int x, int y) {
     int distanceX = abs(m_mapPositionX - x);
     int distanceY = abs(m_mapPositionY - y);
     return distanceX + distanceY <= m_range;
 }
+
 
 int Tower::getPrice() const {
     return m_price;
@@ -290,7 +307,6 @@ int Tower::getPrice() const {
 void Tower::writeToFile(std::ofstream &ofstream, char delimiter) {
     ofstream << m_mapItemChar << delimiter << m_price << delimiter << m_attack << delimiter << m_range << std::endl;
 }
-
 
 
 //-------------Enemy---------------------

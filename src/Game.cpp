@@ -5,6 +5,7 @@
 #include "Game.h"
 
 Game::Game() :  bottomToolbar(this),
+                m_pathFindingAStar(this),
                 m_startPathNode(nullptr),
                 m_lastSelectedItem(nullptr),
                 m_isRunning(false),
@@ -37,12 +38,14 @@ void Game::freePath() {
 }
 
 bool Game::initGame(const std::string &path) {
+
     MapCreator mapCreator;
     bool result = mapCreator.loadGameFile(path);
 
     m_map = mapCreator.m_map;
     m_money = mapCreator.m_money;
     m_lives = mapCreator.m_lives;
+    m_findAsBestPath = mapCreator.m_findAsBestPath;
     m_defineTowers = mapCreator.m_defineTowers;
     m_defineEnemies = mapCreator.m_defineEnemies;
 
@@ -53,7 +56,6 @@ bool Game::initGame(const std::string &path) {
     //Create deep copy of StartPoint and EndPoint
     m_startPoint = mapCreator.m_startPoint;
     m_endPoint = mapCreator.m_endPoint;
-    m_pathFindingAStar.setMap(m_map, m_endPoint);
     if (!result){
         return false;
     }
@@ -160,7 +162,6 @@ bool Game::calStartPathNode() {
 }
 
 bool Game::resetEnemyPath() {
-    m_pathFindingAStar.setMap(m_map);
     for (auto enemy : m_enemiesInMap){
         MapPath* mapNode;
         if (!m_pathFindingAStar.findBestPath(*enemy, mapNode)){
@@ -319,7 +320,6 @@ bool Game::addTower(int x, int y) {
     }
 
     mapItem->m_isFree = false;
-    m_pathFindingAStar.setMap(m_map);
     if (checkPathAvailable()){
         auto newTower = new Tower(*selectedTower);
         newTower->setPosition(u_x, u_y, s_itemWidth, s_itemHeight);
@@ -330,7 +330,6 @@ bool Game::addTower(int x, int y) {
         return true;
     } else{
         m_map[u_y][u_x]->m_isFree = true;
-        m_pathFindingAStar.setMap(m_map);
         return false;
     }
 }
@@ -372,7 +371,9 @@ bool Game::mouseClick(int x, int y) {
 
 void Game::saveGame() {
     pauseGame();
-    MapExport mapExport(m_money, m_lives,m_startPoint, m_endPoint, m_map, m_defineTowers, m_defineEnemies, m_enemiesQueue, m_enemiesInMap);
+    MapExport mapExport(m_findAsBestPath, m_money, m_lives, m_startPoint, m_endPoint, m_map, m_defineTowers, m_defineEnemies,
+                        m_enemiesQueue,
+                        m_enemiesInMap);
     mapExport.saveGame();
 }
 
@@ -399,6 +400,22 @@ bool Game::isLastSelectedItem(int x, int y) {
     return m_lastSelectedItem != nullptr &&
            m_lastSelectedItem->m_mapPositionX == x &&
            m_lastSelectedItem->m_mapPositionY == y;
+}
+
+const std::vector<std::vector<MapItem *>> &Game::getMap() {
+    return m_map;
+}
+
+const std::vector<Tower *> &Game::getTowersInMap() {
+    return m_towersInMap;
+}
+
+const MapItem *Game::getEndPoint() {
+    return m_endPoint;
+}
+
+bool Game::getBestPath() {
+    return m_findAsBestPath;
 }
 
 

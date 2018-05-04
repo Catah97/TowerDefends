@@ -26,7 +26,7 @@
  * First of all you have to initializing class. After initializing you should call gameTick(). Function make game run. Every call is one tick in game.
  * After gameTick() call you should call drawScene() to redraw scene.
  */
-class Game : public BottomToolbarCommunicator {
+class Game : public BottomToolbarCommunicator, public PathFindingAStarCommunicator {
 private:
     Constants constants;
 
@@ -61,6 +61,7 @@ private:
      */
     MapItem* m_lastSelectedItem;
     bool m_isRunning;
+    bool m_findAsBestPath;
     int m_lives;
     int m_selectedTower;
     int m_money;
@@ -259,10 +260,16 @@ public:
      */
     bool mouseClick(int x, int y);
 
-    //Overided from BottomToolbarCommunicator
+    //Overridden from BottomToolbarCommunicator
     virtual void onTowerSelected(int pos);
     virtual int getSelectedTowerPosition();
     virtual int getAvailableMoney();
+
+    //Overridden from PathFindingAStarCommunicator
+    virtual const std::vector<std::vector<MapItem*>>& getMap();
+    virtual const std::vector<Tower*>& getTowersInMap();
+    virtual const MapItem* getEndPoint();
+    virtual bool getBestPath();
 
 };
 

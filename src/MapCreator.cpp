@@ -3,10 +3,26 @@
 
 //----------------MapCreator-------------------------------
 
+bool MapCreator::loadBestPath(const std::string &bestPathDefine) {
+    int bestPath;
+    std::stringstream iss(bestPathDefine);
+    if (!getNextAttribute(iss, bestPath)) {
+        std::cerr << "Bad BestPath value" << std::endl;
+        return false;
+    }
+    if (bestPath == 0 || bestPath == 1){
+        m_findAsBestPath = bestPath == 1;
+        return true;
+    }
+    std::cerr << "Bad BestPath value" << std::endl;
+    return false;
+}
+
 bool MapCreator::loadMoney(const std::string &moneyDefine) {
     int money;
     std::stringstream iss(moneyDefine);
     if (!getNextAttribute(iss, money)) {
+        std::cerr << "Bad Money value" << std::endl;
         return false;
     }
     m_money = money;
@@ -17,6 +33,7 @@ bool MapCreator::loadLives(const std::string &livesDefine) {
     int lives;
     std::stringstream iss(livesDefine);
     if (!getNextAttribute(iss, lives)) {
+        std::cerr << "Bad lives value" << std::endl;
         return false;
     }
     m_lives = lives;
@@ -61,12 +78,16 @@ bool MapCreator::loadTowers(const std::string &towerDefines) {
         std::cerr << "Tower name can by only one char." << std::endl;
         return false;
     } if (!getNextAttribute(iss, towerPrice, ',')){
+        std::cerr << "Bad Tower value" << std::endl;
         return false;
     } if (!getNextAttribute(iss, towerAttack, ',')){
+        std::cerr << "Bad Tower value" << std::endl;
         return false;
     } if (!getNextAttribute(iss, towerRange)){
+        std::cerr << "Bad Tower value" << std::endl;
         return false;
     } if (!checkMainCharMatch("Tower", towerChar)){
+        std::cerr << "Bad Tower value" << std::endl;
         return false;
     }
     auto tower = new Tower(towerPrice, towerAttack, towerRange);
@@ -134,8 +155,10 @@ bool MapCreator::loadEnemies(const std::string &enemyDefine) {
         std::cerr << "Enemy name can by only one char." << std::endl;
         return false;
     } if (!getNextAttribute(iss, enemyHp)){
+        std::cerr << "Bad Enemy value" << std::endl;
         return false;
     } if (!checkMainCharMatch("Enemy", enemyChar)){
+        std::cerr << "Bad Enemy value" << std::endl;
         return false;
     }
     auto enemy = new Enemy(enemyHp);
@@ -222,6 +245,8 @@ bool MapCreator::parseString(const std::string &headLine, std::string &arg) {
         return loadStartEnd(arg);
     } else if (headLine == constants.ENEMIES_IN_MAP){
         return loadEnemiesInMap(arg);
+    } else if (headLine == constants.BEST_PATH){
+        return loadBestPath(arg);
     }
     return false;
 }
@@ -232,25 +257,31 @@ bool MapCreator::loadGameFile(const std::string &gameDefinePath) {
     std::ifstream mapFile (gameDefinePath);
     if (mapFile.is_open()) {
         {
-            while (getline(mapFile, line)) {
-                if (line == constants.TOWER_DEFINE ||
-                    line == constants.ENEMIES_DEFINE ||
-                    line == constants.QUEUE_DEFINE ||
-                    line == constants.MAP_DEFINE ||
-                    line == constants.MONEY_DEFINE ||
-                    line == constants.LIVES_DEFINE ||
-                    line == constants.START_END ||
-                    line == constants.ENEMIES_IN_MAP) {
-                    if (line == constants.MAP_DEFINE && !m_map.empty()) {
-                        std::cerr << "Only one m_map can be defined" << std::endl;
+            try {
+                while (getline(mapFile, line)) {
+                    if (line == constants.TOWER_DEFINE ||
+                        line == constants.ENEMIES_DEFINE ||
+                        line == constants.QUEUE_DEFINE ||
+                        line == constants.MAP_DEFINE ||
+                        line == constants.BEST_PATH ||
+                        line == constants.MONEY_DEFINE ||
+                        line == constants.LIVES_DEFINE ||
+                        line == constants.START_END ||
+                        line == constants.ENEMIES_IN_MAP) {
+                        if (line == constants.MAP_DEFINE && !m_map.empty()) {
+                            std::cerr << "Only one m_map can be defined" << std::endl;
+                            mapFile.close();
+                            return false;
+                        }
+                        headLine = line;
+                    } else if (!headLine.empty() && !line.empty() && !parseString(headLine, line)) {
                         mapFile.close();
                         return false;
                     }
-                    headLine = line;
-                } else if (!headLine.empty() && !line.empty() && !parseString(headLine, line)) {
-                    mapFile.close();
-                    return false;
                 }
+            } catch (std::invalid_argument& e){
+                std::cerr << "Load define file error" << std::endl;
+                return false;
             }
             mapFile.close();
         }

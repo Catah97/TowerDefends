@@ -4,10 +4,11 @@
 
 #include "MapExport.h"
 
-MapExport::MapExport(int money, int lives, FreePlace *startPoint, FreePlace *endPoint,
+MapExport::MapExport(bool findAsBestPath, int money, int lives, FreePlace *startPoint, FreePlace *endPoint,
                      std::vector<std::vector<MapItem *>> &map, std::vector<Tower *> &defineTowers,
                      std::vector<Enemy *> &defineEnemies, std::vector<Enemy *> &enemiesQueue,
-                     std::vector<Enemy *> &enemiesInMap) : m_money(money),
+                     std::vector<Enemy *> &enemiesInMap) : m_findAsBestPath(findAsBestPath),
+                                                           m_money(money),
                                                            m_lives(lives),
                                                            m_startPoint(startPoint),
                                                            m_endPoint(endPoint),
@@ -23,6 +24,11 @@ void MapExport::saveGame() {
     std::string path = generateFilePath();
     std::ofstream mapFile;
     mapFile.open (path, std::ios::out);
+    mapFile << constants.BEST_PATH << std::endl;
+    int findAsBestPath = m_findAsBestPath ? 1 : 0;
+    mapFile << std::to_string(findAsBestPath) << std::endl;
+    mapFile << std::endl;
+
     mapFile << constants.MONEY_DEFINE << std::endl;
     mapFile << std::to_string(m_money) << std::endl;
     mapFile << std::endl;
@@ -75,14 +81,14 @@ std::string MapExport::generateFilePath() {
 
 void MapExport::writeTowerDefine(std::ofstream &mapFile) {
     for (auto tower : m_defineTowers){
-        tower->writeToFile(mapFile, getDelmiter());
+        tower->writeToFile(mapFile, getDelimiter());
     }
     mapFile << std::endl;
 }
 
 void MapExport::writeEnemyDefine(std::ofstream &mapFile) {
     for (auto enemy : m_defineEnemies){
-        enemy->writeToFile(mapFile, getDelmiter());
+        enemy->writeToFile(mapFile, getDelimiter());
     }
     mapFile << std::endl;
 }
@@ -110,23 +116,23 @@ void MapExport::writeMap(std::ofstream &mapFile) {
 }
 
 void MapExport::writeStartEnd(std::ofstream &mapFile) {
-    mapFile << constants.QUEUE_IN_CHAR << getDelmiter()
-            << m_startPoint->m_mapPositionX << getDelmiter() <<
+    mapFile << constants.QUEUE_IN_CHAR << getDelimiter()
+            << m_startPoint->m_mapPositionX << getDelimiter() <<
             m_startPoint->m_mapPositionY << std::endl;
-    mapFile << constants.QUEUE_OUT_CHAR << getDelmiter() <<
-            m_endPoint->m_mapPositionX << getDelmiter() <<
+    mapFile << constants.QUEUE_OUT_CHAR << getDelimiter() <<
+            m_endPoint->m_mapPositionX << getDelimiter() <<
             m_endPoint->m_mapPositionY << std::endl;
     mapFile << std::endl;
 }
 
 void MapExport::writeEnemiesInMap(std::ofstream &ofstream) {
     for (auto enemyInMap : m_enemiesInMap){
-        enemyInMap->writeToFileAsEnemyInMap(ofstream, getDelmiter());
+        enemyInMap->writeToFileAsEnemyInMap(ofstream, getDelimiter());
     }
     ofstream << std::endl;
 }
 
-char MapExport::getDelmiter() {
+char MapExport::getDelimiter() {
     return ',';
 }
 

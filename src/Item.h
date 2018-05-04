@@ -9,8 +9,6 @@
 
 #ifdef __APPLE__
 #include <GLUT/glut.h>
-#include <fstream>
-
 #else
 #include <GL/glut.h>
 #endif
@@ -204,22 +202,81 @@ public:
     }
 };
 
-
+/**
+ * Class for path implementation by A*
+ * To found path is used three attributes m_startDistance, m_endDistance, m_towerInRange.
+ * Final path is represent by link list.
+ * Every item in this list has reference on next segment of path and previous segment.
+ */
 class MapPath{
-public:
-    int m_x, m_y;
-    int m_startDistance, m_endDistance;
-    MapPath* m_next,* m_before;
+private:
+    /**
+     * Absolute distance from start point(mean how many jump you are from start)
+     */
+    int m_startDistance;
 
+    /**
+     * Relative distance from end
+     */
+    int m_endDistance;
+
+    /**
+     * How many tower can attack on this field of map
+     */
+    int m_towerInRange;
+
+public:
+
+    /**
+     * Position on map
+     */
+    int m_x, m_y;
+
+    /**
+     * Links on next and previous segment of path
+     */
+    MapPath* m_next,* m_previous;
+
+    /**
+     * Copy attributes of params mapNode to current MapPath
+     * @param mapNode
+     */
     MapPath(const MapPath& mapNode);
-    MapPath(int x, int y, int startDistance, int endDistance, MapPath* m_parent);
+    MapPath(int x, int y, int startDistance, int endDistance, int towerInRange, MapPath *m_parent);
+
+    /**
+     * Get start distance
+     * @return value of m_startDistance
+     */
+    int getStartDistance();
+
+    /**
+     * Get how many tower can attack this MapPath
+     * @return value of m_towerInRange
+     */
+    int getTowerInRange();
+
+    /**
+     * Get distance to end
+     * @return value of m_endDistance
+     */
     int getEndDistance();
-    int getMetrict();
+
+    /**
+     * Metric for A* algorithm. Metric is sum from (m_startDistance, m_endDistance, m_towerInRange * 10000).
+     * m_towerInRange * 10000 is used to found path with least dangerous fields
+     * @return sum from (m_startDistance, m_endDistance, m_towerInRange * 10000)
+     */
+    int getMetric();
 
     MapPath& operator = (const MapPath& mapNode);
     bool operator == (const MapPath& mapNode);
     bool operator == (const MapItem& mapItem);
 
+    /**
+     * Delete all items in path
+     * @param start first item in link list
+     */
     static void deletePath(MapPath* start);
 };
 
@@ -342,14 +399,17 @@ private:
      */
     int m_price, m_attack, m_range;
 
+
+public:
+
     /**
      * Check if is enemy in range of tower attacks
      * @param enemy
      * @return TRUE if enemy is in range, else FALSE
      */
     bool isInRange(const Enemy& enemy);
+    bool isInRange(int x, int y);
 
-public:
 
     explicit Tower(const Tower& tower);
     explicit Tower(const int& price = -1, const int& attack = -1,const int& range = -1);

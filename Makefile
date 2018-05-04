@@ -1,24 +1,24 @@
-CC := g++
-CCFLAGS := -Wall -pedantic -Wno-long-long -O0 -ggdb -g -std=c++11
+CC = g++
+CCFLAGS = -Wall -pedantic -Wno-long-long -O0 -ggdb -g -std=c++11
 
 
-#NAME := "TowerDefends"
-LOGIN_NAME := beranm30
-APP_NAME := $(LOGIN_NAME)
-SRC_DIR := src
-OBJ_DIR := obj
-DOC_DIR := doc
-SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
-OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES))
+#NAME = "TowerDefends"
+LOGIN_NAME = beranm30
+APP_NAME = $(LOGIN_NAME)
+SRC_DIR = src
+OBJ_DIR = obj
+DOC_DIR = doc
+SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
+OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES))
 EXAMPLE_DEF_FILE = "examples/map.txt"
 
-TowerDefendsDoxyfile := src/TowerDefendsDoxyfile
+TowerDefendsDoxyfile = src/TowerDefendsDoxyfile
 
-OS := $(shell uname)
+OS = $(shell uname)
 
-OPENGL_ENABLE := 1
-MAC_LIBS := -framework GLUT -framework OpenGL -D __OPENGL__
-NORMAL_LIBS := -lGL -lglut -D __OPENGL__
+OPENGL_ENABLE = 1
+MAC_LIBS = -framework GLUT -framework OpenGL -D __OPENGL__
+NORMAL_LIBS = -lGL -lglut -D __OPENGL__
 
 
 all: compile doc
@@ -62,7 +62,7 @@ else
 	$(CC) $(CCFLAGS) $(OBJ_FILES) $(NORMAL_LIBS) -o ./$(APP_NAME)
 endif
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(SRC_DIR)/%.h
 ifeq ($(OPENGL_ENABLE), 0)
 	$(CC) $(CCFLAGS) -c $< -o $@
 else ifeq ($(OS), Darwin)

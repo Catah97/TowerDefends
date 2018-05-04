@@ -6,27 +6,25 @@
 
 //---------------------------PathFindingAStar--------------------------------
 
-void PathFindingAStar::setMap(const std::vector<std::vector<MapItem *>> &map) {
-    m_map = map;
-}
+PathFindingAStar::PathFindingAStar(PathFindingAStarCommunicator* communicator) : m_communicator(communicator) {}
 
-void PathFindingAStar::setMap(const std::vector<std::vector<MapItem *>> &map, const MapItem *endPoint) {
-    m_map = map;
-    m_endPoint = endPoint;
-}
 
 MapPath* PathFindingAStar::createMapNode(const MapItem &mapItem, MapPath* parentNode) {
     int x = mapItem.m_mapPositionX;
     int y = mapItem.m_mapPositionY;
     //startDistance has diff 10 endDistance 1
-    int startDistance = parentNode == nullptr ? 0 : parentNode->m_startDistance + 10;
-    int endDistance = abs( x - m_endPoint->m_mapPositionX) * 10 + abs( y - m_endPoint->m_mapPositionY) * 10;
-    auto mapNode = new MapPath(x, y, startDistance, endDistance, parentNode);
+    int startDistance = parentNode == nullptr ? 0 : parentNode->getStartDistance() + 1;
+    auto endPoint = m_communicator->getEndPoint();
+    int endDistance = abs( x - endPoint->m_mapPositionX) * 1 + abs( y - endPoint->m_mapPositionY) * 1;
+    int towersInRange = m_communicator->getBestPath() ? getTowerInRanger(x, y) : 0;
+    auto mapNode = new MapPath(x, y, startDistance, endDistance, towersInRange, parentNode);
     return mapNode;
 }
 
 
 bool PathFindingAStar::findBestPath(const MapItem &startPoint, MapPath*& result) {
+    auto endPoint = m_communicator->getEndPoint();
+    auto map = m_communicator->getMap();
     MapPath* startNode = createMapNode(startPoint);
     std::vector<MapPath*> availableNodes, closedNodes;
     availableNodes.push_back(startNode);
@@ -44,7 +42,7 @@ bool PathFindingAStar::findBestPath(const MapItem &startPoint, MapPath*& result)
         MapPath* currentNode = findBestNode(availableNodes, position);
         closedNodes.push_back(currentNode);
         availableNodes.erase(position);
-        if (*currentNode == *m_endPoint){
+        if (*currentNode == *endPoint){
             createPath(currentNode, result);
             freeLists(availableNodes);
             freeLists(closedNodes);
@@ -52,7 +50,7 @@ bool PathFindingAStar::findBestPath(const MapItem &startPoint, MapPath*& result)
             return true;
         }
         neighbours.clear();
-        getAvailableNeighbourNodes(*currentNode, neighbours);
+        getAvailableNeighbourNodes(map, *currentNode, neighbours);
         for (auto neighbour : neighbours){
 
             if (isInList(*neighbour, closedNodes)){
@@ -74,7 +72,7 @@ void PathFindingAStar::createPath(MapPath* endPosition, MapPath*& newStartNode) 
         auto newNode = new MapPath(*currentNode);
         newNode->m_next = lastNode;
         lastNode = newNode;
-        currentNode = currentNode->m_before;
+        currentNode = currentNode->m_previous;
     }
     newStartNode = lastNode;
 }
@@ -83,12 +81,16 @@ MapPath* PathFindingAStar::findBestNode(const std::vector<MapPath*>& availableNo
                                           std::vector<MapPath*>::const_iterator& position) {
     MapPath* result = *availableNodes.begin();
     position = availableNodes.begin();
+
+    // std::cout << "----------findBestNode-------------" << std::endl;
+    //printListOfNotes(availableNodes);
+
     for (auto it = availableNodes.begin(); it < availableNodes.end(); ++it) {
         MapPath* node = *it;
-        if (result->getMetrict() > node->getMetrict()){
+        if (result->getMetric() > node->getMetric()){
             result = node;
             position = it;
-        } else if (result->getMetrict() == node->getMetrict() && result->getEndDistance() > node->getEndDistance()){
+        } else if (result->getMetric() == node->getMetric() && result->getEndDistance() > node->getEndDistance()){
             result = node;
             position = it;
         }
@@ -97,22 +99,25 @@ MapPath* PathFindingAStar::findBestNode(const std::vector<MapPath*>& availableNo
 }
 
 
-void PathFindingAStar::getAvailableNeighbourNodes(MapPath &item, std::vector<MapPath *> &result) {
+void PathFindingAStar::getAvailableNeighbourNodes(const std::vector<std::vector<MapItem *>>& map,
+                                                  MapPath &item,
+                                                  std::vector<MapPath *> &result) {
     int x = item.m_x;
     int y = item.m_y;
-    getAvailableNeighbourNodes(item, x - 1, y, result);
-    getAvailableNeighbourNodes(item, x + 1, y, result);
-    getAvailableNeighbourNodes(item, x, y - 1, result);
-    getAvailableNeighbourNodes(item, x, y + 1, result);
+    getAvailableNeighbourNodes(map, item, x - 1, y, result);
+    getAvailableNeighbourNodes(map, item, x + 1, y, result);
+    getAvailableNeighbourNodes(map, item, x, y - 1, result);
+    getAvailableNeighbourNodes(map, item, x, y + 1, result);
 }
 
-bool PathFindingAStar::getAvailableNeighbourNodes(MapPath &parentNode, int x, int y, std::vector<MapPath *> &result) {
+bool PathFindingAStar::getAvailableNeighbourNodes(const std::vector<std::vector<MapItem *>>& map, MapPath &parentNode, int x,
+                                                  int y, std::vector<MapPath *> &result) {
     if (x >= 0 && y >= 0){
         //Aby kompilator neřval, jelikož x zde již nemůže být zaporné tak je cast validní
         unsigned int u_x = static_cast<unsigned int>(x);
         unsigned int u_y = static_cast<unsigned int>(y);
-        if (u_x < m_map[0].size() && u_y < m_map.size()) {
-            MapItem *mapItem = m_map[y][x];
+        if (u_x < map[0].size() && u_y < map.size()) {
+            MapItem *mapItem = map[y][x];
             if (mapItem->m_isFree) {
                 MapPath *mapNode = createMapNode(*mapItem, &parentNode);
                 result.push_back(mapNode);
@@ -135,8 +140,8 @@ void PathFindingAStar::printListOfNotes(const std::vector<MapPath *>& list) {
     std::cout << " printListNotes " << std::endl;
     for (const auto item : list){
         std::cout << "Item position: " << item->m_x << ", " << item->m_y << std::endl;
-        std::cout << "Item values: " << item->getMetrict() << ", " << item->getEndDistance() << std::endl;
-
+        std::cout << "Item values: " << item->getMetric() << ", " << item->getEndDistance() << std::endl;
+        std::cout << "TowerInRange" << item->getTowerInRange() << std::endl;
     }
 }
 
@@ -145,5 +150,17 @@ void PathFindingAStar::freeLists(const std::vector<MapPath *> &list) {
         delete item;
     }
 }
+
+int PathFindingAStar::getTowerInRanger(int x, int y) {
+    int result = 0;
+    auto towerInMap = m_communicator->getTowersInMap();
+    for (auto tower : towerInMap){
+        if (tower->isInRange(x, y)){
+            result++;
+        }
+    }
+    return result;
+}
+
 
 

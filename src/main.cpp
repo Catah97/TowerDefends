@@ -50,7 +50,10 @@ using namespace std;
  *
  *
  *
- * \subsection option_headers Optional Headers: Money, Lives, EnemiesInMap, Queue
+ * \subsection option_headers Optional Headers: BestPath, Money, Lives, EnemiesInMap, Queue
+ * \li BestPath define path algorithm. In body can be only 1 or 0. If 1 is set enemies will find path
+ * with less danger fields for them. Typically fields out of range towers attacks.
+ * If 0 enemies will find the shortest path to end. Default is 0.
  * \li Money section define the number of money in the game. The default value is 5000
  * \li Lives is a section where we define the player's lives. The default value is 5.
  * \li EnemiesInMap is used when saving a game after recording the lives of enemies. the first two numbers are the coordinates of the enemy, and the third is the number of health.
@@ -159,7 +162,7 @@ void resize(int width, int height){
 #endif //__OPENGL__
 
 int main(int argc, char **argv) {
-    if (argc != 2){
+    if (argc != 2) {
         cerr << "Bad input arguments" << endl;
         return 1;
     }
