@@ -13,7 +13,11 @@
       <change afterPath="$PROJECT_DIR$/obj/BottomBar.o" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/obj/Game.o" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/obj/Item.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/obj/MapCreator.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/obj/MapExport.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/obj/PathFindingAStar.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/obj/Tools.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/obj/main.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Makefile" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Makefile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+            <state relative-caret-position="541">
+              <caret line="124" selection-start-line="124" selection-end-line="124" />
             </state>
           </provider>
         </entry>
@@ -75,6 +79,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Game.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Game.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="430">
+              <caret line="41" column="37" lean-forward="true" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -145,7 +158,6 @@
         <option value="$PROJECT_DIR$/examples/FormatInput.txt" />
         <option value="$PROJECT_DIR$/src/Item.cpp" />
         <option value="$PROJECT_DIR$/src/BottomBar.h" />
-        <option value="$PROJECT_DIR$/src/Game.h" />
         <option value="$PROJECT_DIR$/src/Item.h" />
         <option value="$PROJECT_DIR$/src/MapCreator.cpp" />
         <option value="$PROJECT_DIR$/src/Game.cpp" />
@@ -154,6 +166,7 @@
         <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/zadani.txt" />
         <option value="$PROJECT_DIR$/Makefile" />
+        <option value="$PROJECT_DIR$/src/Game.h" />
       </list>
     </option>
   </component>
@@ -284,7 +297,7 @@
       <workItem from="1525203600812" duration="335000" />
       <workItem from="1525258013897" duration="673000" />
       <workItem from="1525259908870" duration="1304000" />
-      <workItem from="1525421343073" duration="1754000" />
+      <workItem from="1525421343073" duration="2123000" />
     </task>
     <task id="LOCAL-00001" summary="Oprava warningů">
       <created>1524605573744</created>
@@ -433,11 +446,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525421395387</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Oprava makefile">
+      <created>1525423347364</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1525423347364</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40187000" />
+    <option name="totallyTimeSpent" value="40556000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
@@ -503,7 +523,8 @@
     <MESSAGE value="Oprava asynch requestu při pohybu myši" />
     <MESSAGE value="Synch commit" />
     <MESSAGE value="Dokumentace" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dokumentace" />
+    <MESSAGE value="Oprava makefile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Oprava makefile" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/MapCreator.h">
@@ -709,13 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TowerDefendsDoxyfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16830">
@@ -774,8 +788,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        <state relative-caret-position="541">
+          <caret line="124" selection-start-line="124" selection-end-line="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="41" column="37" lean-forward="true" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
         </state>
       </provider>
     </entry>

@@ -22,8 +22,7 @@ NORMAL_LIBS = -lGL -lglut -D __OPENGL__
 
 all: compile doc
 
-compile: $(OBJ_DIR) $(OBJ_DIR)/BottomBar.o $(OBJ_DIR)/Game.o $(OBJ_DIR)/Item.o $(OBJ_DIR)/main.o \
-$(OBJ_DIR)/MapCreator.o $(OBJ_DIR)/MapExport.o $(OBJ_DIR)/PathFindingAStar.o $(OBJ_DIR)/Tools.o
+compile: $(OBJ_DIR) $(OBJ_FILES)
 ifeq ($(OPENGL_ENABLE), 0)
 	$(CC) $(CCFLAGS) $(OBJ_FILES) -o ./$(APP_NAME)
 else ifeq ($(OS), Darwin)
