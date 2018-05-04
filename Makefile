@@ -20,14 +20,17 @@ OPENGL_ENABLE = 1
 MAC_LIBS = -framework GLUT -framework OpenGL -D __OPENGL__
 NORMAL_LIBS = -lGL -lglut -D __OPENGL__
 
-
 all: compile doc
 
-compile:
-	@echo Compile
-	@echo $(CCFLAGS)
-	@mkdir -p $(OBJ_DIR)
-	@make linking
+compile: $(OBJ_DIR) $(OBJ_DIR)/BottomBar.o $(OBJ_DIR)/Game.o $(OBJ_DIR)/Item.o $(OBJ_DIR)/main.o \
+$(OBJ_DIR)/MapCreator.o $(OBJ_DIR)/MapExport.o $(OBJ_DIR)/PathFindingAStar.o $(OBJ_DIR)/Tools.o
+ifeq ($(OPENGL_ENABLE), 0)
+	$(CC) $(CCFLAGS) $(OBJ_FILES) -o ./$(APP_NAME)
+else ifeq ($(OS), Darwin)
+	$(CC) $(CCFLAGS) $(OBJ_FILES) $(MAC_LIBS) -o ./$(APP_NAME)
+else
+	$(CC) $(CCFLAGS) $(OBJ_FILES) $(NORMAL_LIBS) -o ./$(APP_NAME)
+endif
 
 run:
 #@echo Run
@@ -53,16 +56,10 @@ clean_doc:
 	@echo Removing $(DOC_DIR)
 	@rm -rf $(DOC_DIR)
 
-linking: $(OBJ_FILES)
-ifeq ($(OPENGL_ENABLE), 0)
-	$(CC) $(CCFLAGS) $(OBJ_FILES) -o ./$(APP_NAME)
-else ifeq ($(OS), Darwin)
-	$(CC) $(CCFLAGS) $(OBJ_FILES) $(MAC_LIBS) -o ./$(APP_NAME)
-else
-	$(CC) $(CCFLAGS) $(OBJ_FILES) $(NORMAL_LIBS) -o ./$(APP_NAME)
-endif
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(SRC_DIR)/%.h
+$(OBJ_DIR)/BottomBar.o: $(SRC_DIR)/BottomBar.cpp $(SRC_DIR)/BottomBar.h $(SRC_DIR)/Item.h
 ifeq ($(OPENGL_ENABLE), 0)
 	$(CC) $(CCFLAGS) -c $< -o $@
 else ifeq ($(OS), Darwin)
@@ -70,3 +67,69 @@ else ifeq ($(OS), Darwin)
 else
 	$(CC) $(CCFLAGS) $(NORMAL_LIBS) -c $< -o $@
 endif
+
+$(OBJ_DIR)/Game.o: $(SRC_DIR)/Game.cpp $(SRC_DIR)/Game.h $(SRC_DIR)/Item.h $(SRC_DIR)/MapCreator.h \
+$(SRC_DIR)/Tools.h $(SRC_DIR)/PathFindingAStar.h $(SRC_DIR)/BottomBar.h $(SRC_DIR)/MapExport.h
+ifeq ($(OPENGL_ENABLE), 0)
+	$(CC) $(CCFLAGS) -c $< -o $@
+else ifeq ($(OS), Darwin)
+	$(CC) $(CCFLAGS) $(MAC_LIBS) -c $< -o $@
+else
+	$(CC) $(CCFLAGS) $(NORMAL_LIBS) -c $< -o $@
+endif
+
+$(OBJ_DIR)/Item.o: $(SRC_DIR)/Item.cpp $(SRC_DIR)/Item.h
+ifeq ($(OPENGL_ENABLE), 0)
+	$(CC) $(CCFLAGS) -c $< -o $@
+else ifeq ($(OS), Darwin)
+	$(CC) $(CCFLAGS) $(MAC_LIBS) -c $< -o $@
+else
+	$(CC) $(CCFLAGS) $(NORMAL_LIBS) -c $< -o $@
+endif
+
+$(OBJ_DIR)/main.o: $(SRC_DIR)/main.cpp $(SRC_DIR)/Item.h $(SRC_DIR)/MapCreator.h $(SRC_DIR)/Tools.h \
+$(SRC_DIR)/Game.h $(SRC_DIR)/PathFindingAStar.h $(SRC_DIR)/BottomBar.h $(SRC_DIR)/MapExport.h
+ifeq ($(OPENGL_ENABLE), 0)
+	$(CC) $(CCFLAGS) -c $< -o $@
+else ifeq ($(OS), Darwin)
+	$(CC) $(CCFLAGS) $(MAC_LIBS) -c $< -o $@
+else
+	$(CC) $(CCFLAGS) $(NORMAL_LIBS) -c $< -o $@
+endif
+
+$(OBJ_DIR)/MapCreator.o: $(SRC_DIR)/MapCreator.cpp $(SRC_DIR)/MapCreator.h $(SRC_DIR)/Item.h $(SRC_DIR)/Tools.h
+ifeq ($(OPENGL_ENABLE), 0)
+	$(CC) $(CCFLAGS) -c $< -o $@
+else ifeq ($(OS), Darwin)
+	$(CC) $(CCFLAGS) $(MAC_LIBS) -c $< -o $@
+else
+	$(CC) $(CCFLAGS) $(NORMAL_LIBS) -c $< -o $@
+endif
+
+$(OBJ_DIR)/MapExport.o: $(SRC_DIR)/MapExport.cpp $(SRC_DIR)/MapExport.h $(SRC_DIR)/Tools.h $(SRC_DIR)/Item.h
+ifeq ($(OPENGL_ENABLE), 0)
+	$(CC) $(CCFLAGS) -c $< -o $@
+else ifeq ($(OS), Darwin)
+	$(CC) $(CCFLAGS) $(MAC_LIBS) -c $< -o $@
+else
+	$(CC) $(CCFLAGS) $(NORMAL_LIBS) -c $< -o $@
+endif
+
+$(OBJ_DIR)/PathFindingAStar.o: $(SRC_DIR)/PathFindingAStar.cpp $(SRC_DIR)/PathFindingAStar.h $(SRC_DIR)/Item.h
+ifeq ($(OPENGL_ENABLE), 0)
+	$(CC) $(CCFLAGS) -c $< -o $@
+else ifeq ($(OS), Darwin)
+	$(CC) $(CCFLAGS) $(MAC_LIBS) -c $< -o $@
+else
+	$(CC) $(CCFLAGS) $(NORMAL_LIBS) -c $< -o $@
+endif
+
+$(OBJ_DIR)/Tools.o: $(SRC_DIR)/Tools.cpp $(SRC_DIR)/Tools.h
+ifeq ($(OPENGL_ENABLE), 0)
+	$(CC) $(CCFLAGS) -c $< -o $@
+else ifeq ($(OS), Darwin)
+	$(CC) $(CCFLAGS) $(MAC_LIBS) -c $< -o $@
+else
+	$(CC) $(CCFLAGS) $(NORMAL_LIBS) -c $< -o $@
+endif
+
