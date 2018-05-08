@@ -9,15 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="baa96a91-3cb9-4040-9e6b-a5e24aa0e122" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/BigMapTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/MapTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples/MapTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PathFindingAStar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/PathFindingAStar.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PathFindingAStar.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/PathFindingAStar.h" afterDir="false" />
-    </list>
+    <list default="true" id="baa96a91-3cb9-4040-9e6b-a5e24aa0e122" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Makefile" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Makefile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1965">
-              <caret line="131" column="47" selection-start-line="131" selection-start-column="47" selection-end-line="131" selection-end-column="47" />
+            <state relative-caret-position="180">
+              <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -53,11 +45,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="MapTest.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/examples/MapTest.txt">
+      <file leaf-file-name="MapExample.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/MapExample.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="615">
-              <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
+              <caret line="41" column="64" selection-end-line="43" />
             </state>
           </provider>
         </entry>
@@ -69,11 +61,6 @@
               <caret line="34" column="12" selection-start-line="34" selection-end-line="34" selection-end-column="12" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="map.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/map.txt">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="zadani.txt" pinned="false" current-in-tab="false">
@@ -167,9 +154,9 @@
         <option value="$PROJECT_DIR$/src/MapCreator.h" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/zadani.txt" />
-        <option value="$PROJECT_DIR$/Makefile" />
         <option value="$PROJECT_DIR$/src/Game.h" />
         <option value="$PROJECT_DIR$/examples/MapTest.txt" />
+        <option value="$PROJECT_DIR$/Makefile" />
       </list>
     </option>
   </component>
@@ -302,7 +289,7 @@
       <workItem from="1525259908870" duration="1304000" />
       <workItem from="1525421343073" duration="2123000" />
       <workItem from="1525774272629" duration="212000" />
-      <workItem from="1525781975611" duration="67000" />
+      <workItem from="1525781975611" duration="317000" />
     </task>
     <task id="LOCAL-00001" summary="Oprava warningů">
       <created>1524605573744</created>
@@ -458,23 +445,29 @@
       <option name="project" value="LOCAL" />
       <updated>1525423347364</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Dokončení dokuemntace a oprava path finding">
+      <created>1525782192183</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1525782192183</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41026000" />
+    <option name="totallyTimeSpent" value="41276000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12296564" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12296564" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32878152" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.29516807" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.29516807" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24937344" />
@@ -530,7 +523,8 @@
     <MESSAGE value="Synch commit" />
     <MESSAGE value="Dokumentace" />
     <MESSAGE value="Oprava makefile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Oprava makefile" />
+    <MESSAGE value="Dokončení dokuemntace a oprava path finding" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dokončení dokuemntace a oprava path finding" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Makefile">
@@ -779,13 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1965">
-          <caret line="131" column="47" selection-start-line="131" selection-start-column="47" selection-end-line="131" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1395">
@@ -803,13 +790,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/map.txt">
+    <entry file="file://$PROJECT_DIR$/examples/MapExample.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/MapTest.txt">
+    <entry file="file://$PROJECT_DIR$/examples/MapExample.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
-          <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
+          <caret line="41" column="64" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
         </state>
       </provider>
     </entry>
