@@ -10,7 +10,7 @@ OBJ_DIR = obj
 DOC_DIR = doc
 SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES))
-EXAMPLE_DEF_FILE = "examples/map.txt"
+EXAMPLE_DEF_FILE = "examples/MapExample.txt"
 
 TowerDefendsDoxyfile = src/TowerDefendsDoxyfile
 

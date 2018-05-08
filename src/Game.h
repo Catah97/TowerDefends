@@ -139,10 +139,18 @@ private:
     void sortEnemiesByDistance();
 
     /**
-     * Calculate path for all enemies on map and path from start to finish
+     * Calculate path from start to finish.
+     * Set path for all enemies on map.
      * @return TRUE if is possible to found path from START to FINISh, else FALSE
      */
     bool resetEnemyPath();
+
+    /**
+     * Detect if enemy has default path or not
+     * @param enemy
+     * @return TRUE enemy can use default path
+     */
+    bool isInDefaultPath(Enemy &enemy);
 
     /**
      * Move with all enemies on next position
@@ -154,6 +162,9 @@ private:
      */
     void towersAttack();
 
+    /**
+     * Delete dead enemies from map and replace them with FreePlaces
+     */
     void clearDeadEnemy();
 
     /**
@@ -269,7 +280,7 @@ public:
     virtual const std::vector<std::vector<MapItem*>>& getMap();
     virtual const std::vector<Tower*>& getTowersInMap();
     virtual const MapItem* getEndPoint();
-    virtual bool getBestPath();
+    virtual bool getBestPathForEnemies();
 
 };
 

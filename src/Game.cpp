@@ -162,7 +162,14 @@ bool Game::calStartPathNode() {
 }
 
 bool Game::resetEnemyPath() {
+    if (!calStartPathNode()){
+        return false;
+    }
     for (auto enemy : m_enemiesInMap){
+        if (isInDefaultPath(*enemy)){
+            continue;
+        }
+
         MapPath* mapNode;
         if (!m_pathFindingAStar.findBestPath(*enemy, mapNode)){
             return false;
@@ -170,7 +177,22 @@ bool Game::resetEnemyPath() {
         enemy->setPath(*mapNode);
         MapPath::deletePath(mapNode);
     }
-    return calStartPathNode();
+    return true;
+}
+
+
+bool Game::isInDefaultPath(Enemy &enemy) {
+    int xEnemyPos = enemy.m_mapPositionX;
+    int yEnemyPos = enemy.m_mapPositionY;
+    auto currentNode = m_startPathNode;
+    while (currentNode){
+        if (currentNode->m_x == xEnemyPos && currentNode->m_y == yEnemyPos){
+            enemy.setPath(*currentNode);
+            return true;
+        }
+        currentNode = currentNode->m_next;
+    }
+    return false;
 }
 
 void Game::sortEnemiesByDistance() {
@@ -414,7 +436,7 @@ const MapItem *Game::getEndPoint() {
     return m_endPoint;
 }
 
-bool Game::getBestPath() {
+bool Game::getBestPathForEnemies() {
     return m_findAsBestPath;
 }
 
