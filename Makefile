@@ -31,7 +31,7 @@ else
 	$(CC) $(CCFLAGS) $(OBJ_FILES) $(NORMAL_LIBS) -o ./$(APP_NAME)
 endif
 
-run:
+run: compile
 #@echo Run
 	./$(APP_NAME) $(EXAMPLE_DEF_FILE)
 

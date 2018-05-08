@@ -276,6 +276,11 @@ bool MapCreator::loadGameFile(const std::string &gameDefinePath) {
                         headLine = line;
                     } else if (!headLine.empty() && !line.empty() && !parseString(headLine, line)) {
                         mapFile.close();
+                        std::cerr << "Illegal config file structure" << std::endl;
+                        return false;
+                    } else if (headLine.empty() && !line.empty()){
+                        mapFile.close();
+                        std::cerr << "Illegal config file structure" << std::endl;
                         return false;
                     }
                 }

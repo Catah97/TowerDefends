@@ -83,19 +83,19 @@ float UiItem::getLineWidth() {
 
 //-----------------MapPath---------------------------------------------
 
-MapPath::MapPath(const MapPath &mapNode) : m_startDistance(mapNode.m_startDistance),
+MapPath::MapPath(const MapPath &mapNode) : m_x(mapNode.m_x),
+                                           m_y(mapNode.m_y),
+                                           m_startDistance(mapNode.m_startDistance),
                                            m_endDistance(mapNode.m_endDistance),
                                            m_towerInRange(mapNode.m_towerInRange),
-                                           m_x(mapNode.m_x),
-                                           m_y(mapNode.m_y),
                                            m_next(nullptr),
                                            m_previous(nullptr){}
 
-MapPath::MapPath(int x, int y, int startDistance, int endDistance, int towerInRange, MapPath *parent) : m_startDistance(startDistance),
+MapPath::MapPath(int x, int y, int startDistance, int endDistance, int towerInRange, MapPath *parent) : m_x(x),
+                                                                                                        m_y(y),
+                                                                                                        m_startDistance(startDistance),
                                                                                                         m_endDistance(endDistance),
                                                                                                         m_towerInRange(towerInRange),
-                                                                                                        m_x(x),
-                                                                                                        m_y(y),
                                                                                                         m_next(nullptr),
                                                                                                         m_previous(parent){}
 

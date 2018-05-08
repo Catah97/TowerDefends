@@ -1,3 +1,6 @@
+BestPath
+0
+
 Money
 60000
 

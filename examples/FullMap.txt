@@ -1,3 +1,6 @@
+BestPath
+1
+
 Towers
 A,300,10,2
 B,100,10,2
