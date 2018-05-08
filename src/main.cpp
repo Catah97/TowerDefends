@@ -176,14 +176,14 @@ int main(int argc, char **argv) {
     glutInitDisplayMode(GLUT_SINGLE);
     glutInitWindowSize(m_WindowWidth, m_WindowHeight);
     glutInitWindowPosition(200, 200);
-    glutCreateWindow("Hello world :D");
+    glutCreateWindow("TowerDefends");
     glutDisplayFunc(refreshView);
     glutMouseFunc(mouseClicks);
     glutPassiveMotionFunc(mouseMove);
     glutSpecialUpFunc(specialInput);
     glutKeyboardUpFunc(keyboardFunc);
     glutReshapeFunc(resize);
-    glutTimerFunc(1, glutTimer, 1);
+    glutTimerFunc(100, glutTimer, 1);
     glutMainLoop();
 #else
     game.startGame();

@@ -9,19 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="baa96a91-3cb9-4040-9e6b-a5e24aa0e122" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/obj/BottomBar.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/Game.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/Item.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/MapCreator.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/MapExport.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/FullMap.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples/FullMap.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/MapExample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples/MapExample.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Item.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MapCreator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/MapCreator.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="baa96a91-3cb9-4040-9e6b-a5e24aa0e122" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,8 +54,8 @@
       <file leaf-file-name="MapExample.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/examples/MapExample.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="8" selection-start-column="8" selection-end-column="8" />
+            <state relative-caret-position="210">
+              <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -306,7 +294,7 @@
       <workItem from="1525421343073" duration="2123000" />
       <workItem from="1525774272629" duration="212000" />
       <workItem from="1525781975611" duration="732000" />
-      <workItem from="1525785087409" duration="265000" />
+      <workItem from="1525785087409" duration="413000" />
     </task>
     <task id="LOCAL-00001" summary="Oprava warningů">
       <created>1524605573744</created>
@@ -476,11 +464,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525782605693</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Final build">
+      <created>1525785369668</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1525785369668</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41956000" />
+    <option name="totallyTimeSpent" value="42104000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -549,7 +544,8 @@
     <MESSAGE value="Oprava makefile" />
     <MESSAGE value="Dokončení dokuemntace a oprava path finding" />
     <MESSAGE value="Oprava špatneho voláni při inizialici" />
-    <option name="LAST_COMMIT_MESSAGE" value="Oprava špatneho voláni při inizialici" />
+    <MESSAGE value="Final build" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final build" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/MapCreator.cpp">
@@ -827,8 +823,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/MapExample.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        <state relative-caret-position="210">
+          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
         </state>
       </provider>
     </entry>
