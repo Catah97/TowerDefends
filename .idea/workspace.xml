@@ -9,12 +9,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="baa96a91-3cb9-4040-9e6b-a5e24aa0e122" name="Default" comment="Git build">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BottomBar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/BottomBar.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MapCreator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/MapCreator.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PathFindingAStar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/PathFindingAStar.cpp" afterDir="false" />
+    <list default="true" id="baa96a91-3cb9-4040-9e6b-a5e24aa0e122" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,11 +57,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Makefile" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Makefile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="45">
+              <caret line="3" column="24" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -79,15 +84,6 @@
                 <element signature="e#2748#2854#0" expanded="true" />
                 <element signature="e#3087#3777#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tools.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Tools.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -185,6 +181,7 @@
         <option value="$PROJECT_DIR$/examples/MapExample.txt" />
         <option value="$PROJECT_DIR$/Makefile" />
         <option value="$PROJECT_DIR$/src/BottomBar.cpp" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -321,7 +318,7 @@
       <workItem from="1525785087409" duration="413000" />
       <workItem from="1525789149321" duration="988000" />
       <workItem from="1525890133940" duration="277000" />
-      <workItem from="1525972006265" duration="769000" />
+      <workItem from="1525972006265" duration="1005000" />
     </task>
     <task id="LOCAL-00001" summary="Oprava warningů">
       <created>1524605573744</created>
@@ -512,22 +509,30 @@
       <option name="project" value="LOCAL" />
       <updated>1525789782042</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Git build">
+      <created>1525972949882</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1525972949882</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44138000" />
+    <option name="totallyTimeSpent" value="44374000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12296564" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12296564" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32878152" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.29516807" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.29516807" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24937344" />
@@ -826,8 +831,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="45">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
         </state>
       </provider>
     </entry>
