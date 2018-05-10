@@ -45,7 +45,7 @@ bool PathFindingAStar::findBestPath(const MapItem &startPoint, MapPath*& result)
             createPath(currentNode, result);
             freeLists(availableNodes);
             freeLists(closedNodes);
-            std::cout << "Cycles: " << count << std::endl;
+            //std::cout << "Cycles: " << count << std::endl;
             return true;
         }
         neighbours.clear();

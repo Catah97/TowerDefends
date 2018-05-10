@@ -322,12 +322,10 @@ bool MapCreator::loadMap(const std::string &mapLine) {
             mapItem->m_mapPositionY = static_cast<int>(y);
             mapRow.push_back(mapItem);
             if (!createStartOrEnd(*mapItem)){
-                //Row je třeba vždy přidat do listu, aby mohla být smzána v destruktoru Game
                 m_map.push_back(mapRow);
                 return false;
             }
         } else{
-            //Row je třeba vždy přidat do listu, aby mohla být smzána v destruktoru Game
             m_map.push_back(mapRow);
             return false;
         }
@@ -446,6 +444,9 @@ bool MapCreator::getNextAttribute(std::stringstream &iss, int &result, char deli
         return false;
     }
     int attribute = std::stoi(temp, &sz);
+    if (attribute < 0){
+        return false;
+    }
     if (!temp.substr(sz).empty()){
         return false;
     }

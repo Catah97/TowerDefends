@@ -8,7 +8,6 @@
 //-------------BottomBar-------
 
 void BottomToolbar::draw() {
-#ifdef __OPENGL__
     glColor3f(1.0f, 1.0f, 1.0f);
     drawAsSquare();
     for (auto live : m_livesView){
@@ -28,7 +27,6 @@ void BottomToolbar::draw() {
     for (size_t i = 0; i < price.size(); ++i) {
         glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, price.at(i) );
     }
-#endif
 }
 
 
